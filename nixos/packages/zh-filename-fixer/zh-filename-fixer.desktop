@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=all/allfiles;
+Actions=zhFilenameFixer;
+Encoding=UTF-8
+
+[Desktop Action zhFilenameFixer]
+Name=Fix Chinese filename
+Exec=@zh_filename_fixer@ "%f"

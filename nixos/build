@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+cd "$(dirname "$0")" || (echo cd failed >&2; exit)
+
+extraBuildFlags=()
+
+action=
+
+while [[ "$#" -gt 0 ]]; do
+    i="$1"
+    case "$i" in
+        switch|boot|test|build|dry-build|dry-activate)
+            action="$1"
+            shift
+            break
+            ;;
+        -u|--update)
+            update=1
+            shift
+            ;;
+        *)
+            break
+            ;;
+    esac
+done
+
+[[ "$action" = "dry-build" ]] && extraBuildFlags+=(--dry-run)
+extraBuildFlags+=("$@")
+
+if [[ ! -z "$update" ]]; then
+    echo "Updating Nixpkgs" >&2
+    ./update-nixpkgs
+fi
+
+[[ -z "$action" ]] && exit
+
+echo "Running $action" >&2
+
+nix build -v --print-build-logs --no-link "${extraBuildFlags[@]}" -f . system
+systemClosure="$(nix eval --raw -f . system.outPath)"
+exitCode="$?"
+
+if [[ "${exitCode}" = 0 ]]; then
+    if [[ "$action" != "dry-build" ]]; then
+        echo "Built as $systemClosure" >&2
+
+        echo "Setting up..." >&2
+        sudo bash <<END
+            nix-env -p /nix/var/nix/profiles/system --set "$systemClosure"
+            if ! "${systemClosure}/bin/switch-to-configuration" "$action"; then
+                echo "Error running action $action" >&2
+            fi
+END
+    fi
+else
+    echo "Build failure" >&2
+fi

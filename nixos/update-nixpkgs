@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+URL_BASE="https://neomirrors.tuna.tsinghua.edu.cn/nix-channels"
+URL_RELEASES="$URL_BASE/releases"
+
+cd "$(dirname "$0")" || (echo cd failed >&2; exit)
+
+nixpkgs_dest=/var/lib/nixpkgs
+config=config.json
+channel=$(jq -r '.channel' < "$config")
+current_version=$(jq -r '.name' < "$config")
+channel_prefix="${channel%%-*}"
+
+down_temp="$(mktemp --tmpdir .nixpkgs.tmp.XXXXXX.tar.xz)"
+temp="$(mktemp --tmpdir -d .nixpkgs.tmp.XXXXXX)"
+trap 'rm -rf "$down_temp" "$temp"' EXIT
+
+down_url="$URL_BASE/$channel/nixexprs.tar.xz"
+echo "Downloading $channel from $down_url" >&2
+curl -o "$down_temp" "$down_url"
+
+echo "Unpacking..." >&2
+tar --strip-components=1 -C "$temp" -xJf "$down_temp"
+
+sha256=$(nix-hash --base32 --type sha256 "$temp")
+version=$(nix eval --raw -f "$temp" lib.version)
+name="$channel_prefix-$version"
+perm_url="$URL_RELEASES/$channel@$channel_prefix-$version/nixexprs.tar.xz"
+
+echo "Latest is $name at $perm_url" >&2
+
+if [ "$name" == "$current_version" ]; then
+    echo "Already up to date" >&2
+    exit 0
+fi
+
+echo "SHA256 is $sha256" >&2
+store_path=$(nix eval --raw "(import ./nixpkgs.nix { url = \"file://$(realpath "$down_temp")\"; sha256 = \"$sha256\"; })")
+
+echo "Store path at $store_path" >&2
+
+echo "Updating command-not-found..." >&2
+mkdir -p /var/lib/command-not-found
+sudo cp "$(nix eval --raw '(import ./nixpkgs.nix {})')/programs.sqlite" /var/lib/command-not-found
+echo "Updated command-not-found" >&2
+
+echo "Symlink added to $(sudo nix-store --add-root "$nixpkgs_dest" --indirect -r "$store_path")" >&2
+
+jq -n \
+    --arg channel "$channel" \
+    --arg name "$name" \
+    --arg url "$perm_url" \
+    --arg sha256 "$sha256" \
+    '{ channel: $channel, name: $name, url: $url, sha256: $sha256 }' > config.json
+
+echo "$config updated" >&2

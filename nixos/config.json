@@ -1,0 +1,6 @@
+{
+  "channel": "nixos-unstable",
+  "name": "nixos-20.09pre228622.029a5de0839",
+  "url": "https://neomirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-20.09pre228622.029a5de0839/nixexprs.tar.xz",
+  "sha256": "1lyi2zhkhajli71nl2bjw07dsc6wq3ylj2pc23kjbrvi96d3i7w9"
+}
