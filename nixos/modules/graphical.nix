@@ -32,6 +32,9 @@
     offload.enable = true;
   };
 
+  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+
   i18n.inputMethod = {
     enabled = "fcitx";
     fcitx.engines = with pkgs.fcitx-engines; [ libpinyin rime ];

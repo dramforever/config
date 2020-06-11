@@ -32,13 +32,16 @@ self: super:
       # mathematica
       obs-studio
       okular
+      osu-lazer
       patchelf
       pinta
       plasma-browser-integration
       python3
+      ripgrep
       socat
       spectacle
       sqliteInteractive
+      steam
       tdesktop
       tmux
       vlc
