@@ -6,4 +6,8 @@ self: super:
       nvenc = true;
     };
   };
+
+  chromium = super.chromium.override {
+    enableVaapi = true;
+  };
 }

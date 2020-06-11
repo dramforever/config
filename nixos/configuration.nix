@@ -8,6 +8,7 @@
     ./modules/graphical.nix
     ./modules/net.nix
     ./modules/nix.nix
+    ./modules/services.nix
     ./modules/software.nix
     ./modules/system.nix
     ./modules/users.nix

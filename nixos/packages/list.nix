@@ -1,5 +1,5 @@
 [
   (import ./packages.nix)
-  (import ./obs-studio.nix)
+  (import ./tweaks.nix)
   (import ./dram.nix)
 ]

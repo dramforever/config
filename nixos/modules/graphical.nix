@@ -11,8 +11,11 @@
       enable = true;
       extraConfig = ''
         [X11]
-        ServerArguments=-nolisten tcp -dpi 120
+        ServerArguments=-nolisten tcp -dpi 132
         MinimumVT=1
+
+        [User]
+        HideUsers=hex
       '';
     };
 
