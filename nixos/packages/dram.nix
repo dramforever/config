@@ -30,6 +30,7 @@ self: super:
       libarchive
       lrzsz
       # mathematica
+      mono
       obs-studio
       okular
       osu-lazer

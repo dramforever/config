@@ -23,7 +23,7 @@
   environment.etc."chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json".source =
     "${pkgs.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
-  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
 
   programs.command-not-found.dbPath = "/var/lib/command-not-found/programs.sqlite";
 }

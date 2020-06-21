@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./modules/hardware-configuration.nix
-
     ./modules/boot.nix
+    ./modules/filesystems.nix
     ./modules/graphical.nix
+    ./modules/hardware.nix
     ./modules/net.nix
     ./modules/nix.nix
     ./modules/services.nix

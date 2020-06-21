@@ -6,13 +6,16 @@
     loader.timeout = 0;
 
     loader.efi.canTouchEfiVariables = true;
-    kernelParams = [ "quiet" "i915.fastboot=1" ];
+
+    kernelPackages = pkgs.linuxPackages_5_6;
+    kernelParams = [ "quiet" ];
 
     extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
       "vm.vfs_cache_pressure" = 50;
+      "kernel.sysrq" = 1;
     };
   };
 

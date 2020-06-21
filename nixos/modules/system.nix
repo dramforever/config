@@ -17,7 +17,7 @@
     interval = "tuesday";  
   };
 
-  powerManagement.powertop.enable = true;
+  # powerManagement.powertop.enable = true;
 
   services.printing.enable = true;
 
