@@ -41,11 +41,6 @@ store_path=$(nix eval --raw "(import ./nixpkgs.nix { url = \"file://$(realpath "
 
 echo "Store path at $store_path" >&2
 
-echo "Updating command-not-found..." >&2
-mkdir -p /var/lib/command-not-found
-sudo cp "$(nix eval --raw '(import ./nixpkgs.nix {})')/programs.sqlite" /var/lib/command-not-found
-echo "Updated command-not-found" >&2
-
 echo "Symlink added to $(sudo nix-store --add-root "$nixpkgs_dest" --indirect -r "$store_path")" >&2
 
 jq -n \

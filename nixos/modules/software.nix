@@ -25,5 +25,5 @@
 
   # virtualisation.virtualbox.host.enable = true;
 
-  programs.command-not-found.dbPath = "/var/lib/command-not-found/programs.sqlite";
+  programs.command-not-found.dbPath = "/var/lib/nixpkgs/programs.sqlite";
 }

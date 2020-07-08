@@ -19,5 +19,5 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.oraclejdk.accept_license = true;
 
-  nix.nixPath = [ "nixpkgs=/var/lib/nixpkgs" ("nixpkgs-overlays=" + builtins.toString ../packages/list.nix) ];
+  nix.nixPath = [ "nixpkgs=/var/lib/nixpkgs" "nixpkgs-overlays=/home/dram/code/config/nixos/packages/list.nix" ];
 }

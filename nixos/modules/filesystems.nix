@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
-  espDev = "/dev/disk/by-uuid/C683-59B7";
-  btrfsDev = "/dev/disk/by-uuid/167cb629-cf53-4c0d-897a-ee4b3628a986";
-  swapDev = "/dev/disk/by-uuid/6935c2f6-8ed2-4025-91a1-a9411c1e9021";
+  espDev = "/dev/disk/by-uuid/36D3-0A89";
+  btrfsDev = "/dev/disk/by-uuid/000f7849-ab47-4b74-8382-90842cc67d7d";
+  swapDev = "/dev/disk/by-uuid/255e5755-b487-465a-8905-ac6e070300b8";
 
   subvolume = name: {
     device = btrfsDev;
@@ -13,7 +13,7 @@ let
 
 in {
   fileSystems = {
-    "/" = subvolume "@nixos-root";
+    "/" = subvolume "@root";
     "/home" = subvolume "@home";
     "/nix" = subvolume "@nix";
 

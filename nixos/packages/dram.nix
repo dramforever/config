@@ -4,7 +4,8 @@ self: super:
   dramPackages = {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
-      exec nix-env -f '<nixpkgs>' -r -iA dramPackages
+      nix-env -f '<nixpkgs>' -r -iA dramPackages
+      kbuildsycoca5
     '';
 
     whois = self.lib.hiPrio self.whois;
@@ -21,10 +22,12 @@ self: super:
       ffmpeg-full
       file
       git
+      # goldendict
       gtkwave
       gwenview
       hexchat
       # hmcl
+      j
       jq
       ksshaskpass
       libarchive
@@ -38,15 +41,22 @@ self: super:
       pinta
       plasma-browser-integration
       python3
+      quartus-prime-lite
       ripgrep
       socat
       spectacle
       sqliteInteractive
+      stack
       steam
       tdesktop
+      tig
       tmux
+      unrar
+      usbutils
       vlc
-      vscode;
+      vscode
+      wpsoffice
+      zoom-us;
   };
 }
 
