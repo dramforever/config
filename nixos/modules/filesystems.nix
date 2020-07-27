@@ -16,6 +16,7 @@ in {
     "/" = subvolume "@root";
     "/home" = subvolume "@home";
     "/nix" = subvolume "@nix";
+    "/.subvols" = subvolume "";
 
     "/boot" = {
       device = espDev;
