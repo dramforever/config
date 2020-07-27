@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  documentation.dev.enable = true;
+
   nixpkgs.overlays = import ../packages/list.nix;
 
   environment.systemPackages = with pkgs; [

@@ -12,6 +12,8 @@
 
     extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
+    supportedFilesystems = [ "ntfs" ];
+
     kernel.sysctl = {
       "vm.swappiness" = 5;
       "vm.vfs_cache_pressure" = 50;

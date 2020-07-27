@@ -4,13 +4,20 @@ self: super:
   dramPackages = {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
+      set -e
       nix-env -f '<nixpkgs>' -r -iA dramPackages
       kbuildsycoca5
     '';
 
     whois = self.lib.hiPrio self.whois;
 
+    inherit (self.kdeApplications)
+      kmail
+      kmail-account-wizard
+      kmailtransport;
+
     inherit (self)
+      anki
       ark
       bat
       bind
@@ -22,13 +29,16 @@ self: super:
       ffmpeg-full
       file
       git
-      # goldendict
+      gnupg
+      goldendict
       gtkwave
       gwenview
       hexchat
       # hmcl
       j
       jq
+      kdeconnect
+      kgpg
       ksshaskpass
       libarchive
       lrzsz
