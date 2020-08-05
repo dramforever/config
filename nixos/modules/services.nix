@@ -36,7 +36,7 @@
 
   environment.etc."btrbk/btrbk.conf".text = ''
     timestamp_format        long
-    snapshot_preserve_min   24h
+    snapshot_preserve_min   6h
     snapshot_preserve       48h 20d 6m
 
     volume /.subvols

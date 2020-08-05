@@ -6,7 +6,7 @@ self: super:
   };
 
   obs-studio = super.obs-studio.override {
-    ffmpeg = self.ffmpeg-full;
+    # ffmpeg = self.ffmpeg-full;
   };
 
   linuxPackages_5_6 = super.linuxPackages_5_6.extend (lself: lsuper: {

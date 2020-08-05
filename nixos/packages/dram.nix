@@ -5,7 +5,7 @@ self: super:
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
       set -e
-      nix-env -f '<nixpkgs>' -r -iA dramPackages
+      nix-env -f '<nixpkgs>' -r -iA dramPackages "$@"
       kbuildsycoca5
     '';
 
@@ -15,6 +15,9 @@ self: super:
       kmail
       kmail-account-wizard
       kmailtransport;
+
+    inherit (self.jetbrains)
+      idea-community;
 
     inherit (self)
       anki
@@ -35,7 +38,7 @@ self: super:
       gwenview
       hexchat
       # hmcl
-      j
+      jdk11
       jq
       kdeconnect
       kgpg
@@ -44,6 +47,7 @@ self: super:
       lrzsz
       # mathematica
       mono
+      nodejs
       obs-studio
       okular
       osu-lazer
@@ -61,6 +65,7 @@ self: super:
       tdesktop
       tig
       tmux
+      typora
       unrar
       usbutils
       vlc
