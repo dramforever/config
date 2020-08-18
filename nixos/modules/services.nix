@@ -2,6 +2,11 @@
 { config, pkgs, ... }:
 
 {
+  services.fstrim = {
+    enable = true;
+    interval = "tuesday";  
+  };
+
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
@@ -42,5 +47,6 @@
     volume /.subvols
       snapshot_dir btrbk_snapshots
       subvolume @home
+      snapshot_create onchange
   '';
 }

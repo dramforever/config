@@ -9,7 +9,7 @@ self: super:
     # ffmpeg = self.ffmpeg-full;
   };
 
-  linuxPackages_5_6 = super.linuxPackages_5_6.extend (lself: lsuper: {
+  linuxPackages_5_7 = super.linuxPackages_5_7.extend (lself: lsuper: {
     exfat-nofuse = lsuper.exfat-nofuse.overrideAttrs (old: {
       patches = (old.patches or []) ++ [ ./exfat-nofuse.patch ];
     });

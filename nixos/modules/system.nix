@@ -12,12 +12,7 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.fstrim = {
-    enable = true;
-    interval = "tuesday";  
-  };
-
-  # powerManagement.powertop.enable = true;
+  powerManagement.powertop.enable = true;
 
   services.printing.enable = true;
 

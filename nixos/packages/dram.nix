@@ -20,6 +20,7 @@ self: super:
       idea-community;
 
     inherit (self)
+      ammonite
       anki
       ark
       bat
@@ -29,6 +30,7 @@ self: super:
       cloc
       coq_8_11
       direnv
+      dotnet-sdk
       ffmpeg-full
       file
       git
