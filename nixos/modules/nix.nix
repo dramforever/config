@@ -12,12 +12,9 @@
 
     trustedUsers = [ "root" "dram" ];
 
-    package = pkgs.nixUnstable;
-
     extraOptions = ''
       keep-outputs = true
       keep-derivations = true
-      experimental-features = nix-command flakes
     '';
 
     nixPath = [ "nixpkgs=/var/lib/nixpkgs" "nixpkgs-overlays=/home/dram/code/config/nixos/packages/list.nix" ];

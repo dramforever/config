@@ -9,7 +9,7 @@
 
     kernelParams = [ "quiet" ];
 
-    kernelPackages = pkgs.linuxPackages_5_7;
+    # kernelPackages = pkgs.linuxPackages_5_7;
     extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
     supportedFilesystems = [ "ntfs" ];

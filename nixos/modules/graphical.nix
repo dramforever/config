@@ -23,14 +23,14 @@
 
     xkbOptions = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
 
-#    videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "nvidia" ];
   };
 
-#  hardware.nvidia.prime = {
-#    intelBusId = "PCI:0:2:0";
-#    nvidiaBusId = "PCI:1:0:0";
-#    offload.enable = true;
-#  };
+  hardware.nvidia.prime = {
+    intelBusId = "PCI:0:2:0";
+    nvidiaBusId = "PCI:1:0:0";
+    offload.enable = true;
+  };
 
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];

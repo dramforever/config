@@ -2,11 +2,11 @@ self: super:
 
 {
   ffmpeg-full = super.ffmpeg-full.override {
-    # nvenc = true;
+    nvenc = true;
   };
 
   obs-studio = super.obs-studio.override {
-    # ffmpeg = self.ffmpeg-full;
+    ffmpeg = self.ffmpeg-full;
   };
 
   linuxPackages_5_7 = super.linuxPackages_5_7.extend (lself: lsuper: {

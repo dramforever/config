@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 let
-  espDev = "/dev/disk/by-uuid/36D3-0A89";
-  btrfsDev = "/dev/disk/by-uuid/000f7849-ab47-4b74-8382-90842cc67d7d";
-  swapDev = "/dev/disk/by-uuid/255e5755-b487-465a-8905-ac6e070300b8";
+  espDev = "/dev/disk/by-uuid/123B-7989";
+  btrfsDev = "/dev/disk/by-uuid/84e95073-df93-45d8-a9b1-df5c43a4989c";
+  swapDev = "/dev/disk/by-uuid/e1a6928f-faa8-4eca-8de0-6d2778986ae1";
 
   subvolume = name: {
     device = btrfsDev;

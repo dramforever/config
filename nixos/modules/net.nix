@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "sayaka";
+  networking.hostName = "sakuya";
   networking.networkmanager.enable = true;
 
   networking.networkmanager.wifi.macAddress = "random";
