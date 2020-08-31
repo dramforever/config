@@ -10,6 +10,8 @@
     utillinux
     pciutils
     nvidia-offload
+    libimobiledevice
+    usbmuxd
   ];
 
   programs.vim.defaultEditor = true;

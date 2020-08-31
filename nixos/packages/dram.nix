@@ -52,7 +52,7 @@ self: super:
       nodejs
       obs-studio
       okular
-      onlyoffice
+      # onlyoffice
       osu-lazer
       patchelf
       pinta
@@ -73,7 +73,7 @@ self: super:
       usbutils
       vlc
       vscode
-      # wpsoffice
+      wpsoffice
       zoom-us;
   };
 }

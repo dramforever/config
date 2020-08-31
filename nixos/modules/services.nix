@@ -15,7 +15,7 @@
 
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
+    # passwordAuthentication = false;
     challengeResponseAuthentication = false;
     ports = [ 20297 ];
   };
@@ -49,4 +49,6 @@
       subvolume @home
       snapshot_create onchange
   '';
+
+  services.usbmuxd.enable = true;
 }

@@ -12,7 +12,14 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  powerManagement.powertop.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      SATA_LINKPWR_ON_BAT = "max_performance";
+    };
+  };
+
+  services.thermald.enable = true;
 
   services.printing.enable = true;
 
