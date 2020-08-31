@@ -74,6 +74,7 @@ self: super:
       vlc
       vscode
       wpsoffice
+      zhumu
       zoom-us;
   };
 }
