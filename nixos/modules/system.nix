@@ -22,6 +22,7 @@
   services.thermald.enable = true;
 
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip ];
 
   systemd.services."autovt@tty1".enable = false;
 

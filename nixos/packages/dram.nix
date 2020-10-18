@@ -33,6 +33,7 @@ self: super:
       dotnet-sdk
       ffmpeg-full
       file
+      gdb
       git
       gnupg
       goldendict
@@ -49,6 +50,7 @@ self: super:
       lrzsz
       # mathematica
       mono
+      niv
       nodejs
       obs-studio
       okular
@@ -69,10 +71,14 @@ self: super:
       tig
       tmux
       typora
+      universal-ctags
       unrar
       usbutils
+      verilog
       vlc
       vscode
+      wireshark
+      wolfram-engine
       wpsoffice
       zhumu
       zoom-us;

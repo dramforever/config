@@ -2,13 +2,23 @@
 
 {
   networking.hostName = "sakuya";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.macAddress = "random";
+    ethernet.macAddress = "random";
+    unmanaged = [
+      "00:e0:4c:68:10:ba"
+      "00:e0:4c:68:11:b1"
+    ];
+  };
 
-  networking.networkmanager.wifi.macAddress = "random";
-  networking.networkmanager.ethernet.macAddress = "random";
+  services.udev.extraRules = ''
+    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:68:10:ba", ATTR{type}=="1", KERNEL=="*", NAME="thin0"
+    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:68:11:b1", ATTR{type}=="1", KERNEL=="*", NAME="thin1"
+  '';
 
   networking.firewall.allowedTCPPorts = [ 12345 ];
-  
+
   networking.firewall.logRefusedConnections = false;
 
   # tcp/udp 1714-1764: KDE Connect

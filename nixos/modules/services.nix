@@ -51,4 +51,5 @@
   '';
 
   services.usbmuxd.enable = true;
+  services.thermald.enable = true;
 }

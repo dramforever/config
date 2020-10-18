@@ -24,4 +24,11 @@ self: super:
       ];
     });
   });
+
+  sage = super.sage.overrideAttrs (old: {
+    buildInputs =
+      with builtins;
+      let notTest = x: (parseDrvName x.name).name != "sage-tests";
+      in filter notTest old.buildInputs;
+  });
 }
