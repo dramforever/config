@@ -1,7 +1,7 @@
 # Credit goes to https://gist.github.com/LEXUGE/02ea46b28ed56d6890306267a44576f4
 
 { stdenv, coreutils, patchelf, requireFile, callPackage, makeWrapper, alsaLib
-, dbus, fontconfig, freetype, gcc, glib, libssh2, ncurses, opencv2, openssl
+, dbus, fontconfig, freetype, gcc, glib, libssh2, ncurses, opencv, openssl
 , unixODBC, xkeyboard_config, xorg, zlib, libxml2, libuuid, lang ? "en", libGL
 , libGLU, fetchurl, fakeroot, buildFHSUserEnv, dbus_libs, runCommand }:
 
@@ -30,7 +30,7 @@ let
       glib
       libssh2
       ncurses
-      opencv2
+      opencv
       openssl
       stdenv.cc.cc.lib
       unixODBC

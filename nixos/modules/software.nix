@@ -32,4 +32,10 @@
   # virtualisation.virtualbox.host.enable = true;
 
   programs.command-not-found.dbPath = "/var/lib/nixpkgs/programs.sqlite";
+
+  nix.package = pkgs.nixUnstable;
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+  '';
+
 }

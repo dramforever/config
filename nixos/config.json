@@ -1,6 +1,6 @@
 {
   "channel": "nixos-unstable",
-  "name": "nixos-20.09pre239318.c59ea8b8a0e",
-  "url": "https://neomirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-20.09pre239318.c59ea8b8a0e/nixexprs.tar.xz",
-  "sha256": "04fmnr4sdaz7ndvxlk5yd4kihmqbqxpmzsyp9dmqfy5qwr41vv09"
+  "name": "nixos-21.03pre248170.007126eef72",
+  "url": "https://neomirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre248170.007126eef72/nixexprs.tar.xz",
+  "sha256": "1q4w39k76pq893037k35c6ci36faf6qk8ms01v3d5z8vdr213k65"
 }

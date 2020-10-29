@@ -44,7 +44,7 @@
     sarasa-gothic
   ];
 
-  fonts.enableFontDir = true;
+  fonts.fontDir.enable = true;
 
   fonts.fontconfig.defaultFonts = {
     monospace = [ "Sarasa Mono SC" ];

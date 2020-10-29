@@ -55,7 +55,7 @@ self: super:
       obs-studio
       okular
       # onlyoffice
-      osu-lazer
+      # osu-lazer
       patchelf
       pinta
       plasma-browser-integration
@@ -67,6 +67,8 @@ self: super:
       sqliteInteractive
       stack
       steam
+      syncthing
+      syncthingtray
       tdesktop
       tig
       tmux
@@ -80,9 +82,9 @@ self: super:
       wireshark
       wolfram-engine
       wpsoffice
-      zhumu
+      # zhumu
       zoom-us;
   };
 }
 
-# vim: sw=2 ts=2 cin
+# vim: sw=2 ts=2 si
