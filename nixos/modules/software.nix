@@ -3,7 +3,10 @@
 {
   documentation.dev.enable = true;
 
-  nixpkgs.overlays = import ../packages/list.nix;
+  nix.registry.nixpkgs = {
+    from = { id = "nixpkgs"; type = "indirect"; };
+    to = { path = "/home/dram/code/config/nixos"; type = "path"; };
+  };
 
   environment.systemPackages = with pkgs; [
     fcitx-configtool

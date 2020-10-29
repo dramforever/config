@@ -1,6 +1,0 @@
-{
-  "channel": "nixos-unstable",
-  "name": "nixos-21.03pre248170.007126eef72",
-  "url": "https://neomirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre248170.007126eef72/nixexprs.tar.xz",
-  "sha256": "1q4w39k76pq893037k35c6ci36faf6qk8ms01v3d5z8vdr213k65"
-}
