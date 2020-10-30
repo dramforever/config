@@ -14,7 +14,7 @@
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        ({ config, pkgs, ... }: { nixpkgs.overlays = [ self.overlay ]; })
+        { nixpkgs.overlays = [ self.overlay ]; }
       ];
     };
   };
