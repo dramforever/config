@@ -44,6 +44,8 @@
 
     # Serial
     SUBSYSTEM=="tty", SUBSYSTEMS=="usb", ATTR{idVendor}="1a86", ATTR{idProduct}="7523", GROUP="hwdevel"
+
+    # Xilinx
     ATTR{idVendor}=="1443", MODE:="666"
     ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Digilent", MODE:="666"
     ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Xilinx", MODE:="666"
@@ -54,5 +56,8 @@
     ATTR{idVendor}=="03fd", ATTR{idProduct}=="000f", MODE="666"
     ATTR{idVendor}=="03fd", ATTR{idProduct}=="0013", MODE="666"
     ATTR{idVendor}=="03fd", ATTR{idProduct}=="0015", MODE="666"
+
+    # Anlogic
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0547", ATTRS{idProduct}=="1002", GROUP="hwdevel", MODE="0660"
   '';
 }

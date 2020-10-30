@@ -69,6 +69,7 @@ self: super:
       steam
       syncthing
       syncthingtray
+      tang-dynasty
       tdesktop
       tig
       tmux
