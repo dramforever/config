@@ -17,7 +17,7 @@
     SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="00:e0:4c:68:11:b1", ATTR{type}=="1", KERNEL=="*", NAME="thin1"
   '';
 
-  networking.firewall.allowedTCPPorts = [ 12345 ];
+  networking.firewall.allowedTCPPorts = [ 12345 22000 ];
 
   networking.firewall.logRefusedConnections = false;
 
