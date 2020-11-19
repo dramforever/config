@@ -4,7 +4,7 @@ self: super:
   dramPackagesEnv = self.buildEnv {
     name = "dram-packages";
     paths = self.lib.attrValues self.dramPackages;
-    pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
+    pathsToLink = [ "/share" "/bin" "/etc" ];
     extraOutputsToInstall = [ "man" "doc" ];
   };
 
