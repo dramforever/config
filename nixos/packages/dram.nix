@@ -1,11 +1,18 @@
 self: super:
 
 {
+  dramPackagesEnv = self.buildEnv {
+    name = "dram-packages";
+    paths = self.lib.attrValues self.dramPackages;
+    pathsToLink = [ "/share/man" "/share/doc" "/bin" "/etc" ];
+    extraOutputsToInstall = [ "man" "doc" ];
+  };
+
   dramPackages = {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
       set -e
-      nix-env -f '<nixpkgs>' -r -iA dramPackages "$@"
+      nix-env -ri "$(nix eval --raw nixpkgs#dramPackagesEnv.drvPath)"
       kbuildsycoca5
     '';
 
