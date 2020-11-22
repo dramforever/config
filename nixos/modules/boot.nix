@@ -9,10 +9,10 @@
 
     kernelParams = [ "quiet" ];
 
-    # kernelPackages = pkgs.linuxPackages_5_7;
-    extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
+    kernelPackages = pkgs.linuxPackages_5_9;
+    # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = [ "ntfs" "exfat" ];
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
