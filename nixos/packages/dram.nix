@@ -37,6 +37,7 @@ self: super:
       cloc
       coq_8_11
       direnv
+      discord
       dotnet-sdk
       ffmpeg-full
       file
@@ -62,7 +63,7 @@ self: super:
       obs-studio
       okular
       # onlyoffice
-      # osu-lazer
+      osu-lazer
       patchelf
       pinta
       plasma-browser-integration
