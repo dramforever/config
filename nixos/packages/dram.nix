@@ -48,7 +48,9 @@ self: super:
       gtkwave
       gwenview
       hexchat
+      htop
       # hmcl
+      inkscape
       jdk11
       jq
       kdeconnect

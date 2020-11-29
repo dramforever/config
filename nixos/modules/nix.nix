@@ -17,7 +17,7 @@
       keep-derivations = true
     '';
 
-    nixPath = [ "nixpkgs=/var/lib/nixpkgs" "nixpkgs-overlays=/home/dram/code/config/nixos/packages/list.nix" ];
+    nixPath = [ "nixpkgs=/home/dram/code/config/nixos" ];
   };
 
   nixpkgs.config = {
