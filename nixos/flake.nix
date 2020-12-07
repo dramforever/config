@@ -21,6 +21,8 @@
         { nixpkgs.overlays = self.overlays; }
       ];
     };
+
+    defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
   };
 }
 
