@@ -61,6 +61,7 @@ self: super:
       # mathematica
       mono
       niv
+      nix-direnv
       nodejs
       obs-studio
       okular

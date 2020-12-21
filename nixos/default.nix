@@ -1,1 +1,1 @@
-_: (import ./flake-compat.nix { src = ./.; }).defaultNix.legacyPackages.${builtins.currentSystem}
+(builtins.getFlake (builtins.toString ./.)).legacyPackages.${builtins.currentSystem}

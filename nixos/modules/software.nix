@@ -37,8 +37,11 @@
   programs.command-not-found.dbPath = "/var/lib/nixpkgs/programs.sqlite";
 
   nix.package = pkgs.nixUnstable;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+  nix.extraOptions =
+    let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });
+    in ''
+      experimental-features = nix-command flakes
+      flake-registry = ${flakesEmpty}
+    '';
 
 }
