@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.03pre256292.296793637b2/nixexprs.tar.xz";
+  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.03pre260232.733e537a8ad/nixexprs.tar.xz";
 
   outputs = { self, nixpkgs }: {
     overlays = [

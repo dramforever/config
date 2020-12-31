@@ -1,1 +1,1 @@
-(builtins.getFlake (builtins.toString ./.)).legacyPackages.${builtins.currentSystem}
+{}: (builtins.getFlake (builtins.toString ./.)).legacyPackages.${builtins.currentSystem}

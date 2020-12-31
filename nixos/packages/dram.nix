@@ -18,10 +18,10 @@ self: super:
 
     whois = self.lib.hiPrio self.whois;
 
-    inherit (self.kdeApplications)
-      kmail
-      kmail-account-wizard
-      kmailtransport;
+#    inherit (self.kdeApplications)
+#      kmail
+#      kmail-account-wizard
+#      kmailtransport;
 
     inherit (self.jetbrains)
       idea-community;

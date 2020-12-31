@@ -9,14 +9,15 @@
 
     displayManager.sddm = {
       enable = true;
-      extraConfig = ''
-        [X11]
-        ServerArguments=-nolisten tcp -dpi 132
-        MinimumVT=1
-
-        [User]
-        HideUsers=hex
-      '';
+      settings = {
+        X11 = {
+          ServerArguments = "-nolisten tcp -dpi 132";
+          MinimumVT = 1;
+        };
+        User = {
+          HideUsers = "hex";
+        };
+      };
     };
 
     desktopManager.plasma5.enable = true;
