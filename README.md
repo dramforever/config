@@ -4,7 +4,7 @@ Random config files
 
 ## Nix Flake
 
-The subdirectory `nixos` contains the a Nix Flake. To use it, use the following Flake URL:
+The subdirectory `nixos` contains a Nix Flake. To use it, use the following Flake URL:
 
 ```plain
 github:dramforever/config?dir=nixos
