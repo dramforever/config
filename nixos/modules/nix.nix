@@ -10,6 +10,8 @@
       options = "--delete-older-than 8d";
     };
 
+    autoOptimiseStore = true;
+
     trustedUsers = [ "root" "dram" ];
 
     extraOptions = ''
