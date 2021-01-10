@@ -82,6 +82,7 @@ self: super:
       syncthingtray
       tang-dynasty
       tdesktop
+      thunderbird
       tig
       tmux
       typora

@@ -20,6 +20,11 @@
     ports = [ 20297 ];
   };
 
+  services.pcscd = {
+    enable = true;
+    plugins = [ pkgs.ccid ];
+  };
+
   environment.systemPackages = [ pkgs.btrbk ];
 
   systemd.services.btrbk = {
