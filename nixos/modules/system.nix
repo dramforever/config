@@ -65,7 +65,6 @@
     ACTION!="add|change", GOTO="canokeys_rules_end"
     ATTRS{idVendor}=="20a0", ATTRS{idProduct}=="42d4", ENV{ID_SMARTCARD_READER}="1"
     LABEL="canokeys_rules_end"
-    SUBSYSTEMS=="usb", ATTR{idVendor}=="20a0", ATTR{idProduct}=="42d4", GROUP="hwdevel", MODE="0660"
     SUBSYSTEMS=="usb", ATTR{idVendor}=="20a0", ATTR{idProduct}=="42d4", TAG+="uaccess"
   '';
 }
