@@ -31,4 +31,13 @@ self: super:
       let notTest = x: (parseDrvName x.name).name != "sage-tests";
       in filter notTest old.buildInputs;
   });
+
+  pcsctools = super.pcsctools.override {
+    perlPackages = super.perlPackages // {
+      GlibObjectIntrospection = super.perlPackages.GlibObjectIntrospection.overrideAttrs (old: {
+        checkInputs = [ self.cairo ];
+        meta = old.meta // { broken = false; };
+      });
+    };
+  };
 }
