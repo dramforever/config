@@ -12,6 +12,7 @@
     ./modules/software.nix
     ./modules/system.nix
     ./modules/users.nix
+    ./modules/pam.nix
   ];
 
   # This value determines the NixOS release with which your system is to be

@@ -32,12 +32,12 @@ self: super:
       in filter notTest old.buildInputs;
   });
 
-  pcsctools = super.pcsctools.override {
-    perlPackages = super.perlPackages // {
-      GlibObjectIntrospection = super.perlPackages.GlibObjectIntrospection.overrideAttrs (old: {
-        checkInputs = [ self.cairo ];
-        meta = old.meta // { broken = false; };
-      });
-    };
-  };
+  dfu-util = super.dfu-util.overrideAttrs (old: {
+    patches = (old.patches or []) ++ [
+      (self.fetchpatch {
+        url = "https://github.com/z4yx/dfu-util/commit/59e024c5d0e6edb84bd90594371dca63efa18212.diff";
+        sha256 = "sha256-8J92J2c0fpiJHp7xr0s/TBMxOgJu1V+JHh3fyXkIJXU=";
+      })
+    ];
+  });
 }
