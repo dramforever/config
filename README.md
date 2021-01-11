@@ -4,7 +4,7 @@ Random config files
 
 ## Nix Flake
 
-This repository a Nix Flake. To use it, use the following Flake URL:
+This repository contains a Nix Flake. To use it, use the following Flake URL:
 
 ```plain
 github:dramforever/config
