@@ -4,17 +4,17 @@ Random config files
 
 ## Nix Flake
 
-The subdirectory `nixos` contains a Nix Flake. To use it, use the following Flake URL:
+This repository a Nix Flake. To use it, use the following Flake URL:
 
 ```plain
-github:dramforever/config?dir=nixos
+github:dramforever/config
 ```
 
 Contents of this flake:
 
 ```console
-$ nix flake show github:dramforever/config?dir=nixos
-github:dramforever/config/[...]?dir=nixos
+$ nix flake show github:dramforever/config
+github:dramforever/config/[...]
 ├───defaultPackage
 │   └───x86_64-linux: package 'dram-packages'
 ├───legacyPackages

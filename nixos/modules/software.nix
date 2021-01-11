@@ -5,7 +5,7 @@
 
   nix.registry.nixpkgs = {
     from = { id = "nixpkgs"; type = "indirect"; };
-    to = { path = "/home/dram/code/config/nixos"; type = "path"; };
+    to = { type = "git"; url = "file:///home/dram/code/config"; };
   };
 
   environment.systemPackages = with pkgs; [

@@ -19,7 +19,7 @@
       keep-derivations = true
     '';
 
-    nixPath = [ "nixpkgs=/home/dram/code/config/nixos" ];
+    nixPath = [ "nixpkgs=/home/dram/code/config" ];
   };
 
   nixpkgs.config = {
