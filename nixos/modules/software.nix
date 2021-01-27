@@ -8,6 +8,11 @@
     to = { type = "git"; url = "file:///home/dram/code/config"; };
   };
 
+  nix.registry.default = {
+    from = { id = "default"; type = "indirect"; };
+    to = { type = "git"; url = "file:///home/dram/code/config"; };
+  };
+
   environment.systemPackages = with pkgs; [
     fcitx-configtool
     utillinux
