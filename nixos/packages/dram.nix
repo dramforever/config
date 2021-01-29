@@ -68,6 +68,7 @@ self: super:
       # onlyoffice
       osu-lazer
       patchelf
+      pinentry-qt
       pinta
       plasma-browser-integration
       python3
