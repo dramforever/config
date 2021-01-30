@@ -2,13 +2,13 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "narHash": "sha256-BX9U/TRm0mrwvaKqlgqXqY6MUs9WvgkOq4/nXb15RC4=",
+        "narHash": "sha256-0Gt8uSfR3IbdGeWSg3UxfyczlpsEO4eX7XitEixZnMM=",
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.03pre260232.733e537a8ad/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre265961.891f607d530/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.03pre260232.733e537a8ad/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre265961.891f607d530/nixexprs.tar.xz"
       }
     },
     "root": {

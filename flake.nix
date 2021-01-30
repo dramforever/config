@@ -1,7 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
-  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.03pre260232.733e537a8ad/nixexprs.tar.xz";
+  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre265961.891f607d530/nixexprs.tar.xz";
 
   outputs = { self, nixpkgs }: {
     overlays = [
