@@ -42,6 +42,6 @@ self: super:
   });
 
   nixUnstable = super.nixUnstable.overrideAttrs (old: {
-    patches = (old.patches or []) ++ [ ./nix-flake-default.patch ];
+    patches = (old.patches or []) ++ [ ./nix-flake-default.patch ./nix-search-meta.patch ];
   });
 }
