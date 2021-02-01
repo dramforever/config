@@ -5,9 +5,9 @@
 
   outputs = { self, nixpkgs }: {
     overlays = [
-      (final: prev: import ./nixos/packages/packages.nix final prev)
-      (final: prev: import ./nixos/packages/tweaks.nix final prev)
-      (final: prev: import ./nixos/packages/dram.nix final prev)
+      (final: prev: import ./nixos/bits/packages.nix final prev)
+      (final: prev: import ./nixos/bits/tweaks.nix final prev)
+      (final: prev: import ./nixos/bits/dram.nix final prev)
     ];
 
     legacyPackages."x86_64-linux" = (import nixpkgs {
@@ -35,4 +35,3 @@
     defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
   };
 }
-

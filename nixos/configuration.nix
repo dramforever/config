@@ -7,12 +7,9 @@
     ./modules/graphical.nix
     ./modules/hardware.nix
     ./modules/net.nix
-    ./modules/nix.nix
-    ./modules/services.nix
     ./modules/software.nix
     ./modules/system.nix
     ./modules/users.nix
-    ./modules/pam.nix
   ];
 
   # This value determines the NixOS release with which your system is to be

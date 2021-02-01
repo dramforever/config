@@ -6,10 +6,6 @@
     enable = true;
     wifi.macAddress = "random";
     ethernet.macAddress = "random";
-    unmanaged = [
-      "00:e0:4c:68:10:ba"
-      "00:e0:4c:68:11:b1"
-    ];
   };
 
   networking.firewall.allowedTCPPorts = [ 12345 22000 ];

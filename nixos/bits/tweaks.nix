@@ -11,7 +11,7 @@ self: super:
 
   # linuxPackages_5_7 = super.linuxPackages_5_7.extend (lself: lsuper: {
   #   exfat-nofuse = lsuper.exfat-nofuse.overrideAttrs (old: {
-  #     patches = (old.patches or []) ++ [ ./exfat-nofuse.patch ];
+  #     patches = (old.patches or []) ++ [ ./patches/exfat-nofuse.patch ];
   #   });
   #
   #   nvidia_x11 = lsuper.nvidia_x11.overrideAttrs (old: {
@@ -42,6 +42,11 @@ self: super:
   });
 
   nixUnstable = super.nixUnstable.overrideAttrs (old: {
-    patches = (old.patches or []) ++ [ ./nix-flake-default.patch ./nix-search-meta.patch ];
+    patches =
+      (old.patches or [])
+      ++ [
+        ./patches/nix-flake-default.patch
+        ./patches/nix-search-meta.patch
+      ];
   });
 }

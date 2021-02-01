@@ -1,30 +1,6 @@
-
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  services.fstrim = {
-    enable = true;
-    interval = "tuesday";  
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-    extraOptions = "--registry-mirror=https://docker.mirrors.ustc.edu.cn";
-  };
-
-  services.openssh = {
-    enable = true;
-    # passwordAuthentication = false;
-    challengeResponseAuthentication = false;
-    ports = [ 20297 ];
-  };
-
-  services.pcscd = {
-    enable = true;
-    plugins = [ pkgs.ccid ];
-  };
-
   environment.systemPackages = [ pkgs.btrbk ];
 
   systemd.services.btrbk = {
@@ -55,6 +31,4 @@
       snapshot_create onchange
   '';
 
-  services.usbmuxd.enable = true;
-  services.thermald.enable = true;
 }
