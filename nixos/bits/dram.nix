@@ -26,6 +26,8 @@ self: super:
     inherit (self.jetbrains)
       idea-community;
 
+    inherit (self) ghc cabal-install;
+
     inherit (self)
       ammonite
       anki
