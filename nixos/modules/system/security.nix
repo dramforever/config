@@ -12,6 +12,8 @@
     ];
   };
 
+  security.sudo.enable = false;
+
   security.pam = {
     u2f.control = "sufficient";
     u2f.cue = true;
