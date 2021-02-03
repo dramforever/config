@@ -5,6 +5,7 @@
     ./system/btrbk.nix
     ./system/nix.nix
     ./system/udev.nix
+    ./system/security.nix
   ];
 
   time.timeZone = "Asia/Shanghai";
@@ -60,10 +61,4 @@
     enable = true;
     plugins = [ pkgs.ccid ];
   };
-
-  security.pam = {
-    u2f.control = "sufficient";
-    u2f.cue = true;
-    services.sudo.u2fAuth = true;
-  };
-}
+ }
