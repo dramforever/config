@@ -16,7 +16,7 @@
 
     nixPath = [ "nixpkgs=/home/dram/code/config" ];
 
-    package = pkgs.nixUnstable;
+    package = pkgs.nix-dram;
 
     extraOptions =
       let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });

@@ -40,13 +40,4 @@ self: super:
       })
     ];
   });
-
-  nixUnstable = super.nixUnstable.overrideAttrs (old: {
-    patches =
-      (old.patches or [])
-      ++ [
-        ./patches/nix-flake-default.patch
-        ./patches/nix-search-meta.patch
-      ];
-  });
 }

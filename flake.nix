@@ -3,11 +3,17 @@
 
   inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.03pre265961.891f607d530/nixexprs.tar.xz";
 
-  outputs = { self, nixpkgs }: {
+  inputs.nix-dram = {
+    url = "github:dramforever/nix-dram";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, nix-dram }: {
     overlays = [
       (final: prev: import ./nixos/bits/packages.nix final prev)
       (final: prev: import ./nixos/bits/tweaks.nix final prev)
       (final: prev: import ./nixos/bits/dram.nix final prev)
+      nix-dram.overlay
     ];
 
     legacyPackages."x86_64-linux" = (import nixpkgs {

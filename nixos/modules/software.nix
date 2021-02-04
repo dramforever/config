@@ -10,6 +10,7 @@
     nvidia-offload
     libimobiledevice
     usbmuxd
+    nix-search
   ];
 
   programs.vim.defaultEditor = true;

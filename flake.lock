@@ -1,5 +1,41 @@
 {
   "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1610051610,
+        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nix-dram": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1612402363,
+        "narHash": "sha256-IO5QLARUUO84/OYeqeEaGREeUaAOF9nUJu8aPLa8iwI=",
+        "owner": "dramforever",
+        "repo": "nix-dram",
+        "rev": "88412acadc4ba330c50ab9b436e13587dce6a6a2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dramforever",
+        "repo": "nix-dram",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "narHash": "sha256-0Gt8uSfR3IbdGeWSg3UxfyczlpsEO4eX7XitEixZnMM=",
@@ -13,6 +49,7 @@
     },
     "root": {
       "inputs": {
+        "nix-dram": "nix-dram",
         "nixpkgs": "nixpkgs"
       }
     }
