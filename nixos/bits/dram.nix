@@ -56,6 +56,7 @@ self: super:
       jdk11
       jq
       kdeconnect
+      keepassxc
       kgpg
       ksshaskpass
       libarchive
