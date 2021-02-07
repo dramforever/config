@@ -11,6 +11,7 @@
     libimobiledevice
     usbmuxd
     nix-search
+    git
   ];
 
   programs.vim.defaultEditor = true;
