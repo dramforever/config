@@ -2,7 +2,7 @@
 
 {
   nix = {
-    binaryCaches = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+    binaryCaches = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30" ];
 
     gc = {
       automatic = true;
