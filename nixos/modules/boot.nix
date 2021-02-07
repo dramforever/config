@@ -7,7 +7,7 @@
 
     loader.efi.canTouchEfiVariables = true;
 
-    kernelParams = [ "quiet" ];
+    kernelParams = [ "quiet" "mitigations=off" ];
 
     kernelPackages = pkgs.linuxPackages_5_4;
     # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
