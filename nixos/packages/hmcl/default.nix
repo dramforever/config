@@ -10,12 +10,12 @@ let
         wayland libglvnd ];
 
 in stdenvNoCC.mkDerivation rec {
-  name = "HMCL-${version}";
-  version = "3.2.112";
+  name = "hmcl";
+  version = "3.3.172";
   src = fetchurl {
     name = "HMCL-${version}.jar";
-    url = "https://ci.huangyuhui.net/job/HMCL/112/artifact/HMCL/build/libs/HMCL-3.2.112.jar";
-    sha256 = "1y8kmw2wp58wzp67rr40grbjhkk23sq3mrilv02inl0qknh397yg";
+    url = "http://ci.huangyuhui.net/job/HMCL/172/artifact/HMCL/build/libs/HMCL-${version}.jar";
+    hash = "sha256-DuiP3KPQVywK+rozyKxRrKqiR5J7Kl3Xp2UcWdQMRvM=";
   };
   phases = [ "installPhase" ];
   nativeBuildInputs = [ makeWrapper ];
