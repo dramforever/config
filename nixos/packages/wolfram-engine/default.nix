@@ -3,7 +3,8 @@
 { stdenv, coreutils, patchelf, requireFile, callPackage, makeWrapper, alsaLib
 , dbus, fontconfig, freetype, gcc, glib, libssh2, ncurses, opencv, openssl
 , unixODBC, xkeyboard_config, xorg, zlib, libxml2, libuuid, lang ? "en", libGL
-, libGLU, fetchurl, fakeroot, buildFHSUserEnv, dbus_libs, runCommand }:
+, libGLU, fetchurl, fakeroot, buildFHSUserEnv, dbus_libs, runCommand
+, lib }:
 
 let
   wolfram-engine = stdenv.mkDerivation rec {
@@ -55,9 +56,9 @@ let
       libSM
     ]);
 
-    ldpath = stdenv.lib.makeLibraryPath buildInputs
-      + stdenv.lib.optionalString (stdenv.hostPlatform.system == "x86_64-linux")
-      (":" + stdenv.lib.makeSearchPathOutput "lib" "lib64" buildInputs);
+    ldpath = lib.makeLibraryPath buildInputs
+      + lib.optionalString (stdenv.hostPlatform.system == "x86_64-linux")
+      (":" + lib.makeSearchPathOutput "lib" "lib64" buildInputs);
 
     unpackPhase = ''
       echo "=== Extracting makeself archive ==="
