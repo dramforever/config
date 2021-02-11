@@ -41,7 +41,7 @@
 
   services.fstrim = {
     enable = true;
-    interval = "tuesday";
+    interval = "tuesday,friday";
   };
 
   virtualisation.docker = {
