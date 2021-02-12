@@ -25,6 +25,7 @@
         keep-derivations = true
         experimental-features = nix-command flakes
         flake-registry = ${flakesEmpty}
+        builders-use-substitutes = true
       '';
 
     registry = {
