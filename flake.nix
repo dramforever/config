@@ -29,16 +29,16 @@
       };
     in {
       overlays = [
-        (final: prev: import ./nixos/bits/packages.nix final prev)
-        (final: prev: import ./nixos/bits/tweaks.nix final prev)
-        (final: prev: import ./nixos/bits/dram.nix final prev)
+        (final: prev: import ./bits/packages.nix final prev)
+        (final: prev: import ./bits/tweaks.nix final prev)
+        (final: prev: import ./bits/dram.nix final prev)
         nix-dram.overlay
       ];
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./nixos/configuration.nix
+          ./sakuya/configuration.nix
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
           genRev
         ];
@@ -52,7 +52,6 @@
           genRev
         ];
       };
-
 
       defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
     });

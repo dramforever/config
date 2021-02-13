@@ -18,8 +18,12 @@ github:dramforever/config/[...]
 ├───defaultPackage
 │   └───x86_64-linux: package 'dram-packages'
 ├───legacyPackages
+│   ├───aarch64-linux: omitted (use '--legacy' to show)
+│   ├───i686-linux: omitted (use '--legacy' to show)
+│   ├───x86_64-darwin: omitted (use '--legacy' to show)
 │   └───x86_64-linux: omitted (use '--legacy' to show)
 ├───nixosConfigurations
+│   ├───madoka: NixOS configuration
 │   └───sakuya: NixOS configuration
 └───overlays: unknown
 ```
