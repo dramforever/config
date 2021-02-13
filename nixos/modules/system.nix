@@ -35,16 +35,8 @@
   systemd.services."autovt@tty1".enable = false;
 
   sound.enable = true;
-
-  hardware.pulseaudio = {
-    enable = true;
-    support32Bit = true;
-    extraConfig = ''
-      load-module module-switch-on-connect
-    '';
-  };
-
-
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
 
   services.fstrim = {
