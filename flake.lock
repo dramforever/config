@@ -17,7 +17,9 @@
     },
     "nix-dram": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -49,6 +51,7 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "nix-dram": "nix-dram",
         "nixpkgs": "nixpkgs"
       }
