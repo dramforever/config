@@ -27,7 +27,7 @@
       modules = [
         ./nixos/configuration.nix
         {
-          nixpkgs.overlays = self.overlays;
+          nixpkgs.pkgs = self.legacyPackages."x86_64-linux";
           system.configurationRevision = self.rev or null;
           system.nixos.label =
             with builtins;
