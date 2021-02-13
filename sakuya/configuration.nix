@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./modules/boot.nix
-    ./modules/filesystems.nix
-    ./modules/graphical.nix
-    ./modules/hardware.nix
-    ./modules/net.nix
-    ./modules/software.nix
-    ./modules/system.nix
-    ./modules/users.nix
+    ./boot.nix
+    ./filesystems.nix
+    ./graphical.nix
+    ./hardware.nix
+    ./net.nix
+    ./software.nix
+    ./system.nix
+    ./users.nix
   ];
 
   # This value determines the NixOS release with which your system is to be
