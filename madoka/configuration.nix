@@ -7,7 +7,7 @@
 
   networking.hostName = "madoka";
 
-  environment.systemPackages = with pkgs; [ wpa_supplicant raspberrypi-tools ];
+  environment.systemPackages = with pkgs; [ wpa_supplicant libraspberrypi ];
 
   programs.vim.defaultEditor = true;
 
@@ -33,4 +33,3 @@
     };
   };
 }
-
