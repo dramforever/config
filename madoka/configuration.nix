@@ -13,7 +13,20 @@
 
   services.sshd.enable = true;
 
+  nix.package = pkgs.nix-dram;
+  nix.autoOptimiseStore = true;
+
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
+
+  nix.extraOptions =
+    let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });
+    in ''
+      keep-outputs = true
+      keep-derivations = true
+      experimental-features = nix-command flakes
+      flake-registry = ${flakesEmpty}
+      builders-use-substitutes = true
+    '';
 
   nix.gc = {
     automatic = true;
