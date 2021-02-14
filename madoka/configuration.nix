@@ -18,6 +18,8 @@
 
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
 
+  nix.trustedUsers = [ "root" "builder" ];
+
   nix.extraOptions =
     let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });
     in ''
