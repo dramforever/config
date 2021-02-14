@@ -12,7 +12,8 @@ self: super:
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
       set -e
-      nix-env -ri "$(nix eval --raw nixpkgs#dramPackagesEnv.drvPath)"
+      out="$(nix build "$@" nixpkgs#dramPackagesEnv | jq -r '.[0].outputs.out')"
+      nix-env --set "$out"
       kbuildsycoca5
     '';
 
