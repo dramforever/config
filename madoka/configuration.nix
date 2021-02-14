@@ -13,12 +13,22 @@
 
   services.sshd.enable = true;
 
+  users.users.builder = {
+    isNormalUser = true;
+  };
+
+  security.sudo.extraRules = [
+    {
+      users = [ "builder" ];
+      commands = [
+        { command = "ALL"; options = [ "NOPASSWD" ]; }
+      ];
+    }
+  ];
+
   nix.package = pkgs.nixUnstable;
-
   nix.autoOptimiseStore = true;
-
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
-
   nix.trustedUsers = [ "root" "builder" ];
 
   nix.extraOptions =
