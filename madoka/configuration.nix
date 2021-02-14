@@ -13,7 +13,8 @@
 
   services.sshd.enable = true;
 
-  nix.package = pkgs.nix-dram;
+  nix.package = pkgs.nixUnstable;
+
   nix.autoOptimiseStore = true;
 
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
