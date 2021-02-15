@@ -3,9 +3,23 @@
 {
   imports = [
     ./rpi4.nix
+    ./gravity.nix
   ];
 
   networking.hostName = "madoka";
+
+  services.radvd = {
+    enable = true;
+    config = ''
+      interface lan0 {
+        AdvSendAdvert on;
+        prefix 2a0c:b641:69c:baba::/64 {
+          AdvOnLink on;
+          AdvAutonomous on;
+        };
+      };
+    '';
+  };
 
   environment.systemPackages = with pkgs; [ wpa_supplicant libraspberrypi ];
 
@@ -48,11 +62,6 @@
   };
 
   fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-label/NIXOS_BOOT";
-      fsType = "vfat";
-    };
-
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
       fsType = "ext4";

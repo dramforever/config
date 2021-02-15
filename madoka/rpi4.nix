@@ -3,13 +3,10 @@
 {
   boot = {
     loader = {
-      grub.enable = lib.mkDefault false;
-      raspberryPi = {
-        enable = lib.mkDefault true;
-        version = lib.mkDefault 4;
-      };
+      grub.enable = false;
+      generic-extlinux-compatible.enable = true;
     };
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_rpi4;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_5_10;
     kernelParams = [ "console=ttyS0,115200n8" "console=tty0" ];
   };
 
