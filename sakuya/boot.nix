@@ -9,7 +9,7 @@
 
     kernelParams = [ "quiet" "mitigations=off" ];
 
-    kernelPackages = pkgs.linuxPackages_5_4;
+    kernelPackages = pkgs.linuxPackages_zen;
     # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
     supportedFilesystems = [ "ntfs" "exfat" ];
