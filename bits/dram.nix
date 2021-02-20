@@ -12,7 +12,7 @@ self: super:
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
       set -e
-      out="$(nix build "$@" nixpkgs#dramPackagesEnv | jq -r '.[0].outputs.out')"
+      out="$(nix build --json "$@" nixpkgs#dramPackagesEnv | jq -r '.[0].outputs.out')"
       nix-env --set "$out"
       kbuildsycoca5
     '';
