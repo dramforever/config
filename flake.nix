@@ -24,7 +24,7 @@
         system.nixos.label =
           with builtins;
             if self ? lastModifiedDate && self ? revCount && self ? shortRev
-            then "${substring 0 8 self.lastModifiedDate}.${toString self.revCount}.${self.shortRev}"
+            then "${substring 0 8 self.sourceInfo.lastModifiedDate}.${toString self.sourceInfo.revCount}.${self.sourceInfo.shortRev}"
             else "dirty";
       };
     in {
