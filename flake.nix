@@ -23,8 +23,8 @@
         system.configurationRevision = self.rev or null;
         system.nixos.label =
           with builtins;
-            if self.sourceInfo ? lastModifiedDate && self.sourceInfo ? revCount && self.sourceInfo ? shortRev
-            then "${substring 0 8 self.sourceInfo.lastModifiedDate}.${toString self.sourceInfo.revCount}.${self.sourceInfo.shortRev}"
+            if self.sourceInfo ? lastModifiedDate && self.sourceInfo ? shortRev
+            then "${substring 0 8 self.sourceInfo.lastModifiedDate}.${self.sourceInfo.shortRev}"
             else "dirty";
       };
     in {
