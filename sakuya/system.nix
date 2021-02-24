@@ -10,6 +10,8 @@
 
   time.timeZone = "Asia/Shanghai";
 
+  networking.timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
+
   console = {
     earlySetup = true;
     packages = [ pkgs.terminus_font ];
