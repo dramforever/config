@@ -25,8 +25,6 @@
     enable = true;
     settings = {
       SATA_LINKPWR_ON_BAT = "max_performance";
-      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
-      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";
     };
   };
 
@@ -42,8 +40,6 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
-
-  powerManagement.cpuFreqGovernor = "schedutil";
 
   services.fstrim = {
     enable = true;
