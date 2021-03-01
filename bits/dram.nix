@@ -33,6 +33,7 @@ self: super:
       ammonite
       anki
       ark
+      audacity
       bat
       bind
       binutils
