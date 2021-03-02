@@ -48,7 +48,6 @@ self: super:
       gdb
       git
       gnupg
-      goldendict
       gtkwave
       gwenview
       hexchat
@@ -100,7 +99,6 @@ self: super:
       vscode
       wireshark
       wolfram-engine
-      wpsoffice
       # zhumu
       zoom-us;
   };
