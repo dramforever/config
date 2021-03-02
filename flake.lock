@@ -40,13 +40,13 @@
     },
     "nixpkgs": {
       "locked": {
-        "narHash": "sha256-2zonB0OH6uWiJulqyvtrbNa51S94LXuCWL0xv6Aw+fE=",
+        "narHash": "sha256-DvRRWa3zC/T+7gwLQXZng1Xry1KUf7JRwRvELqPrg/c=",
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixpkgs-unstable@nixpkgs-21.05pre270157.be864bbd676/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre273435.0aeba64fb26/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixpkgs-unstable@nixpkgs-21.05pre270157.be864bbd676/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre273435.0aeba64fb26/nixexprs.tar.xz"
       }
     },
     "root": {
