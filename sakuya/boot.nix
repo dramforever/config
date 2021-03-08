@@ -7,7 +7,7 @@
 
     loader.efi.canTouchEfiVariables = true;
 
-    kernelParams = [ "quiet" "mitigations=off" ];
+    kernelParams = [ "quiet" "mitigations=off" "intel_pstate=passive" ];
 
     kernelPackages = pkgs.linuxPackages_zen;
     # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
