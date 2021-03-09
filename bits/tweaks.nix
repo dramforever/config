@@ -50,7 +50,7 @@ self: super:
     if self.buildPlatform != self.hostPlatform
     then super.nixUnstable.overrideAttrs (old: {
         makeFlags = (old.makeFlags or []) ++ [ "man-pages=" ];
-    });
+    })
     else super.nixUnstable;
 
   radvd = super.radvd.overrideAttrs (old: {
