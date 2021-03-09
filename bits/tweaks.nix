@@ -40,4 +40,10 @@ self: super:
       })
     ];
   });
+
+  makeWrapper =
+    self.makeSetupHook
+      { deps = [ self.dieHook ]; substitutions = { shell = self.buildPackages.runtimeShell; }; }
+      (self.path + "/pkgs/build-support/setup-hooks/make-wrapper.sh");
+
 }

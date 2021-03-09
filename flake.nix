@@ -12,11 +12,11 @@
 
   outputs = { self, nixpkgs, flake-utils, nix-dram }:
     flake-utils.lib.eachDefaultSystem (system: {
-      legacyPackages = (import nixpkgs {
+      legacyPackages = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = builtins.attrValues self.overlays;
-      });
+      };
     }) //
     (let
       genRev = {
@@ -53,6 +53,29 @@
         ];
       };
 
+      nixosConfigurations.madoka-cross = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./madoka/configuration.nix
+          {
+            nixpkgs = {
+              pkgs = self.legacyPackagesCross."x86_64-linux"."aarch64-linux";
+              # localSystem.config = "x86_64-unknown-linux-gnu";
+              # crossSystem.config = "aarch64-unknown-linux-gnu";
+            };
+          }
+          genRev
+        ];
+      };
+
       defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
+
+      legacyPackagesCross."x86_64-linux"."aarch64-linux" =
+        import nixpkgs {
+          system = "x86_64-linux";
+          crossSystem.config = "aarch64-unknown-linux-gnu";
+          config.allowUnfree = true;
+          overlays = builtins.attrValues self.overlays;
+        };
     });
 }
