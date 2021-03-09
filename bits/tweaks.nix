@@ -54,6 +54,9 @@ self: super:
     else super.nixUnstable;
 
   radvd = super.radvd.overrideAttrs (old: {
-    makeFlags = (old.makeFlags or []) ++ [ "AR=$AR" ];
+    preBuild = ''
+      ${old.preBuild or ""}
+      makeFlags+=("AR=$AR")
+    '';
   });
 }
