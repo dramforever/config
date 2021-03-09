@@ -46,13 +46,6 @@ self: super:
       { deps = [ self.dieHook ]; substitutions = { shell = self.buildPackages.runtimeShell; }; }
       (self.path + "/pkgs/build-support/setup-hooks/make-wrapper.sh");
 
-  nixUnstable =
-    if self.buildPlatform != self.hostPlatform
-    then super.nixUnstable.overrideAttrs (old: {
-        makeFlags = (old.makeFlags or []) ++ [ "man-pages=" ];
-    })
-    else super.nixUnstable;
-
   radvd = super.radvd.overrideAttrs (old: {
     preBuild = ''
       ${old.preBuild or ""}
