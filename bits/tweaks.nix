@@ -52,4 +52,13 @@ self: super:
       makeFlags+=("AR=$AR")
     '';
   });
+
+  nixUnstable =
+    if self.buildPlatform != self.hostPlatform
+    then
+      super.nixUnstable.overrideAttrs (old: {
+        configureFlags = (old.configureFlags or []) ++ [ "--disable-doc-gen" ];
+        outputs = self.lib.remove "man" (self.lib.remove "doc" old.outputs);
+      })
+    else super.nixUnstable;
 }

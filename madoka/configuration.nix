@@ -40,7 +40,7 @@
     }
   ];
 
-  # nix.package = pkgs.nixUnstable;
+  nix.package = pkgs.nixUnstable;
   nix.autoOptimiseStore = true;
   nix.binaryCaches = [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store" ];
   nix.trustedUsers = [ "root" "builder" ];
