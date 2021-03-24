@@ -2,11 +2,11 @@
   "nodes": {
     "flake-utils": {
       "locked": {
-        "lastModified": 1610051610,
-        "narHash": "sha256-U9rPz/usA1/Aohhk7Cmc2gBrEEKRzcW4nwPWMPwja4Y=",
+        "lastModified": 1614513358,
+        "narHash": "sha256-LakhOx3S1dRjnh0b5Dg3mbZyH0ToC9I8Y2wKSkBaTzU=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "3982c9903e93927c2164caa727cd3f6a0e6d14cc",
+        "rev": "5466c5bbece17adaab2d82fae80b46e807611bf3",
         "type": "github"
       },
       "original": {
@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1615908975,
-        "narHash": "sha256-F2QHc6QNGmJIoCgaaMf4u6fbVOv7SyYBW2/OPYDzwIU=",
+        "lastModified": 1615965886,
+        "narHash": "sha256-Y5wbAFw0gjOQOb5LHxLHx0qHteJyF5/yv2Bi1yfOKqc=",
         "owner": "dramforever",
         "repo": "nix-dram",
-        "rev": "95d53381735e5a470b8bdfba0cfe0e7f275e3032",
+        "rev": "6832df883691a9b548107108de4454d9bd64f33c",
         "type": "github"
       },
       "original": {
@@ -40,13 +40,13 @@
     },
     "nixpkgs": {
       "locked": {
-        "narHash": "sha256-NDyBZg8p9PPT2B/5ww5+Yd0jIk+RaZuIgQMWDgh3JwU=",
+        "narHash": "sha256-WOOWSjoEDb+VhCAdACecTtmBkTmcOSb3JIcpKN5py3U=",
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre276379.266dc8c3d05/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre277486.f5e8bdd07d1/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre276379.266dc8c3d05/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.05pre277486.f5e8bdd07d1/nixexprs.tar.xz"
       }
     },
     "root": {
