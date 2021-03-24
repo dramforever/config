@@ -61,4 +61,15 @@ self: super:
         outputs = self.lib.remove "man" (self.lib.remove "doc" old.outputs);
       })
     else super.nixUnstable;
-}
+
+  discord =
+    if self.lib.versionOlder super.discord.version "0.0.14"
+    then super.discord.overrideAttrs (old: rec {
+      version = "0.0.14";
+      src = self.fetchurl {
+        url = "https://dl.discordapp.net/apps/linux/${version}/discord-${version}.tar.gz";
+        sha256 = "1rq490fdl5pinhxk8lkfcfmfq7apj79jzf3m14yql1rc9gpilrf2";
+      };
+    })
+    else super.discord;
+ }
