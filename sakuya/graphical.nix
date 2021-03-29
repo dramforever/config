@@ -14,12 +14,10 @@
           ServerArguments = "-nolisten tcp -dpi 132";
           MinimumVT = 1;
         };
-        User = {
-          HideUsers = "hex";
-        };
       };
     };
 
+    displayManager.hiddenUsers = [ "hex" ];
     desktopManager.plasma5.enable = true;
 
     xkbOptions = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
