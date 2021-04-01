@@ -15,6 +15,7 @@
     git
 
     zsh-completions
+    zsh-nix-gytis
   ];
 
   programs.vim.defaultEditor = true;
