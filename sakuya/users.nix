@@ -6,6 +6,7 @@
       isNormalUser = true;
       uid = 1000;
       extraGroups = [ "wheel" "vboxusers" "docker" "wireshark" "hwdevel" ];
+      shell = pkgs.zsh;
     };
 
     hex = {

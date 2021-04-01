@@ -13,6 +13,8 @@
     usbmuxd
     nix-search
     git
+
+    zsh-completions
   ];
 
   programs.vim.defaultEditor = true;
@@ -20,6 +22,10 @@
   programs.mtr.enable = true;
 
   programs.wireshark.enable = true;
+
+  programs.zsh = {
+    enable = true;
+  };
 
   programs.gnupg.agent = {
     enable = true;
