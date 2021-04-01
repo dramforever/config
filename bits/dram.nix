@@ -100,7 +100,9 @@ self: super:
       wireshark
       wolfram-engine
       # zhumu
-      zoom-us;
+      zoom-us
+      zsh-completions
+      zsh-autosuggestions;
   };
 }
 

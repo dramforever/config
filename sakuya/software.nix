@@ -13,8 +13,6 @@
     usbmuxd
     nix-search
     git
-
-    zsh-completions
     zsh-nix-gytis
   ];
 
