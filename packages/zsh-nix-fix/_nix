@@ -1,0 +1,28 @@
+#compdef nix
+local ifs_bk="$IFS"
+local input=("${(Q)words[@]}")
+IFS=$'\n'
+local res=($(NIX_GET_COMPLETIONS=$((CURRENT - 1)) "$input[@]"))
+IFS="$ifs_bk"
+
+local tpe="${${res[1]}%%>	*}"
+if [[ "$tpe" == filenames ]]; then
+  compadd -f
+fi
+
+local -a suggestions
+declare -a suggestions
+
+for suggestion in ${res:1}; do
+  IFS=$'\t' read item desc <<<"$suggestion"
+
+  if [ -n "$desc" ] || [[ "${item[1]}" == "-" ]]; then
+    suggestions+="${item:gs/:/\\:/}:$desc"
+  else
+    # If the completion item does not have a description and does not start with
+    # a "-", make it so that typing dot (".") after it removes the auto-inserted
+    # space.
+    compadd -r "." -- "$item"
+  fi
+done
+_describe 'nix' suggestions

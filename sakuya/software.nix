@@ -13,7 +13,7 @@
     usbmuxd
     nix-search
     git
-    zsh-nix-gytis
+    zsh-nix-fix
   ];
 
   programs.vim.defaultEditor = true;

@@ -4,7 +4,7 @@
 { stdenvNoCC }:
 
 stdenvNoCC.mkDerivation {
-  name = "nix-zsh-gytis";
+  name = "nix-zsh-fix";
   src = ./_nix;
 
   dontUnpack = true;
