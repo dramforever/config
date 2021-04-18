@@ -12,26 +12,16 @@ self: super:
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${self.runtimeShell}
       set -e
-      out="$(nix build --json "$@" nixpkgs#dramPackagesEnv | jq -r '.[0].outputs.out')"
+      out="$(nix build --json --no-link "$@" nixpkgs#dramPackagesEnv | jq -r '.[0].outputs.out')"
       nix-env --set "$out"
       kbuildsycoca5
     '';
 
     whois = self.lib.hiPrio self.whois;
 
-#    inherit (self.kdeApplications)
-#      kmail
-#      kmail-account-wizard
-#      kmailtransport;
-
-    inherit (self.jetbrains)
-      idea-community;
-
     inherit (self) ghc cabal-install;
 
     inherit (self)
-      ammonite
-      anki
       ark
       audacity
       bat
@@ -41,7 +31,6 @@ self: super:
       cloc
       coq_8_11
       direnv
-      discord
       dotnet-sdk
       ffmpeg-full
       file
@@ -85,7 +74,7 @@ self: super:
       steam
       syncthing
       syncthingtray
-      tang-dynasty
+      # tang-dynasty
       tdesktop
       thunderbird
       tig
