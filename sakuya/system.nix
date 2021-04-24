@@ -70,7 +70,4 @@
     enable = true;
     plugins = [ pkgs.ccid ];
   };
-
-  virtualisation.kvmgt.enable = true;
-  virtualisation.libvirtd.enable = true;
- }
+}
