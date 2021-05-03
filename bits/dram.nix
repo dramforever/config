@@ -55,6 +55,7 @@ self: super:
       mono
       niv
       nix-direnv
+      nix-index
       nodejs
       obs-studio
       okular
