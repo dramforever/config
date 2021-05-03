@@ -41,5 +41,5 @@
 
   virtualisation.virtualbox.host.enable = true;
 
-  programs.command-not-found.dbPath = "${pkgs.path}/programs.sqlite";
+  programs.command-not-found.enable = false;
 }
