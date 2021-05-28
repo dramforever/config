@@ -5,7 +5,7 @@
     dram = {
       isNormalUser = true;
       uid = 1000;
-      extraGroups = [ "wheel" "vboxusers" "docker" "wireshark" "hwdevel" ];
+      extraGroups = [ "wheel" "vboxusers" "wireshark" "hwdevel" ];
       shell = pkgs.zsh;
     };
 
