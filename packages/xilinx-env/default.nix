@@ -1,9 +1,6 @@
 # https://discourse.nixos.org/t/fhs-env-for-installing-xilinx/13150
 
-{ stdenv, buildFHSUserEnv
-, bash, coreutils, zlib, ncurses, freetype, fontconfig, glib, gtk2, gtk3, graphviz, gcc, unzip, nettools
-, libXext, libX11, libXrender, libXtst, libXi, libXft, libxcb
-}:
+{ stdenv, lib, buildFHSUserEnv }:
 
 buildFHSUserEnv {
   name = "xilinx-env";
@@ -13,7 +10,7 @@ buildFHSUserEnv {
     coreutils
     zlib
     stdenv.cc.cc
-    ncurses
+    ncurses5
     xorg.libXext
     xorg.libX11
     xorg.libXrender
@@ -31,14 +28,9 @@ buildFHSUserEnv {
 
     # from installLibs.sh
     graphviz
-    gcc
+    (lib.hiPrio gcc)
     unzip
     nettools
   ];
   multiPkgs = null;
-  profile = ''
-    vitis_dir=$(echo /opt/xilinx/Vitis/*/bin)
-    export PATH=$vitis_dir:$PATH
-    # export XILINX_XRT="$...{xrt}"
-  '';
 }
