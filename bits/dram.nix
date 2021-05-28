@@ -60,7 +60,7 @@ self: super:
       obs-studio
       okular
       # onlyoffice
-      osu-lazer
+      # osu-lazer
       patchelf
       pinentry-qt
       pinta
