@@ -9,7 +9,7 @@
 
     kernelParams = [ "quiet" "mitigations=off" "mem_sleep_default=deep" ];
 
-    kernelPackages = linuxPackages_5_12;
+    kernelPackages = pkgs.linuxPackages_5_12;
     # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
     supportedFilesystems = [ "ntfs" "exfat" ];
