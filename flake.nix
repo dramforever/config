@@ -15,7 +15,7 @@
       legacyPackages = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = builtins.attrValues self.overlays;
+        overlays = [ nix-dram.overlay ] ++ builtins.attrValues self.overlays;
       };
     }) //
     (let
@@ -32,7 +32,6 @@
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
         dram = (final: prev: import ./bits/dram.nix final prev);
-        nix-dram = nix-dram.overlay;
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
