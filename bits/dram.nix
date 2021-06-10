@@ -66,7 +66,7 @@ self: super:
       pinta
       plasma-browser-integration
       python3
-      quartus-prime-lite
+      # quartus-prime-lite
       ripgrep
       socat
       spectacle
