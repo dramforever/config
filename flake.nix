@@ -4,19 +4,26 @@
   inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.11pre292442.5658fadedb7/nixexprs.tar.xz";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
+  inputs.home-manager = {
+    url = "github:nix-community/home-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   inputs.nix-dram = {
     url = "github:dramforever/nix-dram";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.flake-utils.follows = "flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nix-dram }:
+  outputs = { self, nixpkgs, flake-utils, nix-dram, home-manager }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays = [ nix-dram.overlay ] ++ builtins.attrValues self.overlays;
       };
+
+      packages.home-manager = home-manager.defaultPackage.${system};
     }) //
     (let
       genRev = {
@@ -50,6 +57,16 @@
           { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
           genRev
         ];
+      };
+
+      homeConfigurations.dram = home-manager.lib.homeManagerConfiguration {
+        system = null;
+        pkgs = self.legacyPackages."x86_64-linux";
+        stateVersion = "21.05";
+
+        homeDirectory = "/home/dram";
+        username = "dram";
+        configuration = ./home/home.nix;
       };
 
       defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
