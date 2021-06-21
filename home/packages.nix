@@ -17,7 +17,7 @@
     ffmpeg-full
     file
     gdb
-    git
+    # git
     gnupg
     gtkwave
     gwenview
