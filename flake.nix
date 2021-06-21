@@ -1,7 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
-  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.11pre292442.5658fadedb7/nixexprs.tar.xz";
+  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-21.11pre296557.33d42ad7cf2/nixexprs.tar.xz";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.home-manager = {
@@ -38,7 +38,6 @@
       overlays = {
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
-        dram = (final: prev: import ./bits/dram.nix final prev);
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
@@ -68,7 +67,5 @@
         username = "dram";
         configuration = ./home/home.nix;
       };
-
-      defaultPackage."x86_64-linux" = self.legacyPackages.x86_64-linux.dramPackagesEnv;
     });
 }

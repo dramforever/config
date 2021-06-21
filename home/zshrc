@@ -1,0 +1,160 @@
+setopt autocd nomatch
+unsetopt extendedglob
+bindkey -e
+
+zstyle ':completion:*' menu select
+
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
+# {{{ Keybindings
+
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+key[Ctrl-Left]=$'\e[1;5D'
+key[Ctrl-Right]=$'\e[1;5C'
+
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-history
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-history
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Ctrl-Left]}" ]] && bindkey -- "${key[Ctrl-Left]}"  backward-word
+[[ -n "${key[Ctrl-Right]}" ]] && bindkey -- "${key[Ctrl-Right]}"  forward-word
+
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+	autoload -Uz add-zle-hook-widget
+	function zle_application_mode_start { echoti smkx }
+	function zle_application_mode_stop { echoti rmkx }
+	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
+[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
+
+# }}}
+
+# {{{ Prompt
+
+ps1_shlvl() {
+    case "$SHLVL" in
+        1)
+            ;;
+        *)
+            echo -n "[$SHLVL] "
+    esac
+}
+
+precmd_functions=(ps1_shlvl)
+PROMPT='%F{blue}%B[%n@%m %~]%# %f%b'
+RPROMPT=''
+# }}}
+
+# {{{ Environment
+export BAT_THEME="Monokai Extended Light"
+export LESS="R"
+# }}}
+
+# {{{ Aliases
+alias ls='ls --color=auto'
+cdpath=(. $HOME $HOME/code)
+alias gdb="gdb -q"
+alias yosys="yosys -Q"
+alias nixpkgs="nix-env -f '<nixpkgs>'"
+alias diff="diff --color -u"
+alias tm="tmux new-session -A -s dram"
+
+alias g="git status"
+alias ga="git add"
+alias gc="git commit -v"
+alias gd="git diff"
+alias gl="git log --graph --oneline"
+alias gll="git log --graph"
+alias gs="git switch"
+alias fars="curl -F 'c=@-' 'http://fars.ee/'"
+alias repulse="systemctl --user restart pulseaudio.service"
+alias resddm="doas systemctl restart display-manager.service"
+alias man="env COLUMN=80 man"
+
+rg() {
+    command rg -p "$@" | less -RF
+}
+# }}}
+
+# {{{ Command not found
+
+command_not_found_handler () {
+
+    # TODO: use "command not found" gettext translations
+
+    # taken from http://www.linuxjournal.com/content/bash-command-not-found
+    # - do not run when inside Midnight Commander or within a Pipe
+
+    # - Also do not run if nix-locate is not available
+    if [ -n "$MC_SID" ] || ! [ -t 1 ] || ! whence nix-locate 2>&1 >/dev/null; then
+        >&2 echo "$1: command not found"
+        return 127
+    fi
+
+    cmd=$1
+    attrs=$(nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root "/bin/$cmd")
+    len=$(echo -n "$attrs" | grep -c "^")
+
+    case $len in
+        0)
+            >&2 echo "$cmd: command not found"
+            ;;
+        *)
+            >&2 cat <<EOF
+$cmd: command not found
+
+nix-locate says:
+EOF
+
+            # ensure we get each element of attrs
+            # in a cross platform way
+            counter=0
+            while read attr; do
+                >&2 echo "  $attr"
+                counter=$((counter + 1))
+                if ((counter >= 10)); then
+                    >&2 echo "  ... and more ($len total)"
+                    break
+                fi
+            done <<< "$attrs"
+    esac
+    return 127 # command not found should always exit with 127
+
+}
+# }}}
+
+ZSH_AUTOSUGGEST_STRATEGY=(history)
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888888,underline"
+
+# vim: foldmethod=marker foldcolumn=2
