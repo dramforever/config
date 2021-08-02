@@ -16,6 +16,7 @@
     };
     initExtra = ''
       source ${./zshrc}
+      source ${./nixenv.zsh}
     '';
   };
 
