@@ -62,18 +62,33 @@ zle -N down-line-or-beginning-search
 
 # {{{ Prompt
 
+ps1_nixenv() {
+    case "${#nixenv_paths}" in
+        0)
+            ;;
+        1)
+            echo -n "(${#nixenv_paths} pkg)"
+            ;;
+        *)
+            echo -n "(${#nixenv_paths} pkgs)"
+            ;;
+    esac
+}
+
 ps1_shlvl() {
     case "$SHLVL" in
         1)
             ;;
         *)
             echo -n "[$SHLVL] "
+            ;;
     esac
 }
 
-precmd_functions=(ps1_shlvl)
-PROMPT='%F{blue}%B[%n@%m %~]%# %f%b'
-RPROMPT=''
+setopt PROMPT_SUBST
+
+PROMPT='$(ps1_shlvl)%F{blue}%B[%n@%m %~]%# %f%b'
+RPROMPT='%F{red}$(ps1_nixenv)%f'
 # }}}
 
 # {{{ Environment
