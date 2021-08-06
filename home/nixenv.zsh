@@ -5,7 +5,7 @@ nadd() {
     for installable in "$@"; do
         out="$(nix build --json --no-link $installable | jq -r '.[].outputs[]' | head -1)"
         nixenv_paths[$installable]="$out"
-        path+=("$out/bin")
+        path=("$out/bin" "${path[@]}")
     done
 }
 
