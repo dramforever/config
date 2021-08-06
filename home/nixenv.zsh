@@ -12,8 +12,7 @@ nadd() {
 nrm() {
     for installable in "$@"; do
         out="${nixenv_paths[$installable]}"
-        nixenv_paths[$installable]=""
-        [[ -z "$out" ]] && continue
+        unset "nixenv_paths[$installable]"
 
         index="${path[(Ie)$out/bin]}"
         [[ $index -eq 0 ]] && continue
@@ -24,7 +23,7 @@ nrm() {
 
 nls() {
     for installable out in "${(@kv)nixenv_paths}"; do
-        [[ -z "$out" ]] || echo "$installable -> $out"
+        echo "$installable -> $out"
     done
 }
 
@@ -37,11 +36,7 @@ _nadd() {
 compdef _nadd nadd
 
 _nrm() {
-    keys=()
-    for installable in "${(@k)nixenv_paths}"; do
-        [[ -z "${nixenv_paths[$installable]}" ]] || keys+=("$installable")
-    done
-    _values 'nrm' "${(@)keys}"
+    _values 'nrm' "${(@k)nixenv_paths}"
 }
 
 compdef _nrm nrm
