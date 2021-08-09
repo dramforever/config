@@ -26,6 +26,7 @@
     # hmcl
     inkscape
     jdk11
+    jetbrains.idea-community
     jq
     kdeconnect
     keepassxc
