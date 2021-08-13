@@ -67,5 +67,7 @@
         username = "dram";
         configuration = ./home/home.nix;
       };
+
+      lib.inputsJSON = import ./bits/inputs-json.nix self;
     });
 }
