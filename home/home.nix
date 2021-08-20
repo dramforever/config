@@ -29,6 +29,7 @@
 
   programs.tmux = {
     enable = true;
+    keyMode = "vi";
     extraConfig = ''
       set -g mouse on
       bind % split-window -h -c "#{pane_current_path}"
