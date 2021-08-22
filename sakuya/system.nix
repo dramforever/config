@@ -12,8 +12,6 @@
 
   networking.timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
 
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
   console = {
     earlySetup = true;
     packages = [ pkgs.terminus_font ];
