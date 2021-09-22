@@ -22,4 +22,6 @@
   };
 
   hardware.cpu.intel.updateMicrocode = true;
+
+  boot.binfmt.emulatedSystems = [ "riscv64-linux" ];
 }
