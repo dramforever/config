@@ -62,4 +62,6 @@
     enable = true;
     plugins = [ pkgs.ccid ];
   };
+
+  virtualisation.docker.enable = true;
 }
