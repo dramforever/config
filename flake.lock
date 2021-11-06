@@ -45,16 +45,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1626712573,
-        "narHash": "sha256-e6bbMdg3vHijozZ5ZPVVeIeerVQSUh9y7uWWPrA8HW4=",
+        "lastModified": 1635133727,
+        "narHash": "sha256-JDrYoFPksJrKIyaQIAqtju//KvQkSiVUdBAptrAabM4=",
         "owner": "dramforever",
         "repo": "nix-dram",
-        "rev": "c9b3049c3f729a77d5ca477da1c159900f55284e",
+        "rev": "b316f2032df0d484b18554c225d3775ca310c5fd",
         "type": "github"
       },
       "original": {
         "owner": "dramforever",
-        "ref": "default-flake-option",
         "repo": "nix-dram",
         "type": "github"
       }

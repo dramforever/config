@@ -10,7 +10,7 @@
   };
 
   inputs.nix-dram = {
-    url = "github:dramforever/nix-dram/default-flake-option";
+    url = "github:dramforever/nix-dram";
     inputs.nixpkgs.follows = "nixpkgs";
     inputs.flake-utils.follows = "flake-utils";
   };
