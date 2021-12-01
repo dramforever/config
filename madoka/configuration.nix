@@ -21,7 +21,7 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [ wpa_supplicant libraspberrypi socat ];
+  environment.systemPackages = with pkgs; [ wpa_supplicant libraspberrypi socat openocd ];
 
   programs.vim.defaultEditor = true;
 
