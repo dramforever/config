@@ -1,7 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
-  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable%40nixos-21.11pre327669.b67e752c29f/nixexprs.tar.xz";
+  inputs.nixpkgs.url = "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-22.05pre338075.e675946ecde/nixexprs.tar.xz";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
   inputs.home-manager = {

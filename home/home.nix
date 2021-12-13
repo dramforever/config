@@ -24,7 +24,6 @@
     enable = true;
     enableZshIntegration = true;
     nix-direnv.enable = true;
-    nix-direnv.enableFlakes = true;
   };
 
   programs.tmux = {
