@@ -22,11 +22,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1639329010,
-        "narHash": "sha256-k9OXwR06419/s0FAnRalUs24+8EI6GepGaatAXhBc+0=",
+        "lastModified": 1641116212,
+        "narHash": "sha256-exe86wVgbbi783WNbPyezo6lVBzchTgfg+Rj2sVqHu0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3d46c011d2cc2c9ca24d9b803e9daf156d9429ea",
+        "rev": "5f00024e752106fa8189b27883604609caf11bcd",
         "type": "github"
       },
       "original": {
@@ -60,13 +60,13 @@
     },
     "nixpkgs": {
       "locked": {
-        "narHash": "sha256-tLZ0ltI234eexHfYxfIYHKpD+kZln78JCdR5FgrS8Rs=",
+        "narHash": "sha256-Ho6Pqkw1HLjHif0XlJLSCU5lGyWt4ASwqktGvzi8QCw=",
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-22.05pre338075.e675946ecde/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-22.05pre342264.5b091d4fbe3/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-22.05pre338075.e675946ecde/nixexprs.tar.xz"
+        "url": "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/releases/nixos-unstable@nixos-22.05pre342264.5b091d4fbe3/nixexprs.tar.xz"
       }
     },
     "root": {
