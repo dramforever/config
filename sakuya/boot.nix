@@ -12,7 +12,7 @@
     kernelPackages = pkgs.linuxPackages_latest;
     # extraModulePackages = [ config.boot.kernelPackages.exfat-nofuse ];
 
-    supportedFilesystems = [ "ntfs" "exfat" ];
+    supportedFilesystems = [ "ntfs" "exfat" "zfs" ];
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
