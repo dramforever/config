@@ -18,7 +18,6 @@
     file
     gdb
     # git
-    gnupg
     gtkwave
     gwenview
     hexchat

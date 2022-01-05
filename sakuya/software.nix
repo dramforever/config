@@ -26,10 +26,13 @@
     enable = true;
   };
 
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryFlavor = "qt";
+  programs.gnupg = {
+    package = pkgs.gnupg23;
+    agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "qt";
+    };
   };
 
   services.lorri.enable = true;
