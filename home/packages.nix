@@ -30,6 +30,7 @@
     kdeconnect
     keepassxc
     kgpg
+    kicad
     ksshaskpass
     libarchive
     lrzsz
