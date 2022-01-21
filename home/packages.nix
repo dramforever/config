@@ -47,6 +47,7 @@
     pinentry-qt
     pinta
     plasma-browser-integration
+    plasma5Packages.bismuth
     python3
     # quartus-prime-lite
     ripgrep
