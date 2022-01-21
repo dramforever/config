@@ -89,6 +89,7 @@ setopt PROMPT_SUBST
 
 PROMPT='$(ps1_shlvl)%F{blue}%B[%n@%m %~]%# %f%b'
 RPROMPT='%F{red}$(ps1_nixenv)%f'
+PROMPT_EOL_MARK="%B%S %s%b"
 # }}}
 
 # {{{ Environment
