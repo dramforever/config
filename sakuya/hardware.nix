@@ -8,6 +8,4 @@
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  nix.maxJobs = lib.mkDefault 12;
 }

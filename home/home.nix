@@ -49,6 +49,7 @@
     extraConfig = {
       init.defaultBranch = "main";
       pull.ff = "only";
+      rerere.enabled = true;
     };
   };
 
