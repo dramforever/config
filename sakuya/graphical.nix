@@ -36,7 +36,7 @@
 
   i18n.inputMethod = {
     enabled = "fcitx";
-    fcitx.engines = with pkgs.fcitx-engines; [ libpinyin rime mozc ];
+    fcitx.engines = with pkgs.fcitx-engines; [ rime mozc ];
   };
 
   fonts.fonts = with pkgs; [
