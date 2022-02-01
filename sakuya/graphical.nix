@@ -23,6 +23,8 @@
     xkbOptions = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
 
     videoDrivers = [ "nvidia" ];
+
+    digimend.enable = true;
   };
 
   hardware.nvidia.prime = {
