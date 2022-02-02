@@ -1,1 +1,1 @@
-{}: (builtins.getFlake "git+file://${builtins.toString ./.}").legacyPackages.${builtins.currentSystem}
+{...}: (builtins.getFlake "git+file://${builtins.toString ./.}").legacyPackages.${builtins.currentSystem}
