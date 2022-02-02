@@ -25,18 +25,6 @@
         max-jobs = 12;
         auto-optimise-store = true;
       };
-
-    registry = {
-      nixpkgs = {
-        from = { id = "nixpkgs"; type = "indirect"; };
-        to = { type = "git"; url = "file:///home/dram/code/config"; };
-      };
-
-      default = {
-        from = { id = "default"; type = "indirect"; };
-        to = { type = "git"; url = "file:///home/dram/code/config"; };
-      };
-    };
   };
 
   nixpkgs.config = {
