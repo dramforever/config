@@ -9,6 +9,14 @@ self: super:
     ffmpeg = self.ffmpeg-full;
   };
   
+  pam-fixed =
+    # If assertion fails, the fix PR was probably merged
+    # https://github.com/NixOS/nixpkgs/pull/156974
+    assert super.pam.patches == [];
+    super.pam.overrideAttrs (_: {
+      patches = [ ./patches/suid-wrapper-path.patch ];
+    });
+
   plasma5Packages = super.plasma5Packages.overrideScope' (kself: ksuper: {
     kscreenlocker = ksuper.kscreenlocker.override {
       pam = self.pam-fixed;
