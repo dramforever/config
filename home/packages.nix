@@ -35,7 +35,6 @@
     spectacle
     stack
     steam
-    syncthing
     syncthingtray
     tdesktop
     thunderbird

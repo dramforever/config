@@ -73,4 +73,8 @@
 
     plugins = [ pkgs.vimPlugins.vim-bracketed-paste ];
   };
+
+  services.syncthing = {
+    enable = true;
+  };
 }
