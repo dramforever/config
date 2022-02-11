@@ -8,6 +8,7 @@
     loader.efi.canTouchEfiVariables = true;
 
     kernelParams = [ "quiet" "mitigations=off" "mem_sleep_default=deep" ];
+    supportedFilesystems = [ "nfs" ];
 
     kernelPackages = pkgs.linuxPackages_latest;
 
