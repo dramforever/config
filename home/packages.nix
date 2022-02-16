@@ -8,6 +8,7 @@
     bat
     bind
     binutils
+    bitwarden
     chromium
     file
     gdb
