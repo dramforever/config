@@ -1,6 +1,8 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
+  nixConfig.commit-lockfile-summary = "Update deps";
+
   inputs.nixpkgs.url = "github:tuna-nixpkgs/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
