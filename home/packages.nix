@@ -12,6 +12,7 @@
     chromium
     file
     gdb
+    gh
     gtkwave
     gwenview
     hexchat

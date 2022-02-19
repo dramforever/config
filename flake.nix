@@ -15,7 +15,12 @@
     inputs.flake-utils.follows = "flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nix-dram, home-manager }:
+  inputs.sops-nix = {
+    url = "github:Mic92/sops-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, flake-utils, nix-dram, home-manager, sops-nix }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -53,6 +58,7 @@
         system = "aarch64-linux";
         modules = [
           ./madoka/configuration.nix
+          sops-nix.nixosModules.sops
           { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
           genRev
         ];

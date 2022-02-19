@@ -17,6 +17,8 @@
       "vm.vfs_cache_pressure" = 50;
       "kernel.sysrq" = 1;
     };
+
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 
   hardware.cpu.intel.updateMicrocode = true;

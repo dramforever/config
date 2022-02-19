@@ -79,7 +79,28 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nix-dram": "nix-dram",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "sops-nix": "sops-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1644599065,
+        "narHash": "sha256-oFLRb9p954wiUGn8iU5wOCY/7yBrT4Xvg7Ew07MvSKs=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "fc22eff3205e9742c1b0fd229c267bf237f0c43e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     }
   },
