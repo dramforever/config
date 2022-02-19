@@ -135,4 +135,8 @@
     };
     wantedBy = [ "timers.target" ];
   };
+
+  services.journald.extraConfig = ''
+    Storage=volatile
+  '';
 }
