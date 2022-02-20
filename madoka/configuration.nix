@@ -16,6 +16,7 @@
     secrets = {
       hostapd_conf = {};
       goauthing = {};
+      gandi_auth_header = {};
     };
   };
 
@@ -132,6 +133,23 @@
   systemd.timers.goauthing = {
     timerConfig = {
       OnCalendar = "minutely";
+    };
+    wantedBy = [ "timers.target" ];
+  };
+
+  systemd.services.gandi-ddns = {
+    serviceConfig = {
+      Type = "oneshot";
+      DynamicUser = true;
+      LoadCredential = "gandi_auth_header:${config.sops.secrets.gandi_auth_header.path}";
+    };
+    path = with pkgs; [ iproute2 jq curl ];
+    script = builtins.readFile ./gandi.sh;
+  };
+
+  systemd.timers.gandi-ddns = {
+    timerConfig = {
+      OnCalendar = "hourly";
     };
     wantedBy = [ "timers.target" ];
   };
