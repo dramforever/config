@@ -6,8 +6,9 @@ ip --json addr show eth0 \
                 [ .[].addr_info[] | select(.scope == "global") ]
                 | group_by(.family)[]
                 | {
-                    rrset_type: { "inet": "A", "inet6": "AAAA" }[.[0].family],
-                    rrset_values: [ .[].local ]
+                    "rrset_type": { "inet": "A", "inet6": "AAAA" }[.[0].family],
+                    "rrset_values": [ .[].local ],
+                    "rrset_ttl": 300
                 }
             ]
         }' \
