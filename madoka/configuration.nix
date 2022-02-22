@@ -28,6 +28,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2X4EKIQTUUctgGnrXhHYddKzs69hXsmEK2ePBzSIwM"
     ];
+    hashedPassword = "$6$bwYzFNAe7bZnxzAI$u3WlS7BKOx8gGAR8Qlw6SkvrojvJKz2BpKgZLxr41BUzAFt24LeB1zwywgxMwUbC7nI5H4I0OQKF3Txdo8JKI.";
   };
 
   users.mutableUsers = false;
@@ -157,4 +158,8 @@
   services.journald.extraConfig = ''
     Storage=volatile
   '';
+
+  environment.systemPackages = with pkgs; [
+    iw
+  ];
 }
