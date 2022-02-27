@@ -8,12 +8,12 @@
 
 let
   wolfram-engine = stdenv.mkDerivation rec {
-    version = "12.1";
+    version = "13.0";
     pname = "wolfram-engine";
     src = fetchurl {
       url =
         "https://account.wolfram.com/download/public/wolfram-engine/desktop/LINUX";
-      sha256 = "1p7rhjzrl7k141c8kns007rf6088xpcyh8q8pkji5nshfmlqja25";
+      sha256 = "10cpwllz9plxz22iqdh6xgkxqphl9s9nq8ax16pafjll6j9kqy1q";
     };
 
     nativeBuildInputs = [ fakeroot ];
