@@ -110,12 +110,9 @@
 
   services.openssh = {
     enable = true;
-    listenAddresses = [
-      { addr = "10.0.0.1"; port = 22; }
-    ];
     passwordAuthentication = false;
     kbdInteractiveAuthentication = false;
-    ports = [];
+    ports = [ 25519 ];
   };
 
   security.sudo.extraRules = [
