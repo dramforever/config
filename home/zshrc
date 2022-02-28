@@ -172,5 +172,7 @@ EOF
 
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888888,underline"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="*[\n]*"
+
 
 # vim: foldmethod=marker foldcolumn=2
