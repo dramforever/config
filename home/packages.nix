@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
@@ -48,4 +48,15 @@
     write_stylus
     zoom-us
   ];
+
+  home.activation.installPackages = {
+    data = lib.mkForce "";
+    before = lib.mkForce [];
+    after = lib.mkForce [];
+  };
+
+  home.file.nix-profile = {
+    source = config.home.path;
+    target = ".nix-profile";
+  };
 }
