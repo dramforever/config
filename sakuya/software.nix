@@ -4,7 +4,7 @@
   documentation.dev.enable = true;
 
   environment.systemPackages = with pkgs; [
-    manpages
+    man-pages
     fcitx-configtool
     utillinux
     pciutils

@@ -3,7 +3,7 @@
 { stdenv, coreutils, patchelf, requireFile, callPackage, makeWrapper, alsaLib
 , dbus, fontconfig, freetype, gcc, glib, libssh2, ncurses, opencv, openssl
 , unixODBC, xkeyboard_config, xorg, zlib, libxml2, libuuid, lang ? "en", libGL
-, libGLU, fetchurl, fakeroot, buildFHSUserEnv, dbus_libs, runCommand
+, libGLU, fetchurl, fakeroot, buildFHSUserEnv, runCommand
 , lib }:
 
 let
@@ -139,7 +139,7 @@ let
 
   env = buildFHSUserEnv {
     name = "${wolfram-engine.name}-env";
-    targetPkgs = pkgs': [ wolfram-engine dbus_libs ];
+    targetPkgs = pkgs': [ wolfram-engine ];
     runScript = "";
   };
 

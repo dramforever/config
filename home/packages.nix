@@ -21,7 +21,7 @@
     jdk11
     jq
     kdeconnect
-    kicad
+    # kicad
     ksshaskpass
     libarchive
     nix-index
