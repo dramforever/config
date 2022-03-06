@@ -3,7 +3,7 @@
 { stdenv, lib, buildFHSUserEnv }:
 
 buildFHSUserEnv {
-  name = "xilinx-env";
+  name = "matlab-env";
   targetPkgs = pkgs:
     (with pkgs; [
       cacert
