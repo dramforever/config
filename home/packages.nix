@@ -47,6 +47,9 @@
     wolfram-engine
     write_stylus
     zoom-us
+
+    xilinx-env
+    matlab-env
   ];
 
   home.activation.installPackages = {
