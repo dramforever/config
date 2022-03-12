@@ -18,6 +18,7 @@
     hexchat
     htop
     inkscape
+    itch
     jdk11
     jq
     kdeconnect
@@ -36,7 +37,6 @@
     ripgrep
     spectacle
     stack
-    steam
     syncthingtray
     tdesktop
     thunderbird
