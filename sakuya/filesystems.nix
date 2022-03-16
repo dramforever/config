@@ -8,7 +8,7 @@ let
   subvolume = name: {
     device = btrfsDev;
     fsType = "btrfs";
-    options = [ "subvol=/${name}" "compress-force=zstd" ];
+    options = [ "subvol=/${name}" "compress-force=zstd" "noatime" ];
   };
 
 in {
