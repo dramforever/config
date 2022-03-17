@@ -8,11 +8,11 @@ buildGoModule rec {
   src = fetchFromGitLab {
     owner = "NickCao";
     repo = "RAIT";
-    rev = "6d26eef1389c391b71cf5aad4bd64570462d5378"; # heads/master
-    sha256 = "18ahpsfisf21zaw3jc1k82nc57i58cvy294k2dfw02wxqh99p3ml";
+    rev = "e84e803641ec3a2dce5670275ea8d5497608f483";
+    hash = "sha256-vaRPmHrom4GEOuAdILzFpttc4vwcRVQWhLNalCco2qE=";
   };
 
-  vendorSha256 = "sha256-55Zu1g+pwTt6dU1QloxfFkG2dbnK5gg84WvRhz2ND3M=";
+  vendorSha256 = "sha256-pMltPbi1tOfxIBjLHtSxqSQUy7sMTDa8YJ9PeQp3b3k=";
 
   subPackages = [ "cmd/rait" ];
 
