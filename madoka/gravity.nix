@@ -17,7 +17,7 @@
     transport {
       address_family = "ip4"
       address        = "madoka.dram.page"
-      send_port      = 47528
+      send_port      = 56133
       mtu            = 1420
       ifprefix       = "grv4x"
       ifgroup        = 54
@@ -28,7 +28,7 @@
     transport {
       address_family = "ip6"
       address        = "madoka.dram.page"
-      send_port      = 47529
+      send_port      = 56134
       mtu            = 1400
       ifprefix       = "grv6x"
       ifgroup        = 56
@@ -39,7 +39,7 @@
     babeld {
       enabled     = true
       socket_type = "unix"
-      socket_addr = "/run/gravity.ctl"
+      socket_addr = "/run/babeld.ctl"
     }
 
     remarks = {
@@ -60,13 +60,6 @@
 
   # networking.firewall.enable = false;
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
-
-  networking.interfaces.wlan0.ipv6.addresses = [
-    {
-      address = "2a0c:b641:69c:baba::1";
-      prefixLength = 64;
-    }
-  ];
 
   systemd.services.gravity = {
     description = "the gravity overlay network";

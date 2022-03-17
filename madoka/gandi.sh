@@ -1,9 +1,15 @@
 set -eo pipefail
 
-ip --json addr show eth0 \
+ip --json addr show \
     | jq '{
             "items": [
-                [ .[].addr_info[] | select(.scope == "global") ]
+                [ .[] | .ifname as $ifname | .addr_info[]
+                    | select(
+                        .scope == "global"
+                        and ($ifname == "eth0"
+                            or ($ifname == "wlan0"
+                                and (.dynamic | not)
+                                and .family == "inet6"))) ]
                 | group_by(.family)[]
                 | {
                     "rrset_type": { "inet": "A", "inet6": "AAAA" }[.[0].family],

@@ -89,14 +89,14 @@
   systemd.network.networks = {
     eth0 = {
       name = "eth0";
-      DHCP = "yes";
+      DHCP = "ipv4";
+      networkConfig.IPv6AcceptRA = false;
       dhcpV4Config.UseDNS = true;
-      dhcpV6Config.UseDNS = true;
     };
 
     wlan0 = {
       name = "wlan0";
-      address = [ "10.0.0.1/24" ];
+      address = [ "10.0.0.1/24" "2a0c:b641:69c:baba::1/64" ];
 
       dhcpServerConfig = {
         PoolOffset = 100;
