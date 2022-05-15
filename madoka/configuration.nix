@@ -85,6 +85,7 @@
   };
 
   services.resolved.enable = true;
+  services.resolved.dnssec = "false";
 
   systemd.network.networks = {
     eth0 = {
