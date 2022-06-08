@@ -44,6 +44,7 @@
 
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userEmail = "dramforever@live.com";
     userName = "dramforever";
     extraConfig = {
@@ -51,6 +52,12 @@
       pull.ff = "only";
       push.default = "current";
       rerere.enabled = true;
+      sendemail = {
+        smtpencryption = "tls";
+        smtpserver = "smtp.office365.com";
+        smtpuser = "dramforever@live.com";
+        smtpserverport = 587;
+      };
     };
   };
 
