@@ -50,7 +50,6 @@
         modules = [
           ./sakuya/configuration.nix
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
-          { system.extraDependencies = [ self.lib.inputsJSON ]; }
           genRev
         ];
       };
@@ -74,7 +73,5 @@
         username = "dram";
         configuration = ./home/home.nix;
       };
-
-      lib.inputsJSON = import ./bits/inputs-json.nix self;
     });
 }
