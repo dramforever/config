@@ -1,6 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
+  inputs.nixpkgs-telegram.url = "github:NixOS/nixpkgs/48037fd90426e44e4bf03e6479e88a11453b9b66";
   inputs.nixpkgs.url = "github:tuna-nixpkgs/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
 
@@ -20,7 +21,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nix-dram, home-manager, sops-nix }:
+  outputs = { self, nixpkgs, nixpkgs-telegram, flake-utils, nix-dram, home-manager, sops-nix }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -43,6 +44,9 @@
       overlays = {
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
+        replace-telegram = final: prev: {
+          tdesktop = nixpkgs-telegram.legacyPackages.${final.system}.tdesktop;
+        };
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
