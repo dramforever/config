@@ -18,4 +18,6 @@
     [ { from = 1714; to = 1764; } ];
   networking.firewall.allowedUDPPortRanges =
     [ { from = 1714; to = 1764; } ];
+
+  networking.networkmanager.unmanaged = [ "enp58s0u1u4" ];
 }
