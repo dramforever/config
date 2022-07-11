@@ -38,5 +38,8 @@
 
     # Teensy
     SUBSYSTEMS=="usb", ATTR{idVendor}=="16c0", ATTR{idProduct}=="0478", GROUP="hwdevel", MODE="0660"
+
+    # FTDI-compatible debugger thingy
+    SUBSYSTEMS=="usb", ATTR{idVendor}=="0403", ATTR{idProduct}=="6010", GROUP="hwdevel", MODE="0660"
   '';
 }
