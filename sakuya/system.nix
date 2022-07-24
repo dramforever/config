@@ -22,14 +22,14 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  services.tlp = {
-    enable = true;
-    settings = {
-      SATA_LINKPWR_ON_BAT = "max_performance";
-      CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-    };
-  };
+  # services.tlp = {
+  #   enable = true;
+  #   settings = {
+  #     SATA_LINKPWR_ON_BAT = "max_performance";
+  #     CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #   };
+  # };
 
   services.usbmuxd.enable = true;
   services.thermald.enable = true;

@@ -85,4 +85,10 @@
   services.syncthing = {
     enable = true;
   };
+
+  home = {
+    username = "dram";
+    homeDirectory = "/home/dram";
+    stateVersion = "21.05";
+  };
 }

@@ -18,7 +18,7 @@
     hexchat
     htop
     inkscape
-    itch
+    # itch
     jdk11
     jq
     kdeconnect

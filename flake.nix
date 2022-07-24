@@ -69,13 +69,8 @@
       };
 
       homeConfigurations.dram = home-manager.lib.homeManagerConfiguration {
-        system = null;
         pkgs = self.legacyPackages."x86_64-linux";
-        stateVersion = "21.05";
-
-        homeDirectory = "/home/dram";
-        username = "dram";
-        configuration = ./home/home.nix;
+        modules = [ ./home/home.nix ];
       };
     });
 }
