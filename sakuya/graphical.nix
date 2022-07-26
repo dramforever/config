@@ -37,8 +37,8 @@
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
 
   i18n.inputMethod = {
-    enabled = "fcitx";
-    fcitx.engines = with pkgs.fcitx-engines; [ rime mozc ];
+    enabled = "fcitx5";
+    fcitx5.addons = [ pkgs.fcitx5-rime ];
   };
 
   fonts.fonts = with pkgs; [
