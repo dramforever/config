@@ -54,6 +54,15 @@
         ];
       };
 
+      nixosConfigurations.kuriko = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./kuriko/configuration.nix
+          { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
+          genRev
+        ];
+      };
+
       nixosConfigurations.madoka = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
