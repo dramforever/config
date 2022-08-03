@@ -3,6 +3,20 @@
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    age = {
+      keyFile = "/var/lib/age-key.txt";
+      sshKeyPaths = [ ];
+    };
+
+    gnupg.sshKeyPaths = [ ];
+
+    secrets = {
+      mail_password = {};
+    };
+  };
+
   boot.initrd.availableKernelModules = [ "ahci" "virtio_pci" "xhci_hcd" "sd_mod" "sr_mod" ];
 
   boot.loader = {
@@ -35,4 +49,29 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2X4EKIQTUUctgGnrXhHYddKzs69hXsmEK2ePBzSIwM"
     ];
   };
+
+  mailserver = {
+    enable = true;
+    fqdn = "kuriko.dram.page";
+    domains = [ "dram.page" ];
+
+    loginAccounts = {
+        "uwu@dram.page" = {
+            hashedPasswordFile = config.sops.secrets.mail_password.path;
+            aliases = ["postmaster@dram.page"];
+        };
+    };
+
+    certificateScheme = 3;
+
+    hierarchySeparator = "/";
+    useFsLayout = true;
+  };
+
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "dramforever@live.com";
+
+  nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
+
+  system.stateVersion = "21.11";
 }

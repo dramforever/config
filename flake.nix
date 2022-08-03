@@ -3,6 +3,7 @@
 
   inputs.nixpkgs.url = "github:tuna-nixpkgs/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
+  inputs.simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
 
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
@@ -20,7 +21,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, nix-dram, home-manager, sops-nix }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -58,6 +59,8 @@
         system = "x86_64-linux";
         modules = [
           ./kuriko/configuration.nix
+          sops-nix.nixosModules.sops
+          simple-nixos-mailserver.nixosModules.mailserver
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
           genRev
         ];
