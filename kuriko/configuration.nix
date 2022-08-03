@@ -48,6 +48,13 @@
     users.root.openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2X4EKIQTUUctgGnrXhHYddKzs69hXsmEK2ePBzSIwM"
     ];
+    users.dram = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII2X4EKIQTUUctgGnrXhHYddKzs69hXsmEK2ePBzSIwM"
+      ];
+    };
   };
 
   mailserver = {
@@ -71,7 +78,30 @@
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "dramforever@live.com";
 
-  nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
+  security.sudo.wheelNeedsPassword = false;
+
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 1d";
+    };
+
+    nixPath = [ "nixpkgs=/home/dram/code/config" ];
+
+    package = pkgs.nix-dram;
+
+    settings =
+      let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });
+      in {
+        trusted-users = [ "root" "dram" ];
+        experimental-features = [ "nix-command" "flakes" ];
+        default-flake = "github:NixOS/nixpkgs/nixos-unstable";
+        flake-registry = flakesEmpty;
+        auto-optimise-store = true;
+        trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
+      };
+  };
 
   system.stateVersion = "21.11";
 }
