@@ -80,6 +80,12 @@
 
   security.sudo.wheelNeedsPassword = false;
 
+  services.znc = {
+    enable = true;
+    mutable = true;
+    useLegacyConfig = false;
+  };
+
   nix = {
     gc = {
       automatic = true;
