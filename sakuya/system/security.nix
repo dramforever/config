@@ -19,5 +19,8 @@
 
     services.sudo.u2fAuth = true;
     services.doas.u2fAuth = true;
+
+    services.sddm.nodelay = true;
+    services.kde.nodelay = true;
   };
 }
