@@ -30,6 +30,10 @@
       };
 
       packages.home-manager = home-manager.defaultPackage.${system};
+
+      packages.sakuya = self.nixosConfigurations.sakuya.config.system.build.toplevel;
+      packages.madoka = self.nixosConfigurations.madoka.config.system.build.toplevel;
+      packages.dram = self.homeConfigurations.dram.activationPackage;
     }) //
     (let
       genRev = {
