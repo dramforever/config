@@ -49,7 +49,6 @@
     zoom-us
 
     xilinx-env
-    matlab-env
   ];
 
   home.activation.installPackages = {
