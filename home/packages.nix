@@ -26,6 +26,7 @@
     ksshaskpass
     libarchive
     nix-index
+    nix-output-monitor
     nodejs
     obs-studio
     okular
