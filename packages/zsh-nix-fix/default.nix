@@ -13,4 +13,8 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/share/zsh/site-functions
     cp $src $out/share/zsh/site-functions/_nix
   '';
+
+  meta = {
+    priority = 5; # Higher than nix-zsh-completions
+  };
 }

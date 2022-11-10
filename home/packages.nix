@@ -47,6 +47,7 @@
     wolfram-engine
     write_stylus
     zoom-us
+    zsh-nix-fix
 
     xilinx-env
   ];
