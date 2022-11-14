@@ -35,6 +35,7 @@
     plasma-browser-integration
     plasma5Packages.bismuth
     python3
+    python3.pkgs.ipython
     ripgrep
     spectacle
     stack
