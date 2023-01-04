@@ -2,19 +2,26 @@ declare -A nixenv_paths
 
 nadd() {
     setopt local_options err_return pipefail
+    local out out_paths
     for installable in "$@"; do
-        out="$(nix build --json --no-link $installable | jq -r '.[].outputs[]' | head -1)"
-        nixenv_paths[$installable]="$out"
-        path=("$out/bin" "${path[@]}")
+        local out=(${(@f)"$(nix build --json --no-link $installable | jq -r '.[].outputs[]')"})
+        local out_paths=(${^out}/bin)
+        local joined_paths="${(j/:/)out_paths}"
+        if (($path[(Ie)$joined_paths])); then
+            echo $installable already added
+        else
+            nixenv_paths[$installable]="$joined_paths"
+            path=("$joined_paths" "${path[@]}")
+        fi
     done
 }
 
 nrm() {
     for installable in "$@"; do
-        out="${nixenv_paths[$installable]}"
+        local out="${nixenv_paths[$installable]}"
         unset "nixenv_paths[$installable]"
 
-        index="${path[(Ie)$out/bin]}"
+        index="${path[(Ie)$out]}"
         [[ $index -eq 0 ]] && continue
 
         path[$index]=()
