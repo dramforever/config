@@ -4,7 +4,12 @@ nadd() {
     setopt local_options err_return pipefail
     local out out_paths
     for installable in "$@"; do
-        local out=(${(@f)"$(nix build --json --no-link $installable | jq -r '.[].outputs[]')"})
+        local with_outputs="$installable^*"
+        if [[ "$installable" = *"^"* ]]; then
+            with_outputs="$installable"
+        fi
+
+        local out=(${(@f)"$(nix build --json --no-link $with_outputs | jq -r '.[].outputs[]')"})
         local out_paths=(${^out}/bin)
         local joined_paths="${(j/:/)out_paths}"
         if (($path[(Ie)$joined_paths])); then
