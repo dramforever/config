@@ -10,6 +10,8 @@
     kernelParams = [ "quiet" "mitigations=off" "mem_sleep_default=deep" ];
     supportedFilesystems = [ "nfs" ];
 
+    initrd.systemd.enable = true;
+
     kernelPackages = pkgs.linuxPackages_latest;
 
     kernel.sysctl = {
