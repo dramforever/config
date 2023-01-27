@@ -54,9 +54,8 @@
 
   services.openssh = {
     enable = true;
-    # passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
     ports = [ 20297 ];
+    settings.KbdInteractiveAuthentication = false;
   };
 
   services.pcscd = {
