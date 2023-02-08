@@ -59,6 +59,7 @@
         smtpserverport = 587;
       };
     };
+    ignores = [ "/.direnv" ];
   };
 
   programs.vim = {
