@@ -17,7 +17,14 @@
     initExtra = ''
       source ${./zshrc}
       source ${./nixenv.zsh}
+      # source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
     '';
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    tmux.enableShellIntegration = true;
   };
 
   programs.direnv = {
