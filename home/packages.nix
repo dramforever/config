@@ -45,7 +45,6 @@
     tig
     usbutils
     vlc
-    vscode
     wolfram-engine
     write_stylus
     zoom-us
