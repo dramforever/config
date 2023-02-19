@@ -87,7 +87,7 @@
   };
 
   services.radvd = {
-    enable = false;
+    enable = true;
     config = ''
       interface wlan0 {
         AdvSendAdvert on;
