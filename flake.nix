@@ -21,7 +21,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix }:
+  inputs.NickCao = {
+    url = "github:NickCao/flakes";
+    flake = false;
+  };
+
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -49,6 +54,9 @@
       overlays = {
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
+        rait = (final: prev: {
+          rait = final.callPackage (NickCao + "/pkgs/rait") {};
+        });
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
