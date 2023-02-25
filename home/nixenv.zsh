@@ -9,33 +9,49 @@ nadd() {
             with_outputs="$installable"
         fi
 
-        local out=(${(@f)"$(nix build --json --no-link $with_outputs | jq -r '.[].outputs[]')"})
+        local out=""
+        out=(${(@f)"$(nix build --json --no-link $with_outputs | jq --raw-output '.[].outputs[]')"})
+
         local out_paths=(${^out}/bin)
-        local joined_paths="${(j/:/)out_paths}"
-        if (($path[(Ie)$joined_paths])); then
-            echo $installable already added
+        local added_paths=()
+
+        for p in "${out_paths[@]}"; do
+            if (($path[(Ie)$p] == 0)); then
+                added_paths+=("$p")
+            fi
+        done
+
+        if (("${#added_paths[@]}" == 0)); then
+            echo "$installable: Already added" >&2
         else
-            nixenv_paths[$installable]="$joined_paths"
-            path=("$joined_paths" "${path[@]}")
+            nixenv_paths[$installable]="${(j/:/)added_paths}"
+            path=("${added_paths[@]}" "${path[@]}")
         fi
     done
 }
 
 nrm() {
     for installable in "$@"; do
-        local out="${nixenv_paths[$installable]}"
+        local added_paths="${nixenv_paths[$installable]}"
         unset "nixenv_paths[$installable]"
 
-        index="${path[(Ie)$out]}"
-        [[ $index -eq 0 ]] && continue
-
-        path[$index]=()
+        for p in "${(@s/:/)added_paths}"; do
+            index="${path[(Ie)$p]}"
+            (( $index != 0 )) && path[$index]=()
+        done
     done
 }
 
 nls() {
-    for installable out in "${(@kv)nixenv_paths}"; do
-        echo "$installable -> $out"
+    for installable added_paths in "${(@kv)nixenv_paths}"; do
+        echo "$installable:"
+
+        for p in "${(@s/:/)added_paths}"; do
+            if [[ -d $p ]]; then
+                echo "  $p"
+                echo "    ${(@f)"$(ls --color=always $p)"}"
+            fi
+        done
     done
 }
 
@@ -48,7 +64,20 @@ _nadd() {
 compdef _nadd nadd
 
 _nrm() {
-    _values 'nrm' "${(@k)nixenv_paths}"
+    local keys=(${(@k)nixenv_paths})
+
+    for i in {2..${#words}}; do
+        if (($i == $CURRENT)); then
+            continue
+        fi
+        local remove="${words[$i]}"
+        local index="${keys[(Ie)$remove]}"
+        (( $index != 0 )) && keys[$index]=()
+    done
+
+    if ((${#keys[@]})); then
+        _values 'nrm' "${keys[@]}"
+    fi
 }
 
 compdef _nrm nrm
