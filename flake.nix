@@ -26,7 +26,12 @@
     flake = false;
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao }:
+  inputs.linyinfeng = {
+    url = "github:linyinfeng/nur-packages";
+    flake = false;
+  };
+
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao, linyinfeng }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -54,8 +59,9 @@
       overlays = {
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
-        rait = (final: prev: {
+        stuff = (final: prev: {
           rait = final.callPackage (NickCao + "/pkgs/rait") {};
+          linyinfeng = final.callPackage (linyinfeng + "/pkgs") {};
         });
       };
 
