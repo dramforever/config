@@ -31,7 +31,7 @@
   #   };
   # };
 
-  services.usbmuxd.enable = true;
+  # services.usbmuxd.enable = true;
   services.thermald.enable = true;
 
   services.printing.enable = true;

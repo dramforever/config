@@ -9,8 +9,8 @@
     utillinux
     pciutils
     nvidia-offload
-    libimobiledevice
-    usbmuxd
+    # libimobiledevice
+    # usbmuxd
     nix-search
     git
     zsh-nix-fix
@@ -35,8 +35,8 @@
     };
   };
 
-  services.lorri.enable = true;
-  services.flatpak.enable = true;
+  # services.lorri.enable = true;
+  # services.flatpak.enable = true;
 
   programs.dconf.enable = true;
 

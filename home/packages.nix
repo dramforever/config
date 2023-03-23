@@ -29,7 +29,7 @@
     nix-output-monitor
     nodejs
     obs-studio
-    okular
+    # okular
     pinentry-qt
     pinta
     plasma-browser-integration
@@ -38,7 +38,7 @@
     python3.pkgs.ipython
     ripgrep
     spectacle
-    stack
+    # stack
     syncthingtray
     tdesktop
     thunderbird
@@ -47,7 +47,7 @@
     vlc
     wolfram-engine
     write_stylus
-    zoom-us
+    # zoom-us
     zsh-nix-fix
 
     xilinx-env
