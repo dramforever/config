@@ -61,7 +61,7 @@
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
         stuff = (final: prev: {
           rait = final.callPackage (NickCao + "/pkgs/rait") {};
-          linyinfeng = final.callPackage (linyinfeng + "/pkgs") {};
+          linyinfeng = final.callPackage (linyinfeng + "/pkgs") { selfLib = null; };
         });
       };
 
