@@ -25,6 +25,7 @@ buildFHSUserEnv {
     glib
     gtk2
     gtk3
+    libxcrypt
 
     # from installLibs.sh
     graphviz
