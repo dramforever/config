@@ -5,7 +5,6 @@
 
   environment.systemPackages = with pkgs; [
     man-pages
-    fcitx-configtool
     utillinux
     pciutils
     nvidia-offload

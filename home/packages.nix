@@ -45,7 +45,7 @@
     tig
     usbutils
     vlc
-    wolfram-engine
+    # wolfram-engine
     write_stylus
     # zoom-us
     zsh-nix-fix

@@ -24,7 +24,7 @@
 
     videoDrivers = [ "nvidia" ];
 
-    digimend.enable = true;
+    # digimend.enable = true;
   };
 
   hardware.nvidia.prime = {
