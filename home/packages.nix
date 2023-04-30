@@ -51,6 +51,8 @@
     zsh-nix-fix
 
     xilinx-env
+
+    linyinfeng.clash-for-windows
   ];
 
   home.activation.installPackages = {
