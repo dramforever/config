@@ -21,7 +21,7 @@
 
   boot.loader = {
     grub.enable = true;
-    grub.device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_drive-scsi0-0-0-0";
+    grub.device = "/dev/disk/by-path/pci-0000:06:00.0-scsi-0:0:0:0";
   };
 
   fileSystems."/" = {
@@ -38,9 +38,11 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "yes";
-    passwordAuthentication = false;
-    kbdInteractiveAuthentication = false;
+    settings = {
+      PermitRootLogin = "yes";
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
 
   users = {
@@ -59,6 +61,7 @@
 
   mailserver = {
     enable = true;
+    localDnsResolver = false;
     fqdn = "kuriko.dram.page";
     domains = [ "dram.page" ];
 
@@ -69,7 +72,7 @@
         };
     };
 
-    certificateScheme = 3;
+    certificateScheme = "acme-nginx";
 
     hierarchySeparator = "/";
     useFsLayout = true;
