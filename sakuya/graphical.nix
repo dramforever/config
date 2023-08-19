@@ -41,7 +41,7 @@
     fcitx5.addons = [ pkgs.fcitx5-rime ];
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     sarasa-gothic
   ];
 
