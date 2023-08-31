@@ -53,6 +53,7 @@
     xilinx-env
 
     linyinfeng.clash-for-windows
+    linyinfeng.wemeet
   ];
 
   home.activation.installPackages = {
