@@ -27,8 +27,8 @@
       };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    oraclejdk.accept_license = true;
-  };
+  # nixpkgs.config = {
+  #   allowUnfree = true;
+  #   oraclejdk.accept_license = true;
+  # };
 }
