@@ -9,7 +9,6 @@ nadd() {
             with_outputs="$installable"
         fi
 
-        local out=""
         out=(${(@f)"$(nix build --json --no-link $with_outputs | jq --raw-output '.[].outputs[]')"})
 
         local out_paths=(${^out}/bin)
