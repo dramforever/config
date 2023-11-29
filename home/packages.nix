@@ -10,6 +10,7 @@
     binutils
     bitwarden
     chromium
+    # clash-verge
     file
     gdb
     gh
