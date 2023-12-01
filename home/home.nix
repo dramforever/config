@@ -30,7 +30,12 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
-    nix-direnv.enable = true;
+    nix-direnv = {
+      enable = true;
+      package = pkgs.nix-direnv.override {
+        nix = pkgs.nix-dram;
+      };
+    };
   };
 
   programs.tmux = {
