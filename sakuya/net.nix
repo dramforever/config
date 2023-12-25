@@ -22,5 +22,5 @@
   networking.networkmanager.unmanaged = [ "enp58s0u1u4" ];
 
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
 }
