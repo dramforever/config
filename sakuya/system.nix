@@ -10,7 +10,7 @@
 
   time.timeZone = "Asia/Shanghai";
 
-  networking.timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
+  # networking.timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
   networking.hostId = "7a387e5f";
 
   console = {
