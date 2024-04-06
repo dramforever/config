@@ -13,7 +13,7 @@ buildGoModule rec {
 
   patches = [ ./remove-tests.patch ];
 
-  vendorSha256 = "sha256-g2eEKOwfy/CDSBGQi9GsqEblt90V6j32yCe6Rf6nro4=";
+  vendorHash = "sha256-g2eEKOwfy/CDSBGQi9GsqEblt90V6j32yCe6Rf6nro4=";
 
   subPackages = [ "cli" ];
 
