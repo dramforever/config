@@ -27,7 +27,7 @@
   };
 
   inputs.linyinfeng = {
-    url = "github:linyinfeng/nur-packages";
+    url = "github:linyinfeng/nur-packages/65526f93953d1a367bc938a3c4a95a8dba41f130";
     flake = false;
   };
 
