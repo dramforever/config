@@ -1,8 +1,6 @@
 { config, pkgs, lib, modulesPath, ... }:
 
 {
-  imports = [ ./gravity.nix ];
-
   nix.package = pkgs.nixVersions.unstable;
   nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
 

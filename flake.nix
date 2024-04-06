@@ -60,7 +60,7 @@
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
         stuff = (final: prev: {
-          rait = final.callPackage (NickCao + "/pkgs/rait") {};
+          # rait = final.callPackage (NickCao + "/pkgs/rait") {};
           linyinfeng = final.callPackage (linyinfeng + "/pkgs") { selfLib = null; };
         });
       };
