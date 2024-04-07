@@ -34,7 +34,7 @@
     pinentry-qt
     pinta
     plasma-browser-integration
-    plasma5Packages.polonium
+    polonium_0_6
     python3
     python3.pkgs.ipython
     ripgrep
