@@ -40,6 +40,7 @@
     ripgrep
     spectacle
     # stack
+    steam
     syncthingtray
     tdesktop
     thunderbird
