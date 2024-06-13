@@ -18,14 +18,13 @@ buildFHSUserEnv {
     xorg.libXi
     xorg.libXft
     xorg.libxcb
-    xorg.libxcb
     # common requirements
     freetype
     fontconfig
     glib
     gtk2
     gtk3
-    libxcrypt
+    libxcrypt-legacy
 
     # from installLibs.sh
     graphviz
