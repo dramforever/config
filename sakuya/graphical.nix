@@ -18,7 +18,7 @@
     };
 
     displayManager.hiddenUsers = [ "hex" ];
-    desktopManager.plasma5.enable = true;
+    desktopManager.plasma6.enable = true;
 
     xkbOptions = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
 
