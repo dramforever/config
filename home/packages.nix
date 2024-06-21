@@ -15,16 +15,16 @@
     gdb
     gh
     gtkwave
-    gwenview
+    kdePackages.gwenview
     hexchat
     htop
     inkscape
     # itch
     jdk11
     jq
-    kdeconnect
+    kdePackages.kdeconnect-kde
     # kicad
-    ksshaskpass
+    kdePackages.ksshaskpass
     libarchive
     nix-index
     nix-output-monitor
@@ -33,12 +33,12 @@
     # okular
     pinentry-qt
     pinta
-    plasma-browser-integration
+    kdePackages.plasma-browser-integration
     libsForQt5.polonium
     python3
     python3.pkgs.ipython
     ripgrep
-    spectacle
+    kdePackages.spectacle
     # stack
     steam
     syncthingtray
