@@ -6,6 +6,7 @@
     layout = "us";
 
     libinput.enable = true;
+    digimend.enable = true;
 
     displayManager.sddm = {
       enable = true;
