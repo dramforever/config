@@ -25,6 +25,7 @@
     kdePackages.kdeconnect-kde
     # kicad
     kdePackages.ksshaskpass
+    krita
     libarchive
     nix-index
     nix-output-monitor
