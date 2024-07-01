@@ -115,6 +115,7 @@
     passwordAuthentication = false;
     kbdInteractiveAuthentication = false;
     ports = [ 25519 ];
+    settings.LoginGraceTime = 0;
   };
 
   security.sudo.extraRules = [
