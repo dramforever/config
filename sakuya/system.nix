@@ -57,7 +57,6 @@
     ports = [ 20297 ];
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
-    settings.LoginGraceTime = 0;
   };
 
   services.pcscd = {
