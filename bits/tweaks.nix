@@ -6,4 +6,11 @@ self: super:
       withNvenc = true;
     };
   };
+
+  nextpnr-himbaechel = super.nextpnr.overrideAttrs (old: {
+    cmakeFlags = old.cmakeFlags ++ [
+      "-DARCH=himbaechel"
+      "-DHIMBAECHEL_GOWIN_DEVICES=all"
+    ];
+  });
 }
