@@ -1,7 +1,7 @@
 { config, pkgs, lib, modulesPath, ... }:
 
 {
-  nix.package = pkgs.nixVersions.unstable;
+  nix.package = pkgs.nixVersions.git;
   nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
 
   sops = {
@@ -15,9 +15,7 @@
 
     secrets = {
       hostapd_conf = {};
-      goauthing = {};
       gandi_auth_header = {};
-      rait = {};
     };
   };
 
@@ -101,7 +99,6 @@
         PoolOffset = 100;
         PoolSize = 100;
         EmitDNS = "yes";
-        DNS = [ "166.111.8.28" "166.111.8.29" "2402:f000:1:801::8:28" "2402:f000:1:801::8:29" ];
       };
       networkConfig = {
         DHCPServer = "yes";
@@ -120,22 +117,6 @@
   security.sudo.extraRules = [
     { groups = [ "wheel" ]; commands = [ { command = "ALL"; options = [ "NOPASSWD" ]; } ]; }
   ];
-
-  systemd.services.goauthing = {
-    serviceConfig = {
-      Type = "oneshot";
-      DynamicUser = true;
-      LoadCredential = "auth:${config.sops.secrets.goauthing.path}";
-    };
-    script = "${pkgs.goauthing}/bin/goauthing -D -c \${CREDENTIALS_DIRECTORY}/auth auth";
-  };
-
-  systemd.timers.goauthing = {
-    timerConfig = {
-      OnCalendar = "minutely";
-    };
-    wantedBy = [ "timers.target" ];
-  };
 
   systemd.services.gandi-ddns = {
     serviceConfig = {
