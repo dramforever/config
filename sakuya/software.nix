@@ -16,7 +16,10 @@
     config.boot.kernelPackages.perf
   ];
 
-  programs.vim.defaultEditor = true;
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   programs.mtr.enable = true;
 

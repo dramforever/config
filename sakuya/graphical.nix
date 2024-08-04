@@ -1,12 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  services.xserver = {
-    enable = true;
-    layout = "us";
-
+  services = {
     libinput.enable = true;
-    digimend.enable = true;
+    xserver = {
+      enable = true;
+      digimend.enable = true;
+      videoDrivers = [ "nvidia" ];
+
+      xkb = {
+        layout = "us";
+        options = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
+      };
+    };
 
     displayManager.sddm = {
       enable = true;
@@ -20,12 +26,6 @@
 
     displayManager.hiddenUsers = [ "hex" ];
     desktopManager.plasma6.enable = true;
-
-    xkbOptions = "terminate:ctrl_alt_bksp,caps:ctrl_modifier";
-
-    videoDrivers = [ "nvidia" ];
-
-    # digimend.enable = true;
   };
 
   hardware.nvidia.prime = {
@@ -34,11 +34,12 @@
     offload.enable = true;
   };
 
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
+  hardware.graphics.enable32Bit = true;
+  hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = [ pkgs.fcitx5-rime ];
   };
 
