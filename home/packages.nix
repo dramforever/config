@@ -35,7 +35,7 @@
     pinentry-qt
     pinta
     kdePackages.plasma-browser-integration
-    libsForQt5.polonium
+    polonium
     python3
     python3.pkgs.ipython
     ripgrep
