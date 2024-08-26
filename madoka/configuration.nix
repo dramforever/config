@@ -1,7 +1,7 @@
 { config, pkgs, lib, modulesPath, ... }:
 
 {
-  nix.package = pkgs.nixVersions.git;
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
 
   sops = {
@@ -87,7 +87,9 @@
     eth0 = {
       name = "eth0";
       DHCP = "ipv4";
-      networkConfig.IPv6AcceptRA = false;
+      networkConfig = {
+        IPv4Forwarding = "yes";
+      };
       dhcpV4Config.UseDNS = true;
     };
 
@@ -99,6 +101,7 @@
         PoolOffset = 100;
         PoolSize = 100;
         EmitDNS = "yes";
+        DNS = [ "210.77.16.1" ];
       };
       networkConfig = {
         DHCPServer = "yes";
