@@ -79,7 +79,6 @@
     useNetworkd = true;
     useDHCP = false;
     firewall.enable = false;
-    timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
   };
 
   services.resolved.enable = true;
