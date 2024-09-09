@@ -4,6 +4,8 @@
   nix.package = pkgs.nixVersions.latest;
   nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
 
+  time.timeZone = "Asia/Shanghai";
+
   sops = {
     defaultSopsFile = ./secrets.yaml;
     age = {
@@ -134,6 +136,22 @@
   systemd.timers.gandi-ddns = {
     timerConfig = {
       OnCalendar = "hourly";
+    };
+    wantedBy = [ "timers.target" ];
+  };
+
+  systemd.services.restart-hostapd = {
+    serviceConfig = {
+      Type = "oneshot";
+    };
+    script = ''
+      systemctl restart hostapd.service
+    '';
+  };
+
+  systemd.timers.restart-hostapd = {
+    timerConfig = {
+      OnCalendar = "04:00";
     };
     wantedBy = [ "timers.target" ];
   };
