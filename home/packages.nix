@@ -40,6 +40,7 @@
     python3.pkgs.ipython
     ripgrep
     kdePackages.spectacle
+    socat
     # stack
     steam
     syncthingtray
