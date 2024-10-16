@@ -63,9 +63,6 @@
           # rait = final.callPackage (NickCao + "/pkgs/rait") {};
           linyinfeng = final.callPackage (linyinfeng + "/pkgs") { selfLib = null; };
         });
-        nix-dram = (final: prev: {
-          nix-dram = final.make-nix-dram { nix = final.nixVersions.nix_2_23; };
-        });
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {

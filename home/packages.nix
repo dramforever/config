@@ -8,7 +8,6 @@
     bat
     bind
     binutils
-    bitwarden
     chromium
     # clash-verge
     file

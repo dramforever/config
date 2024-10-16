@@ -1,7 +1,7 @@
 { config, pkgs, lib, modulesPath, ... }:
 
 {
-  nix.package = pkgs.nixVersions.nix_2_23;
+  nix.package = pkgs.nixVersions.latest;
   nix.settings.trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
 
   time.timeZone = "Asia/Shanghai";

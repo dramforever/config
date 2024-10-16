@@ -106,7 +106,6 @@ alias ls='ls --color=auto'
 cdpath=(. $HOME $HOME/code)
 alias gdb="gdb -q"
 alias yosys="yosys -Q"
-alias nixpkgs="nix-env -f '<nixpkgs>'"
 alias diff="diff --color -u"
 alias tm="tmux new-session -A -s dram"
 
@@ -115,6 +114,7 @@ alias ga="git add"
 alias gap="git add -p"
 alias gc="git commit -v"
 alias gcm="git commit --amend -v"
+alias gcmn="git commit --amend -v --no-edit"
 alias gd="git diff"
 alias gds="git diff --staged"
 alias gl="git log --graph --oneline"
@@ -125,8 +125,6 @@ alias gst="git stash"
 alias gstp="git stash pop"
 
 alias fars="curl -F 'c=@-' 'https://fars.ee/'"
-alias repulse="systemctl --user restart pulseaudio.service"
-alias resddm="doas systemctl restart display-manager.service"
 alias man="env COLUMN=80 man"
 
 rg() {

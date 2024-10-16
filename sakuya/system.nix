@@ -40,8 +40,8 @@
   systemd.services."autovt@tty1".enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
+  # hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
 
   powerManagement.cpuFreqGovernor = "powersave";
