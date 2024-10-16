@@ -14,8 +14,14 @@
       };
     };
 
-    xserver.displayManager.gdm = {
+    displayManager.sddm = {
       enable = true;
+      settings = {
+        X11 = {
+          ServerArguments = "-nolisten tcp -dpi 132";
+          MinimumVT = 1;
+        };
+      };
     };
 
     displayManager.hiddenUsers = [ "hex" ];
