@@ -39,6 +39,15 @@
     fcitx5.addons = [ pkgs.fcitx5-rime ];
   };
 
+  # https://codereview.qt-project.org/c/qt/qtbase/+/597856
+  environment.variables.QT_PLUGIN_PATH =
+    let
+      fcitx5Workaround = pkgs.runCommand "fcitx5-workaround" {} ''
+        plugins="${config.i18n.inputMethod.package}/${pkgs.qt6.qtbase.qtPluginPrefix}"
+        cp -r --dereference "$plugins" $out
+      '';
+    in [ "${fcitx5Workaround}" ];
+
   fonts.packages = with pkgs; [
     sarasa-gothic
   ];
