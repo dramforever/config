@@ -100,6 +100,14 @@
     extensions = [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
   };
 
+  home.packages = [
+    # FIXME: https://github.com/NixOS/nixpkgs/pull/347688#issuecomment-2419813563
+    (lib.hiPrio (pkgs.runCommand "vscode-workaround" {} ''
+      mkdir -p "$out/share/applications"
+      sed -e '/StartupWMClass/d' "${config.programs.vscode.package}/share/applications/code-url-handler.desktop" > "$out/share/applications/code-url-handler.desktop"
+    ''))
+  ];
+
   services.syncthing = {
     enable = true;
   };
