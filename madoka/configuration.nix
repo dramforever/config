@@ -38,6 +38,12 @@
     fsType = "ext4";
   };
 
+  fileSystems."/var/lib/systemd/timesync" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [ "size=8K" "rw" "nodev" "nosuid" "noexec" "noatime" ];
+  };
+
   boot = {
     loader = {
       grub.enable = false;
