@@ -97,7 +97,6 @@
 
   programs.vscode = {
     enable = true;
-    extensions = [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
   };
 
   home.packages = [

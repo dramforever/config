@@ -1,8 +1,8 @@
 # https://gitlab.com/doronbehar/nix-matlab/-/blob/master/common.nix
 
-{ stdenv, lib, buildFHSUserEnv }:
+{ stdenv, lib, buildFHSEnv }:
 
-buildFHSUserEnv {
+buildFHSEnv {
   name = "matlab-env";
   targetPkgs = pkgs:
     (with pkgs; [

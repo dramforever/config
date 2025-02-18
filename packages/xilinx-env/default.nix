@@ -1,8 +1,8 @@
 # https://discourse.nixos.org/t/fhs-env-for-installing-xilinx/13150
 
-{ stdenv, lib, buildFHSUserEnv }:
+{ stdenv, lib, buildFHSEnv }:
 
-buildFHSUserEnv {
+buildFHSEnv {
   name = "xilinx-env";
   targetPkgs = pkgs: with pkgs; [
     bash
