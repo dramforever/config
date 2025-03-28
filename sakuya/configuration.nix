@@ -5,6 +5,7 @@
     ./boot.nix
     ./filesystems.nix
     ./graphical.nix
+    ./tablet.nix
     ./hardware.nix
     ./net.nix
     ./software.nix
