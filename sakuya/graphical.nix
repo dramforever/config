@@ -5,7 +5,7 @@
     libinput.enable = true;
     xserver = {
       enable = true;
-      digimend.enable = true;
+      # digimend.enable = true;
       videoDrivers = [ "nvidia" ];
 
       xkb = {

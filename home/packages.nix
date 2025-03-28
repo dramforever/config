@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     ghc
     cabal-install
-    ark
+    kdePackages.ark
     bat
     bind
     binutils

@@ -39,7 +39,7 @@
         overlays = [ nix-dram.overlay ] ++ builtins.attrValues self.overlays;
       };
 
-      packages.home-manager = home-manager.defaultPackage.${system};
+      packages.home-manager = home-manager.packages.${system}.default;
 
       packages.sakuya = self.nixosConfigurations.sakuya.config.system.build.toplevel;
       packages.madoka = self.nixosConfigurations.madoka.config.system.build.toplevel;

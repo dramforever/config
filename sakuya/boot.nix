@@ -12,7 +12,7 @@
 
     initrd.systemd.enable = true;
 
-    kernelPackages = pkgs.linuxPackages_6_11;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
