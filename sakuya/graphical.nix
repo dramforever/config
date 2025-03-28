@@ -6,7 +6,7 @@
     xserver = {
       enable = true;
       # digimend.enable = true;
-      videoDrivers = [ "nvidia" ];
+      # videoDrivers = [ "nvidia" ];
 
       xkb = {
         layout = "us";
@@ -36,6 +36,8 @@
     nvidiaBusId = "PCI:1:0:0";
     offload.enable = true;
   };
+
+  hardware.nvidia.powerManagement.enable = true;
 
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
