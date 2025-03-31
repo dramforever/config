@@ -37,7 +37,10 @@
     offload.enable = true;
   };
 
-  hardware.nvidia.powerManagement.enable = true;
+  hardware.nvidia.powerManagement = {
+    enable = true;
+    finegrained = true;
+  };
 
   hardware.graphics.enable32Bit = true;
   hardware.graphics.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
