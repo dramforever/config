@@ -48,6 +48,7 @@
     tig
     usbutils
     vlc
+    wemeet
     # wolfram-engine
     write_stylus
     # zoom-us
@@ -56,7 +57,6 @@
     xilinx-env
 
     linyinfeng.clash-for-windows
-    linyinfeng.wemeet
   ];
 
   home.activation.installPackages = {
