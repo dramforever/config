@@ -9,8 +9,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   src = fetchFromGitHub {
     owner = "whot";
-    repo = finalAttrs.pname;
-    rev = finalAttrs.version;
+    repo = "huion-switcher";
+    rev = "0.5.0";
     hash = "sha256-+cMvBVtJPbsJhEmOh3SEXZrVwp9Uuvx6QmUCcpenS20=";
   };
 
