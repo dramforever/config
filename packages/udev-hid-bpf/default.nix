@@ -11,7 +11,7 @@ stdenv.mkDerivation (finalAttrs: {
   src = fetchFromGitLab {
     domain = "gitlab.freedesktop.org";
     owner = "libevdev";
-    repo = finalAttrs.pname;
+    repo = "udev-hid-bpf";
     rev = "c1626f5a66f28e4bc65c458f9bbc793bd5415a3a";
     hash = "sha256-dcb5osMzHffBJ0YgLNzpjye062/der3dajZ8+SY5f5U=";
   };
