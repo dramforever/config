@@ -3,14 +3,14 @@
 , pkg-config
 }:
 
-rustPlatform.buildRustPackage (finalAttrs: {
+rustPlatform.buildRustPackage rec {
   pname = "huion-switcher";
   version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "whot";
-    repo = "huion-switcher";
-    rev = "0.5.0";
+    repo = pname;
+    tag = version;
     hash = "sha256-+cMvBVtJPbsJhEmOh3SEXZrVwp9Uuvx6QmUCcpenS20=";
   };
 
@@ -21,6 +21,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   cargoHash = "sha256-yj55FMdf91ZG95yuMt3dQFhUjYM0/sUfFKB+W+5xEfo=";
 
   postInstall = ''
+    # Install 80-huion-switcher.rules
+
     # No longer accurate after patching below
     sed -i -e '/^# huion-switcher must live in/d' "80-huion-switcher.rules"
 
@@ -33,6 +35,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   '';
 
   meta = {
+    description = "Utility to switch Huion devices into raw tablet mode";
+    homepage = "https://github.com/whot/huion-switcher";
+    changelog = "https://github.com/whot/huion-switcher/releases/tag/${version}";
+    license = lib.licenses.gpl2Only;
+    platforms = lib.platforms.linux;
     mainProgram = "huion-switcher";
   };
-})
+}
