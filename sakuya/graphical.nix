@@ -25,7 +25,7 @@
     };
 
     displayManager.hiddenUsers = [ "hex" ];
-    displayManager.defaultSession = "plasmax11";
+    displayManager.defaultSession = "plasma";
     desktopManager.plasma6.enable = true;
   };
 
