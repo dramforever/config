@@ -20,6 +20,18 @@ rustPlatform.buildRustPackage (finalAttrs: {
   useFetchCargoVendor = true;
   cargoHash = "sha256-yj55FMdf91ZG95yuMt3dQFhUjYM0/sUfFKB+W+5xEfo=";
 
+  postInstall = ''
+    # No longer accurate after patching below
+    sed -i -e '/^# huion-switcher must live in/d' "80-huion-switcher.rules"
+
+    # Mind the trailing space! We leave the args to huion-switcher in place
+    substituteInPlace "80-huion-switcher.rules" --replace-fail \
+      "IMPORT{program}=\"huion-switcher " \
+      "IMPORT{program}=\"$out/bin/huion-switcher "
+
+    install -Dm 0644 -t "$out/lib/udev/rules.d" "80-huion-switcher.rules"
+  '';
+
   meta = {
     mainProgram = "huion-switcher";
   };
