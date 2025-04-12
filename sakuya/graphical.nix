@@ -16,12 +16,7 @@
 
     displayManager.sddm = {
       enable = true;
-      settings = {
-        X11 = {
-          ServerArguments = "-nolisten tcp -dpi 132";
-          MinimumVT = 1;
-        };
-      };
+      wayland.enable = true;
     };
 
     displayManager.hiddenUsers = [ "hex" ];
