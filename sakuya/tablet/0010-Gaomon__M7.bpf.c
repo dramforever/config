@@ -134,12 +134,27 @@ static const __u8 fixed_rdesc_vendor[] = {
 		// Byte 4/5 is the button state
 		UsagePage_Button
 		UsageMinimum_i8(1)
-		UsageMaximum_i8(13)
+		UsageMaximum_i8(10)
 		LogicalMinimum_i8(0x0)
 		LogicalMaximum_i8(0x1)
-		ReportCount(13)
+		ReportCount(10)
 		ReportSize(1)
 		Input(Var|Abs)
+
+		PushPop(
+			UsagePage_GenericDesktop
+			Usage_GD_Gamepad
+			CollectionApplication(
+				UsagePage_Button
+				UsageMinimum_i8(1)
+				UsageMaximum_i8(3)
+				LogicalMinimum_i8(0x0)
+				LogicalMaximum_i8(0x1)
+				ReportCount(3)
+				ReportSize(1)
+				Input(Var|Abs)
+			)
+		)
 	)
 };
 
