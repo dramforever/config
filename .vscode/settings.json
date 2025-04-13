@@ -1,3 +1,8 @@
 {
-    "editor.tabSize": 2
+    "[nix]": {
+        "editor.tabSize": 2
+    },
+    "[c]": {
+        "editor.tabSize": 8
+    }
 }
