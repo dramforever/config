@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   boot = {
@@ -13,16 +13,6 @@
     initrd.systemd.enable = true;
 
     kernelPackages = pkgs.linuxPackages_latest;
-
-    kernelPatches = [
-      {
-        patch = null;
-        extraStructuredConfig = with lib.kernel; {
-          X86_X32_ABI = yes;
-        };
-      }
-    ];
-
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
