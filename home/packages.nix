@@ -25,6 +25,7 @@
     # kicad
     kdePackages.ksshaskpass
     krita
+    kdePackages.krohnkite
     libarchive
     nix-index
     nix-output-monitor
