@@ -29,6 +29,7 @@
     libarchive
     nix-index
     nix-output-monitor
+    (nix-update.override { nix = nix-dram; })
     nodejs
     obs-studio
     # okular
