@@ -27,7 +27,7 @@
     krita
     kdePackages.krohnkite
     libarchive
-    nix-index
+    # nix-index
     nix-output-monitor
     (nix-update.override { nix = nix-dram; })
     nodejs

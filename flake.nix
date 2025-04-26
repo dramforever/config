@@ -31,7 +31,12 @@
     flake = false;
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao, linyinfeng }:
+  inputs.nix-index-database = {
+    url = "github:nix-community/nix-index-database";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -97,7 +102,10 @@
 
       homeConfigurations.dram = home-manager.lib.homeManagerConfiguration {
         pkgs = self.legacyPackages."x86_64-linux";
-        modules = [ ./home/home.nix ];
+        modules = [
+          ./home/home.nix
+          nix-index-database.hmModules.nix-index
+        ];
       };
     });
 }
