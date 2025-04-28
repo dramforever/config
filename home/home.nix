@@ -14,7 +14,7 @@
       path = "${config.xdg.cacheHome}/zsh_history";
       save = 1000000;
     };
-    initExtra = ''
+    initContent = ''
       source ${./zshrc}
       source ${./nixenv.zsh}
       # source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
