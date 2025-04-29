@@ -12,23 +12,21 @@
 
     package = pkgs.nix-dram;
 
-    settings =
-      let flakesEmpty = pkgs.writeText "flakes-empty.json" (builtins.toJSON { flakes = []; version = 2; });
-      in {
-        substituters = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30" ];
-        trusted-users = [ "root" "dram" ];
-        keep-outputs = true;
-        keep-derivations = true;
-        experimental-features = [ "nix-command" "flakes" ];
-        flake-registry = flakesEmpty;
-        builders-use-substitutes = true;
-        max-jobs = 12;
-        auto-optimise-store = true;
-      };
+    settings = {
+      substituters = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30" ];
+      trusted-users = [ "root" "dram" ];
+      keep-outputs = true;
+      keep-derivations = true;
+      experimental-features = [ "nix-command" "flakes" ];
+      flake-registry = "";
+      builders-use-substitutes = true;
+      max-jobs = 12;
+      auto-optimise-store = true;
+    };
   };
 
-  # nixpkgs.config = {
-  #   allowUnfree = true;
-  #   oraclejdk.accept_license = true;
-  # };
+  nixpkgs.flake = {
+    setNixPath = false;
+    setFlakeRegistry = false;
+  };
 }
