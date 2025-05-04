@@ -18,11 +18,11 @@ self: super:
     krohnkite =
       assert self.lib.versionAtLeast "0.9.9.0" kprev.krohnkite.version;
       kprev.krohnkite.overrideAttrs (old: {
-        version = "0.9.9.0-unstable-2025-04-28";
+        version = "0.9.9.1";
         src = self.fetchFromGitHub {
           owner = "anametologin";
           repo = "krohnkite";
-          rev = "879810aa30baee8490e488cbfd0737957c69f745";
+          tag = "0.9.9.1";
           hash = "sha256-Famg/g+Qwux4dZa6+CMKP6dDHNHNvJDKTsWQDukHHGk=";
         };
       });
