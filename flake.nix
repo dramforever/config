@@ -16,6 +16,11 @@
     inputs.flake-utils.follows = "flake-utils";
   };
 
+  inputs.hid-bpf-uclogic = {
+    url = "github:dramforever/hid-bpf-uclogic";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
   inputs.sops-nix = {
     url = "github:Mic92/sops-nix";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -36,12 +41,12 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ nix-dram.overlay ] ++ builtins.attrValues self.overlays;
+        overlays = [ nix-dram.overlay hid-bpf-uclogic.overlays.default ] ++ builtins.attrValues self.overlays;
       };
 
       packages.home-manager = home-manager.packages.${system}.default;

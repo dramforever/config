@@ -66,6 +66,26 @@
         "type": "github"
       }
     },
+    "hid-bpf-uclogic": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1746418201,
+        "narHash": "sha256-8Cvgyb3Q34Lu5tc/kx8FUYXX9wB9C/lnP9+5wgPjvy8=",
+        "owner": "dramforever",
+        "repo": "hid-bpf-uclogic",
+        "rev": "eb870c6dcee15e0cb099db57c1ef9192b9d19c62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dramforever",
+        "repo": "hid-bpf-uclogic",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -196,6 +216,7 @@
       "inputs": {
         "NickCao": "NickCao",
         "flake-utils": "flake-utils",
+        "hid-bpf-uclogic": "hid-bpf-uclogic",
         "home-manager": "home-manager",
         "linyinfeng": "linyinfeng",
         "nix-dram": "nix-dram",
