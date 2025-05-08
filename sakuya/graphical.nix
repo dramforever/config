@@ -57,4 +57,7 @@
     sansSerif = [ "Sarasa UI SC" ];
     serif = [ "Sarasa UI SC" ];
   };
+
+  # Vulkan HDR
+  environment.systemPackages = [ pkgs.vulkan-hdr-layer-kwin6 ];
 }
