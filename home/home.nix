@@ -36,6 +36,9 @@
         nix = pkgs.nix-dram;
       };
     };
+    config = {
+      hide_env_diff = true;
+    };
   };
 
   programs.tmux = {
