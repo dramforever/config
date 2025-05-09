@@ -6,7 +6,7 @@
     xserver = {
       enable = true;
       # digimend.enable = true;
-      # videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "nvidia" ];
 
       xkb = {
         layout = "us";
