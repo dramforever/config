@@ -22,6 +22,16 @@
     displayManager.hiddenUsers = [ "hex" ];
     displayManager.defaultSession = "plasma";
     desktopManager.plasma6.enable = true;
+
+    keyd = {
+      enable = true;
+      keyboards.default = {
+        ids = [ "25a7:2301" ];
+        settings.main = {
+          capslock = "overload(control, esc)";
+        };
+      };
+    };
   };
 
   hardware.nvidia.open = true;
