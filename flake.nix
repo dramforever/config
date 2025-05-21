@@ -50,7 +50,13 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, impermanence, nixos-apple-silicon }:
+  inputs.plasma-manager = {
+    url = "github:nix-community/plasma-manager";
+    inputs.nixpkgs.follows = "nixpkgs";
+    inputs.home-manager.follows = "home-manager";
+  };
+
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, impermanence, nixos-apple-silicon, plasma-manager }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -124,7 +130,12 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.users.dram = ./home/home.nix;
+            home-manager.users.dram = {
+              imports = [
+                ./home/home.nix
+                plasma-manager.homeManagerModules.plasma-manager
+              ];
+            };
           }
           genRev
         ];
