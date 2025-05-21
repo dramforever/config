@@ -133,7 +133,12 @@
             home-manager.users.dram = {
               imports = [
                 ./home/home.nix
-                plasma-manager.homeManagerModules.plasma-manager
+                "${plasma-manager}/modules/files.nix"
+                ({ lib, ... }: {
+                  options.programs.plasma.enable = lib.mkEnableOption ''
+                    declarative configuration options for the KDE Plasma Desktop.
+                  '';
+                })
               ];
             };
           }

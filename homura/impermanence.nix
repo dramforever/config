@@ -17,16 +17,28 @@
 
   environment.persistence."/.subvols/@p-home" = {
     hideMounts = true;
-    users.dram.directories = [
-      "Downloads"
-      "tmp"
-      "src"
-      "code"
-      ".cache"
-      ".config/kdeconnect"
-      ".config/chromium"
-      ".local/share/kwalletd"
-    ];
+    users.dram = {
+      directories = [
+        "Downloads"
+        "Pictures" # Screenshots
+        "tmp"
+        "src"
+        "code"
+        ".cache"
+        ".config/kdeconnect"
+        ".config/chromium"
+        ".config/Code"
+        ".local/share/kwalletd"
+        ".local/share/konsole"
+        ".local/state"
+      ];
+      files = [
+        ".config/kglobalshortcutsrc"
+        ".config/kwinoutputconfig.json"
+        ".config/plasma-org.kde.plasma.desktop-appletsrc"
+        ".config/plasmashellrc"
+      ];
+    };
   };
 
   boot.initrd.postResumeCommands = lib.mkAfter ''

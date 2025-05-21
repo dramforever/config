@@ -3,6 +3,7 @@
 {
   imports = [
     ./packages.nix
+    ./plasma.nix
   ];
 
   programs.zsh = {
