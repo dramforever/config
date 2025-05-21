@@ -23,6 +23,9 @@
       "src"
       "code"
       ".cache"
+      ".config/kdeconnect"
+      ".config/chromium"
+      ".local/share/kwalletd"
     ];
   };
 
