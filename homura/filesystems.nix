@@ -13,8 +13,15 @@ let
 
 in {
   fileSystems = {
-    "/" = subvolume "@root";
+    "/" = {
+      device = "tmpfs";
+      fsType = "tmpfs";
+      options = [ "size=25%" "mode=755" ];
+    };
+
+    "/tmp" = subvolume "@tmp"; # For nix builds
     "/nix" = subvolume "@nix";
+    "/home" = subvolume "@home";
     "/.subvols" = subvolume "" // { neededForBoot = true; };
 
     "/boot" = {
