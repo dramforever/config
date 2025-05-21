@@ -41,7 +41,16 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database }:
+  inputs.impermanence = {
+    url = "github:nix-community/impermanence";
+  };
+
+  inputs.nixos-apple-silicon = {
+    url = "github:tpwrules/nixos-apple-silicon";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, impermanence, nixos-apple-silicon }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -54,7 +63,7 @@
       packages.sakuya = self.nixosConfigurations.sakuya.config.system.build.toplevel;
       packages.madoka = self.nixosConfigurations.madoka.config.system.build.toplevel;
       packages.kuriko = self.nixosConfigurations.kuriko.config.system.build.toplevel;
-      packages.dram = self.homeConfigurations.dram.activationPackage;
+      packages.homura = self.nixosConfigurations.homura.config.system.build.toplevel;
     }) //
     (let
       genRev = {
@@ -101,6 +110,22 @@
           ./madoka/configuration.nix
           sops-nix.nixosModules.sops
           { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
+          genRev
+        ];
+      };
+
+      nixosConfigurations.homura = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ./homura/configuration.nix
+          nixos-apple-silicon.nixosModules.default
+          impermanence.nixosModules.impermanence
+          { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.users.dram = ./home/home.nix;
+          }
           genRev
         ];
       };

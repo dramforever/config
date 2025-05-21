@@ -42,7 +42,7 @@
     kdePackages.spectacle
     socat
     # stack
-    steam
+    # steam
     syncthingtray
     tdesktop
     thunderbird
@@ -57,7 +57,7 @@
 
     xilinx-env
 
-    linyinfeng.clash-for-windows
+    # linyinfeng.clash-for-windows
   ];
 
   home.activation.installPackages = {
