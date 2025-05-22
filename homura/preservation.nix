@@ -1,8 +1,7 @@
-{ lib, ... }:
-
 {
-  environment.persistence."/.subvols/@p-root" = {
-    hideMounts = true;
+  preservation.enable = true;
+
+  preservation.preserveAt."/.subvols/@p-root" = {
     directories = [
       "/var/log"
       "/var/lib/bluetooth"
@@ -11,7 +10,7 @@
       "/etc/NetworkManager/system-connections"
     ];
     files = [
-      "/etc/machine-id"
+      { file = "/etc/machine-id"; inInitrd = true; }
     ];
   };
 }

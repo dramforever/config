@@ -41,8 +41,8 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.impermanence = {
-    url = "github:nix-community/impermanence";
+  inputs.preservation = {
+    url = "github:nix-community/preservation";
   };
 
   inputs.nixos-apple-silicon = {
@@ -50,13 +50,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.plasma-manager = {
-    url = "github:nix-community/plasma-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.home-manager.follows = "home-manager";
-  };
-
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, impermanence, nixos-apple-silicon, plasma-manager }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, preservation, nixos-apple-silicon }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -125,21 +119,13 @@
         modules = [
           ./homura/configuration.nix
           nixos-apple-silicon.nixosModules.default
-          impermanence.nixosModules.impermanence
+          preservation.nixosModules.preservation
           { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.users.dram = {
-              imports = [
-                ./home/home.nix
-                "${plasma-manager}/modules/files.nix"
-                ({ lib, ... }: {
-                  options.programs.plasma.enable = lib.mkEnableOption ''
-                    declarative configuration options for the KDE Plasma Desktop.
-                  '';
-                })
-              ];
+              imports = [ ./home/home.nix ];
             };
           }
           genRev

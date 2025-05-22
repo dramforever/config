@@ -10,7 +10,7 @@
     kernelParams = [ "quiet" "mitigations=off" ];
     supportedFilesystems = [ "nfs" ];
 
-    # initrd.systemd.enable = true;
+    initrd.systemd.enable = true;
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
