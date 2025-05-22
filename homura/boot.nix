@@ -7,7 +7,7 @@
 
     loader.efi.canTouchEfiVariables = true;
 
-    kernelParams = [ "quiet" "mitigations=off" "apple_dcp.show_notch=1" ];
+    kernelParams = [ "quiet" "mitigations=off" ];
     supportedFilesystems = [ "nfs" ];
 
     # initrd.systemd.enable = true;
