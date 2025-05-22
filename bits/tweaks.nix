@@ -13,18 +13,4 @@ self: super:
       "-DHIMBAECHEL_GOWIN_DEVICES=all"
     ];
   });
-
-  kdePackages = super.kdePackages.overrideScope (kfinal: kprev: {
-    krohnkite =
-      assert self.lib.versionAtLeast "0.9.9.0" kprev.krohnkite.version;
-      kprev.krohnkite.overrideAttrs (old: {
-        version = "0.9.9.1";
-        src = self.fetchFromGitHub {
-          owner = "anametologin";
-          repo = "krohnkite";
-          tag = "0.9.9.1";
-          hash = "sha256-Famg/g+Qwux4dZa6+CMKP6dDHNHNvJDKTsWQDukHHGk=";
-        };
-      });
-  });
 }

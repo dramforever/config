@@ -8,7 +8,7 @@
     utillinux
     pciutils
     nvidia-offload
-    nix-search
+    # nix-search
     git
     zsh-nix-fix
     config.boot.kernelPackages.perf
