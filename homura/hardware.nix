@@ -8,6 +8,10 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2 swap_fn_leftctrl=1 swap_opt_cmd=1
+  '';
+
   hardware.asahi.peripheralFirmwareDirectory = pkgs.requireFile {
     name = "asahi";
     hashMode = "recursive";
