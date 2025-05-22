@@ -13,4 +13,7 @@
       { file = "/etc/machine-id"; inInitrd = true; }
     ];
   };
+
+  # https://github.com/NixOS/nixpkgs/pull/351151
+  systemd.services.systemd-machine-id-commit.enable = false;
 }
