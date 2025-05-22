@@ -4,9 +4,12 @@
   networking.hostName = "homura";
   networking.networkmanager = {
     enable = true;
+    wifi.backend = "iwd";
     wifi.macAddress = "random";
     ethernet.macAddress = "random";
   };
+
+  networking.wireless.iwd.settings.General.ControlPortOverNL80211 = false;
 
   networking.firewall.allowedTCPPorts = [ 12345 22000 ];
 
