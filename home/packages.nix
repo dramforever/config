@@ -9,7 +9,7 @@
     bind
     binutils
     chromium
-    # clash-verge
+    clash-verge-rev
     file
     gdb
     gh
@@ -56,8 +56,6 @@
     zsh-nix-fix
 
     xilinx-env
-
-    # linyinfeng.clash-for-windows
   ];
 
   home.activation.installPackages = {

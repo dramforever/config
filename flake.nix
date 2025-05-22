@@ -31,11 +31,6 @@
     flake = false;
   };
 
-  inputs.linyinfeng = {
-    url = "github:linyinfeng/nur-packages/65526f93953d1a367bc938a3c4a95a8dba41f130";
-    flake = false;
-  };
-
   inputs.nix-index-database = {
     url = "github:nix-community/nix-index-database";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +45,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, linyinfeng, nix-index-database, preservation, nixos-apple-silicon }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, nix-index-database, preservation, nixos-apple-silicon }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -78,10 +73,6 @@
       overlays = {
         packages = (final: prev: import ./bits/packages.nix final prev);
         tweaks = (final: prev: import ./bits/tweaks.nix final prev);
-        stuff = (final: prev: {
-          # rait = final.callPackage (NickCao + "/pkgs/rait") {};
-          linyinfeng = final.callPackage (linyinfeng + "/pkgs") { selfLib = null; };
-        });
       };
 
       nixosConfigurations.sakuya = nixpkgs.lib.nixosSystem {
