@@ -15,6 +15,7 @@
     ./nix.nix
     ./udev.nix
     ./security.nix
+    ./btrbk.nix
   ];
 
   # This value determines the NixOS release with which your system is to be
