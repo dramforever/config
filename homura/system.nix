@@ -15,14 +15,17 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # services.tlp = {
-  #   enable = true;
-  #   settings = {
-  #     SATA_LINKPWR_ON_BAT = "max_performance";
-  #     CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-  #     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-  #   };
-  # };
+  services.tlp = {
+    enable = true;
+    settings = {
+      SATA_LINKPWR_ON_BAT = "max_performance";
+      START_CHARGE_THRESH_BAT0 = 75; # Unused on Apple Silicon
+      STOP_CHARGE_THRESH_BAT0 = 80;
+    };
+  };
+
+  # Not supported (yet?) on Apple Silicon
+  services.power-profiles-daemon.enable = false;
 
   # services.usbmuxd.enable = true;
 
