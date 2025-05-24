@@ -33,6 +33,12 @@
     };
   };
 
+  # Make sddm scale correctly
+  systemd.tmpfiles.rules = [
+    "d /var/lib/sddm/.config 0750 sddm sddm -"
+    "C+ /var/lib/sddm/.config/kwinoutputconfig.json 0644 sddm sddm - /home/dram/.config/kwinoutputconfig.json"
+  ];
+
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
