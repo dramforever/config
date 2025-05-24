@@ -18,7 +18,6 @@
   services.tlp = {
     enable = true;
     settings = {
-      SATA_LINKPWR_ON_BAT = "max_performance";
       START_CHARGE_THRESH_BAT0 = 75; # Unused on Apple Silicon
       STOP_CHARGE_THRESH_BAT0 = 80;
     };

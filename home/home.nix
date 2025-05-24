@@ -21,6 +21,11 @@
     '';
   };
 
+  home.sessionVariables = {
+    QT_AUTO_SCREEN_SCALE_FACTOR = 1;
+    NIXOS_OZONE_WL = 1;
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
