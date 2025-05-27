@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  hardware.asahi.useExperimentalGPUDriver = true;
-
   services = {
     libinput.enable = true;
     xserver = {
@@ -32,6 +30,9 @@
       };
     };
   };
+
+  # Enable withRust for linux-asahi
+  hardware.asahi.withRust = true;
 
   # Make sddm scale correctly
   systemd.tmpfiles.rules = [
