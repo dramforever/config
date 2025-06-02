@@ -31,6 +31,11 @@
     };
   };
 
+  # Don't let sddm touch audio config
+  systemd.user.services.pipewire.unitConfig.ConditionUser = "!@system";
+  systemd.user.sockets.pipewire.unitConfig.ConditionUser = "!@system";
+  systemd.user.services.wireplumber.unitConfig.ConditionUser = "!@system";
+
   # Enable withRust for linux-asahi
   hardware.asahi.withRust = true;
 
