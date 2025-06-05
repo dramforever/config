@@ -59,6 +59,7 @@
       packages.madoka = self.nixosConfigurations.madoka.config.system.build.toplevel;
       packages.kuriko = self.nixosConfigurations.kuriko.config.system.build.toplevel;
       packages.homura = self.nixosConfigurations.homura.config.system.build.toplevel;
+      packages.dram = self.homeConfigurations.dram.activationPackage;
     }) //
     (let
       genRev = {
