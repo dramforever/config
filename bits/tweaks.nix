@@ -31,4 +31,15 @@ self: super:
       request_key_helper
     ];
   });
+
+  dt-schema = assert self.lib.versionOlder super.dt-schema.version "2025.06";
+    super.dt-schema.overrideAttrs (old: {
+      version = "2025.06.1";
+      src = self.fetchFromGitHub {
+        owner = "devicetree-org";
+        repo = "dt-schema";
+        tag = "v2025.06.1";
+        hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
+      };
+    });
 }
