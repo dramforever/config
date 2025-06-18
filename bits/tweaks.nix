@@ -42,4 +42,8 @@ self: super:
         hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
       };
     });
+
+  linuxConfigEnv = self.linux.configEnv.overrideAttrs (old: {
+    depsBuildBuild = (old.depsBuildBuild or []) ++ (with self.pkgsBuildBuild; [ pkg-config ncurses ]);
+  });
 }
