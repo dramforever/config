@@ -81,6 +81,13 @@
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "dramforever@live.com";
 
+  security.acme.defaults.postRun = lib.getExe (pkgs.writeShellApplication {
+    name = "acme-email-notify";
+    text = ''
+      /run/wrappers/bin/su -c '${lib.getExe pkgs.openssl} x509 -text -noout | ${lib.getExe' pkgs.mailutils "mail"} -s "Certificate renewed" "uwu@dram.page"' dram < cert.pem
+    '';
+  });
+
   security.sudo.wheelNeedsPassword = false;
 
   services.znc = {
