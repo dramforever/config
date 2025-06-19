@@ -35,6 +35,8 @@
   systemd.user.services.pipewire.unitConfig.ConditionUser = "!@system";
   systemd.user.sockets.pipewire.unitConfig.ConditionUser = "!@system";
   systemd.user.services.wireplumber.unitConfig.ConditionUser = "!@system";
+  systemd.user.services.wireplumber.wantedBy = [ "default.target" ];
+  systemd.user.services.pipewire.wantedBy = [ "default.target" ];
 
   # Enable withRust for linux-asahi
   hardware.asahi.withRust = true;
