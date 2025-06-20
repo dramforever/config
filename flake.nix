@@ -1,7 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
-  inputs.nixpkgs.url = "github:tuna-nixpkgs/nixpkgs/nixos-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
 
