@@ -13,4 +13,10 @@ self: super:
       "-DHIMBAECHEL_GOWIN_DEVICES=all"
     ];
   });
+
+  kdePackages = super.kdePackages.overrideScope (kself: ksuper: {
+    kwin = ksuper.kwin.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [ ./kwin-tablet-cursor-hotspot.patch ];
+    });
+  });
 }

@@ -1,0 +1,53 @@
+diff --git a/src/wayland/tablet_v2.cpp b/src/wayland/tablet_v2.cpp
+index de6495474f..dba0f48f84 100644
+--- a/src/wayland/tablet_v2.cpp
++++ b/src/wayland/tablet_v2.cpp
+@@ -78,7 +78,7 @@ public:
+     {
+     }
+ 
+-    void update(quint32 serial, SurfaceInterface *surface, const QPoint &hotspot)
++    void update(quint32 serial, SurfaceInterface *surface, const QPointF &hotspot)
+     {
+         const bool diff = m_serial != serial || m_surface != surface || m_hotspot != hotspot;
+         if (diff) {
+@@ -94,7 +94,7 @@ public:
+ 
+     quint32 m_serial = 0;
+     QPointer<SurfaceInterface> m_surface;
+-    QPoint m_hotspot;
++    QPointF m_hotspot;
+ };
+ 
+ TabletSurfaceCursorV2::TabletSurfaceCursorV2()
+@@ -105,7 +105,7 @@ TabletSurfaceCursorV2::TabletSurfaceCursorV2()
+ 
+ TabletSurfaceCursorV2::~TabletSurfaceCursorV2() = default;
+ 
+-QPoint TabletSurfaceCursorV2::hotspot() const
++QPointF TabletSurfaceCursorV2::hotspot() const
+ {
+     return d->m_hotspot;
+ }
+@@ -186,7 +186,7 @@ public:
+         }
+ 
+         TabletSurfaceCursorV2 *c = m_cursors[resource->client()];
+-        c->d->update(serial, surface, {hotspot_x, hotspot_y});
++        c->d->update(serial, surface, QPointF(hotspot_x, hotspot_y) / (surface ? surface->client()->scaleOverride() : 1.0));
+         const auto resources = targetResources();
+         if (std::any_of(resources.begin(), resources.end(), [resource](const Resource *res) {
+                 return res->handle == resource->handle;
+diff --git a/src/wayland/tablet_v2.h b/src/wayland/tablet_v2.h
+index 6348f94374..3bf26decb1 100644
+--- a/src/wayland/tablet_v2.h
++++ b/src/wayland/tablet_v2.h
+@@ -66,7 +66,7 @@ class KWIN_EXPORT TabletSurfaceCursorV2 : public QObject
+     Q_OBJECT
+ public:
+     ~TabletSurfaceCursorV2() override;
+-    QPoint hotspot() const;
++    QPointF hotspot() const;
+     quint32 enteredSerial() const;
+     SurfaceInterface *surface() const;
+ 
