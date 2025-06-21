@@ -16,7 +16,12 @@ self: super:
 
   kdePackages = super.kdePackages.overrideScope (kself: ksuper: {
     kwin = ksuper.kwin.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [ ./kwin-tablet-cursor-hotspot.patch ];
+      patches = (old.patches or []) ++ [
+        (self.fetchpatch {
+          url = "https://invent.kde.org/plasma/kwin/-/merge_requests/7787.patch";
+          hash = "sha256-2NSRZiuEmuOHtS0McKkKL7cTEJRd8nphTW2hkTu1ugw=";
+        })
+      ];
     });
   });
 }
