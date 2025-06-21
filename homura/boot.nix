@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   boot = {
     loader.systemd-boot.enable = true;
-    loader.timeout = 0;
+    loader.timeout = 1;
 
     loader.efi.canTouchEfiVariables = true;
 
@@ -18,22 +18,7 @@
       "kernel.sysrq" = 1;
     };
 
-    kernelPatches = [
-      {
-        name = "hid-btf";
-        patch = null;
-        extraConfig = ''
-          DEBUG_INFO y
-          DEBUG_INFO_DWARF5 y
-          DEBUG_INFO_BTF y
-          DEBUG_INFO_BTF_MODULES y
-          FTRACE y
-          FUNCTION_TRACER y
-          DYNAMIC_FTRACE y
-          HID_BPF y
-        '';
-      }
-    ];
+    kernelPackages = lib.mkForce pkgs.linuxPackages_asahi;
   };
 
   systemd.tmpfiles.settings."zswap" = {

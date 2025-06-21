@@ -24,4 +24,11 @@ self: super:
       ];
     });
   });
+
+  linuxPackages_asahi = self.linuxPackagesFor (self.callPackage ./linux-asahi.nix {
+    kernelPatches = with self.kernelPatches; [
+      bridge_stp_helper
+      request_key_helper
+    ];
+  });
 }
