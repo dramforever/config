@@ -8,7 +8,17 @@ buildLinux (args // {
   modDirVersion = "6.14.8-asahi";
   extraMeta.branch = "6.14";
 
-  inherit kernelPatches;
+  kernelPatches = [
+    {
+      name = "revert-disconnected_hpd_event";
+      patch = fetchpatch {
+        name = "revert-disconnected_hpd_event.patch";
+        url = "https://github.com/AsahiLinux/linux/commit/794a1166e09f0b836b95c13fc7f999c5a08a6260.patch";
+        revert = true;
+        hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
+      };
+    }
+  ] ++ kernelPatches;
 
   src = fetchFromGitHub {
     owner = "AsahiLinux";

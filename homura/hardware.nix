@@ -5,7 +5,7 @@
 
   boot.initrd.availableKernelModules = [ "usb_storage" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "appledrm" "apple_dcp" "mux_apple_display_crossbar" ];
   boot.extraModulePackages = [ ];
 
   boot.extraModprobeConfig = ''
