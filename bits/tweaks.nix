@@ -14,17 +14,6 @@ self: super:
     ];
   });
 
-  kdePackages = super.kdePackages.overrideScope (kself: ksuper: {
-    kwin = ksuper.kwin.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [
-        (self.fetchpatch {
-          url = "https://invent.kde.org/plasma/kwin/-/merge_requests/7787.patch";
-          hash = "sha256-2NSRZiuEmuOHtS0McKkKL7cTEJRd8nphTW2hkTu1ugw=";
-        })
-      ];
-    });
-  });
-
   linuxPackages_asahi = self.linuxPackagesFor (self.callPackage ./linux-asahi.nix {
     kernelPatches = with self.kernelPatches; [
       bridge_stp_helper
@@ -42,8 +31,4 @@ self: super:
         hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
       };
     });
-
-  linuxConfigEnv = self.linux.configEnv.overrideAttrs (old: {
-    depsBuildBuild = (old.depsBuildBuild or []) ++ (with self.pkgsBuildBuild; [ pkg-config ncurses ]);
-  });
 }

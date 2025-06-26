@@ -76,6 +76,7 @@
 
     hierarchySeparator = "/";
     useFsLayout = true;
+    stateVersion = 3;
   };
 
   security.acme.acceptTerms = true;
