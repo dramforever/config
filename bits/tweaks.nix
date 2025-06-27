@@ -31,4 +31,20 @@ self: super:
         hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
       };
     });
+
+  krita = super.krita.override {
+    unwrapped = super.krita.unwrapped.overrideAttrs (old: {
+      postPatch = ''
+        ${old.postPatch or ""}
+        (
+          cd krita/data/cursors
+          for cursor in *.xpm; do
+            echo "HACK: Rescaling cursor $cursor"
+            ${self.lib.getExe self.imagemagick} "$cursor" -scale "200%" "scaled-$cursor"
+            mv "scaled-$cursor" "$cursor"
+          done
+        )
+      '';
+    });
+  };
 }
