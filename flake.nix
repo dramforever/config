@@ -3,7 +3,10 @@
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.simple-nixos-mailserver.url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+  inputs.simple-nixos-mailserver = {
+    url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 
   inputs.home-manager = {
     url = "github:nix-community/home-manager";
