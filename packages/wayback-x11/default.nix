@@ -18,14 +18,14 @@
 
 stdenv.mkDerivation {
   pname = "wayback";
-  version = "0-unstable-2025-07-11";
+  version = "0-unstable-2025-07-12";
 
   src = fetchFromGitLab {
     domain = "gitlab.freedesktop.org";
     owner = "wayback";
     repo = "wayback";
-    rev = "8bc189f533bf2c62656ebb482441eed9464160db";
-    hash = "sha256-jyifQ6yXf1g6S9SFfJfvswEJwX8+kTqhj6H2j4I1Gkk=";
+    rev = "5b4f53bfdbb50bf950de5c9d77c7a8f9fc9c9428";
+    hash = "sha256-fhuQNcpTUlYl5eZXtvmVzwVXrJ3cOmug6F31bzCU/9E=";
   };
 
   nativeBuildInputs = [
