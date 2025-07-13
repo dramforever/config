@@ -8,8 +8,6 @@
     ethernet.macAddress = "random";
   };
 
-  networking.firewall.allowedTCPPorts = [ 12345 22000 ];
-
   networking.firewall.logRefusedConnections = false;
 
   # tcp/udp 1714-1764: KDE Connect
