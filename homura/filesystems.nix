@@ -27,11 +27,13 @@ in {
     "/boot" = {
       device = espDev;
       fsType = "vfat";
+      options = [ "dmask=077" "fmask=177" ];
     };
 
-    "/efi" = {
+    "/boot/asahi-efi" = {
       device = asahiEspDev;
       fsType = "vfat";
+      options = [ "dmask=077" "fmask=177" ];
     };
   };
 }
