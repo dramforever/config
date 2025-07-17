@@ -18,18 +18,18 @@
 
 stdenv.mkDerivation {
   pname = "wayback";
-  version = "0-unstable-2025-07-12";
+  version = "0-unstable-2025-07-17";
 
   src = fetchFromGitLab {
     domain = "gitlab.freedesktop.org";
     owner = "wayback";
     repo = "wayback";
-    rev = "7bea670bd0753c2a9b3617f3a9670dda1fa55ccc";
+    rev = "e450c2a62f7773d532ef311fa9b209f83b13813c";
 
 /* FIXME: Upstream nixpkgs will use unstableGitUpdater or something
     nix hash convert --to sri --hash-algo sha256 "$(nix-prefetch-url --unpack "$(nix eval --raw .#wayback-x11.src.url)")"
 */
-    hash = "sha256-IfEdN5D68+df4RMASJO6GHsF4blAmEPRHTF56FHBrz4=";
+    hash = "sha256-fIddlsPayn+lLjeEcOuEeC/TaidZvrg7QZe18zW3Fiw=";
   };
 
   nativeBuildInputs = [
