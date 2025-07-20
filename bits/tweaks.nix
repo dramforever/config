@@ -31,4 +31,16 @@ self: super:
         hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
       };
     });
+
+  # https://gitlab.freedesktop.org/mesa/mesa/-/issues/13564
+  mesa =
+    assert super.mesa.version == "25.1.6";
+    super.mesa.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        (self.fetchpatch {
+          url = "https://gitlab.freedesktop.org/mesa/mesa/-/commit/103a16e4fa36d52bb0dc6325848fbdd7b5c1372f.patch";
+          hash = "sha256-WmYkCLr5zH7iBmsQpz5GZkULgr6ssjxmA3XJugs4FJk=";
+        })
+      ];
+    });
 }
