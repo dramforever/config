@@ -18,18 +18,14 @@
 
 stdenv.mkDerivation {
   pname = "wayback";
-  version = "0-unstable-2025-07-17";
+  version = "0-unstable-2025-07-20";
 
   src = fetchFromGitLab {
     domain = "gitlab.freedesktop.org";
     owner = "wayback";
     repo = "wayback";
-    rev = "e450c2a62f7773d532ef311fa9b209f83b13813c";
-
-/* FIXME: Upstream nixpkgs will use unstableGitUpdater or something
-    nix hash convert --to sri --hash-algo sha256 "$(nix-prefetch-url --unpack "$(nix eval --raw .#wayback-x11.src.url)")"
-*/
-    hash = "sha256-fIddlsPayn+lLjeEcOuEeC/TaidZvrg7QZe18zW3Fiw=";
+    rev = "4b1b4c59f67a2639e960d6b19e1282cf03fc3660";
+    hash = "sha256-+4fPMVVPoUAYbt0jgfl+dmt0ZNyGGWF7xuF1UzZ2uiU=";
   };
 
   nativeBuildInputs = [
@@ -56,5 +52,6 @@ stdenv.mkDerivation {
     homepage = "https://wayback.freedesktop.org";
     license = lib.licenses.mit;
     mainProgram = "wayback-session";
+    maintainers = with lib.maintainers; [ dramforever ];
   };
 }
