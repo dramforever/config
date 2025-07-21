@@ -12,7 +12,7 @@
   wayland,
   wayland-protocols,
   wayland-scanner,
-  wlroots,
+  wlroots_0_19,
   xwayland,
 }:
 
@@ -28,11 +28,18 @@ stdenv.mkDerivation {
     hash = "sha256-+4fPMVVPoUAYbt0jgfl+dmt0ZNyGGWF7xuF1UzZ2uiU=";
   };
 
+  strictDeps = true;
+
+  depsBuildBuild = [
+    pkg-config
+  ];
+
   nativeBuildInputs = [
     meson
     ninja
     pkg-config
     scdoc
+    wayland-scanner
   ];
 
   buildInputs = [
@@ -40,8 +47,7 @@ stdenv.mkDerivation {
     pixman
     wayland
     wayland-protocols
-    wayland-scanner
-    wlroots
+    wlroots_0_19
     xwayland
   ];
 
@@ -51,6 +57,7 @@ stdenv.mkDerivation {
     description = "X11 compatibility layer leveraging wlroots and Xwayland";
     homepage = "https://wayback.freedesktop.org";
     license = lib.licenses.mit;
+    platforms = lib.platforms.linux;
     mainProgram = "wayback-session";
     maintainers = with lib.maintainers; [ dramforever ];
   };
