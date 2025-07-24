@@ -92,9 +92,9 @@
     '';
 
     settings = {
-      tabstop = 4;
-      shiftwidth = 4;
-      expandtab = true;
+      tabstop = 8;
+      shiftwidth = 8;
+      expandtab = false;
       number = true;
       undofile = true;
       undodir = [ "${config.xdg.cacheHome}/vim/undodir" ];
