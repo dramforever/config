@@ -38,9 +38,6 @@
   systemd.user.services.wireplumber.wantedBy = [ "default.target" ];
   systemd.user.services.pipewire.wantedBy = [ "default.target" ];
 
-  # Enable withRust for linux-asahi
-  hardware.asahi.withRust = true;
-
   # Make sddm scale correctly
   systemd.tmpfiles.rules = [
     "d /var/lib/sddm/.config 0750 sddm sddm -"
