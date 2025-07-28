@@ -1,6 +1,6 @@
 # config
 
-Random config files
+Random config files with some test
 
 ## Nix Flake
 
