@@ -4,9 +4,9 @@
 }@args:
 
 buildLinux (args // {
-  version = "6.15.8-asahi";
-  modDirVersion = "6.15.8-asahi";
-  extraMeta.branch = "6.15";
+  version = "6.16-asahi";
+  modDirVersion = "6.16.0-asahi";
+  extraMeta.branch = "6.16";
 
   kernelPatches = [
     {
@@ -23,8 +23,8 @@ buildLinux (args // {
   src = fetchFromGitHub {
     owner = "AsahiLinux";
     repo = "linux";
-    rev = "asahi-6.15.8-1";
-    hash = "sha256-AjtLfSo9GnkkW/avmKqHIIRctih1XZ8SR9bLS/zVx1Q=";
+    rev = "asahi-6.16-2";
+    hash = "sha256-IpIXlGadBBNAEbEcnygYFQvEzSJazkUYVO/wv56m47w=";
   };
 
  structuredExtraConfig  = with lib.kernel; {
