@@ -9,7 +9,7 @@
     enable = true;
     autosuggestion.enable = true;
     enableCompletion = true;
-    dotDir = ".config/zsh";
+    dotDir = "${config.xdg.configHome}/.config/zsh";
     history = {
       path = "${config.xdg.cacheHome}/zsh_history";
       save = 1000000;
