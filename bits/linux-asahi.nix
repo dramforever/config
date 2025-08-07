@@ -18,6 +18,14 @@ buildLinux (args // {
         hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
       };
     }
+    {
+      name = "btrfs-tree-log";
+      patch = fetchpatch {
+        name = "btrfs-tree-log.patch";
+        url = "https://github.com/torvalds/linux/commit/0a32e4f0025a74c70dcab4478e9b29c22f5ecf2f.patch";
+        hash = "sha256-u9QY8cwTcJoPxpIJLeDnapDJ/7M7cnxZT4HjrhSQIkg=";
+      };
+    }
   ] ++ kernelPatches;
 
   src = fetchFromGitHub {
