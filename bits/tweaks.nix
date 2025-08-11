@@ -31,4 +31,8 @@ self: super:
         hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
       };
     });
+
+  nixos-option = super.nixos-option.override {
+    nix = self.nix-dram;
+  };
 }
