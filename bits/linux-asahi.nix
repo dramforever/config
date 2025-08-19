@@ -4,8 +4,8 @@
 }@args:
 
 buildLinux (args // {
-  version = "6.16-asahi";
-  modDirVersion = "6.16.0-asahi";
+  version = "6.16.1-asahi";
+  modDirVersion = "6.16.1-asahi";
   extraMeta.branch = "6.16";
 
   kernelPatches = [
@@ -18,21 +18,13 @@ buildLinux (args // {
         hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
       };
     }
-    {
-      name = "btrfs-tree-log";
-      patch = fetchpatch {
-        name = "btrfs-tree-log.patch";
-        url = "https://github.com/torvalds/linux/commit/0a32e4f0025a74c70dcab4478e9b29c22f5ecf2f.patch";
-        hash = "sha256-u9QY8cwTcJoPxpIJLeDnapDJ/7M7cnxZT4HjrhSQIkg=";
-      };
-    }
   ] ++ kernelPatches;
 
   src = fetchFromGitHub {
     owner = "AsahiLinux";
     repo = "linux";
-    rev = "asahi-6.16-2";
-    hash = "sha256-IpIXlGadBBNAEbEcnygYFQvEzSJazkUYVO/wv56m47w=";
+    rev = "asahi-6.16.1-1";
+    hash = "sha256-6UEXVPTudIAQSrq6uolKGr6XqZzAFl+siOl4eluHU5s=";
   };
 
  structuredExtraConfig  = with lib.kernel; {
