@@ -23,12 +23,12 @@ self: super:
 
   dt-schema = assert self.lib.versionOlder super.dt-schema.version "2025.06";
     super.dt-schema.overrideAttrs (old: {
-      version = "2025.06.1";
+      version = "2025.08";
       src = self.fetchFromGitHub {
         owner = "devicetree-org";
         repo = "dt-schema";
-        tag = "v2025.06.1";
-        hash = "sha256-OWpMBXwEX7QHA7ahM6m1NN/aY17lA0pANPaekJjRv1c=";
+        tag = "v2025.08";
+        hash = "sha256-SW2WAVB7ZSgKRjIyFdMqe8tRIuM97ZVBg4d0BJC6SBI=";
       };
     });
 
