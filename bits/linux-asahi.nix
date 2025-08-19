@@ -27,18 +27,12 @@ buildLinux (args // {
     hash = "sha256-6UEXVPTudIAQSrq6uolKGr6XqZzAFl+siOl4eluHU5s=";
   };
 
- structuredExtraConfig  = with lib.kernel; {
-    DRM = yes; # Required for DRM_ASAHI
-    ARM64_16K_PAGES = yes; # Required for DRM_ASAHI
+  structuredExtraConfig  = with lib.kernel; {
+    # For DRM_ASAHI
+    DRM = yes;
+    ARM64_16K_PAGES = yes;
 
-    HID_APPLE = module;
-
-    # The rest just look important okay
+    # For perf
     APPLE_M1_CPU_PMU = yes;
-    BT_LE = yes;
-    CGROUP_MISC = yes;
-    CPU_IDLE_GOV_TEO = yes;
-    GPIO_SYSFS = yes;
-    NVME_VERBOSE_ERRORS = yes;
   };
 } // (args.argsOverride or {}))
