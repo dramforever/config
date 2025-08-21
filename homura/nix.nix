@@ -8,6 +8,8 @@
       options = "--delete-older-than 8d";
     };
 
+    optimise.automatic = true;
+
     nixPath = [ "nixpkgs=/home/dram/code/config" ];
 
     package = pkgs.nix-dram;
@@ -21,7 +23,6 @@
       flake-registry = "";
       builders-use-substitutes = true;
       max-jobs = 12;
-      auto-optimise-store = true;
     };
   };
 
