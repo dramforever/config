@@ -1,11 +1,14 @@
 { buildLinux, lib, fetchFromGitHub, fetchpatch
 , kernelPatches
+, nix-update-script
+, writeShellApplication
 , ...
 }@args:
 
-buildLinux (args // {
-  version = "6.16.1-asahi";
-  modDirVersion = "6.16.1-asahi";
+buildLinux (args // rec {
+  pname = "linux-asahi";
+  version = "6.16.1-1";
+  modDirVersion = "${lib.head (lib.splitString "-" version)}-asahi";
   extraMeta.branch = "6.16";
 
   kernelPatches = [
@@ -18,12 +21,12 @@ buildLinux (args // {
         hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
       };
     }
-  ] ++ kernelPatches;
+  ] ++ args.kernelPatches;
 
   src = fetchFromGitHub {
     owner = "AsahiLinux";
     repo = "linux";
-    rev = "asahi-6.16.1-1";
+    rev = "asahi-${version}";
     hash = "sha256-6UEXVPTudIAQSrq6uolKGr6XqZzAFl+siOl4eluHU5s=";
   };
 
@@ -34,5 +37,19 @@ buildLinux (args // {
 
     # For perf
     APPLE_M1_CPU_PMU = yes;
+  };
+
+  extraPassthru.updateScript = nix-update-script {
+    extraArgs = [ ''--version-regex=^asahi-(${lib.escapeRegex extraMeta.branch}[.-].+)$'' ];
+  };
+
+  extraPassthru.update = writeShellApplication {
+    name = "update-linux-asahi";
+    text = ''
+      exec ${lib.escapeShellArgs extraPassthru.updateScript} \
+        --override-filename bits/linux-asahi.nix \
+        linuxPackages_asahi.kernel \
+        "$@"
+    '';
   };
 } // (args.argsOverride or {}))
