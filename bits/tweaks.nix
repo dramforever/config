@@ -54,4 +54,8 @@ self: super:
   nixos-option = super.nixos-option.override {
     nix = self.nix-dram;
   };
+
+  nix-update = super.nix-update.override {
+    nix = self.nix-dram;
+  };
 }
