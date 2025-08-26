@@ -3,11 +3,11 @@
     "NickCao": {
       "flake": false,
       "locked": {
-        "lastModified": 1756000610,
-        "narHash": "sha256-g7vhDMphpTL6L02rO8lS5SbKi9Eoa3rDEBVsumZUDFI=",
+        "lastModified": 1756155074,
+        "narHash": "sha256-pibyb9WrasKVr9nH705g4jpytArr/rTUEaMZzTtnUnE=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "f9fb5a72d8803fd458e603b21b9faa8b6ce46a64",
+        "rev": "e47020872f206477574379189be49ea4e376a98b",
         "type": "github"
       },
       "original": {
@@ -236,10 +236,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755615617,
-        "narHash": "sha256-HMwfAJBdrr8wXAkbGhtcby1zGFvs+StOp19xNsbqdOg=",
+        "lastModified": 1756125398,
+        "narHash": "sha256-XexyKZpf46cMiO5Vbj+dWSAXOnr285GHsMch8FBoHbc=",
         "ref": "nixos-unstable",
-        "rev": "20075955deac2583bb12f07151c2df830ef346b4",
+        "rev": "3b9f00d7a7bf68acd4c4abb9d43695afb04e03a5",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/NixOS/nixpkgs.git"
