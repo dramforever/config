@@ -2,11 +2,10 @@
 , kernelPatches
 , nix-update-script
 , writeShellApplication
-, rustPlatform # FIXME
 , ...
 }@args:
 
-(buildLinux (args // rec {
+buildLinux (args // rec {
   pname = "linux-asahi";
   version = "6.16.3-1";
   modDirVersion = "${lib.head (lib.splitString "-" version)}-asahi";
@@ -53,10 +52,4 @@
         "$@"
     '';
   };
-} // (args.argsOverride or {}))).overrideAttrs (old: {
-  # Bodge for https://github.com/NixOS/nixpkgs/pulls/436245
-  preConfigure = ''
-    export RUST_LIB_SRC
-    export KRUSTFLAGS
-  '';
-})
+} // (args.argsOverride or {}))
