@@ -37,6 +37,18 @@ buildLinux (args // rec {
 
     # For perf
     APPLE_M1_CPU_PMU = yes;
+
+    # https://github.com/nix-community/nixos-apple-silicon/commit/93a4cc1e9cd4bbf97fe4c2a70cac35dc05d5ae8e
+    # SND_DMAENGINE_PCM = module;
+    SND_SOC_APPLE_MCA = module;
+    SND_SOC_APPLE_MACAUDIO = module;
+    SND_SOC_CS42L42_CORE = module;
+    SND_SOC_CS42L42 = module;
+    SND_SOC_CS42L83 = module;
+    SND_SOC_CS42L84 = module;
+    SND_SOC_TAS2764 = module;
+    SND_SOC_TAS2770 = module;
+    SND_SIMPLE_CARD_UTILS = module;
   };
 
   extraPassthru.updateScript = nix-update-script {
