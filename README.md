@@ -18,7 +18,7 @@ This repository is licensed under the MIT License, the same license that governs
 
 The MIT license only applies to the code provided in this repository, and not the packages and system configurations it builds. The "software" referred to within the MIT license is the Nix language code.
 
-If you build any package or system configuration described in this repository, it may download, run, compile, or otherwise make use of a myriad of other software governed by there respective licenses. Of particular note is that many of these software are *not* free or open source.
+If you build any package or system configuration described in this repository, it may download, run, compile, or otherwise make use of a myriad of other software governed by their respective licenses. Of particular note is that many of these software are *not* free or open source.
 
 This Nix Flake exposes a modified Nixpkgs as its `legacyPackages.*` outputs with `config.allowUnfree` enabled. Use with caution.
 
