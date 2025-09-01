@@ -1,0 +1,13 @@
+diff --git a/sound/soc/apple/Kconfig b/sound/soc/apple/Kconfig
+index c6818be819c2..e17bd94f50e3 100644
+--- a/sound/soc/apple/Kconfig
++++ b/sound/soc/apple/Kconfig
+@@ -30,7 +30,7 @@ config SND_SOC_APPLE_MACAUDIO
+ 	select SND_SOC_CS42L83 if I2C
+ 	select SND_SOC_CS42L84 if I2C
+ 	select REGULATOR_FIXED_VOLTAGE if REGULATOR
+-	default ARCH_APPLE
++	default m if ARCH_APPLE
+ 	help
+ 	  This option enables an ASoC machine-level driver for Apple Silicon Macs
+ 	  and it also enables the required SoC and codec drivers for overall
