@@ -14,13 +14,6 @@ self: super:
     ];
   });
 
-  linuxPackages_asahi = self.linuxPackagesFor (self.callPackage ./linux-asahi.nix {
-    kernelPatches = with self.kernelPatches; [
-      bridge_stp_helper
-      request_key_helper
-    ];
-  });
-
   dt-schema = assert self.lib.versionOlder super.dt-schema.version "2025.06";
     super.dt-schema.overrideAttrs (old: {
       version = "2025.08";

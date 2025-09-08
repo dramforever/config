@@ -50,7 +50,7 @@ buildLinux (args // rec {
     name = "update-linux-asahi";
     text = ''
       exec ${lib.escapeShellArgs extraPassthru.updateScript} \
-        --override-filename bits/linux-asahi.nix \
+        --override-filename packages/linuxPackages_asahi/linux_asahi.nix \
         linuxPackages_asahi.kernel \
         "$@"
     '';
