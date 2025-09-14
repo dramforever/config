@@ -41,4 +41,6 @@
     "${pkgs.kdePackages.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
   programs.command-not-found.enable = false;
+
+  system.tools.nixos-version.enable = false;
 }
