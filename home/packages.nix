@@ -32,7 +32,7 @@
     nix-output-monitor
     (nix-update.override { nix = nix-dram; })
     nodejs
-    obs-studio
+    # obs-studio
     # okular
     pinentry-qt
     pinta
