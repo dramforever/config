@@ -7,7 +7,7 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "6.16.5-2";
+  version = "6.16.8-1";
   modDirVersion = "${lib.head (lib.splitString "-" version)}-asahi";
   extraMeta.branch = "6.16";
 
@@ -31,7 +31,7 @@ buildLinux (args // rec {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-W30x9aoU5ltkda/flfhdGbMHVYCpNaneYvhbh7HiG+c=";
+    hash = "sha256-dGYPhmOa/ZSB7uJtAZ9ugz08Pqy6/YvhXrbLrwzxPXk=";
   };
 
   structuredExtraConfig  = with lib.kernel; {
@@ -43,7 +43,7 @@ buildLinux (args // rec {
   };
 
   extraPassthru.updateScript = nix-update-script {
-    extraArgs = [ ''--version-regex=^asahi-(${lib.escapeRegex extraMeta.branch}[.-].+)$'' ];
+    extraArgs = [ ''--version-regex=^asahi-(.+)$'' ];
   };
 
   extraPassthru.update = writeShellApplication {
