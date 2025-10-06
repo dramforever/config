@@ -14,17 +14,6 @@ self: super:
     ];
   });
 
-  dt-schema = assert self.lib.versionOlder super.dt-schema.version "2025.06";
-    super.dt-schema.overrideAttrs (old: {
-      version = "2025.08";
-      src = self.fetchFromGitHub {
-        owner = "devicetree-org";
-        repo = "dt-schema";
-        tag = "v2025.08";
-        hash = "sha256-SW2WAVB7ZSgKRjIyFdMqe8tRIuM97ZVBg4d0BJC6SBI=";
-      };
-    });
-
   libkrun = super.libkrun.override {
     virglrenderer =
       assert super.virglrenderer.version == "1.1.1";
