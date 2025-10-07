@@ -14,6 +14,10 @@ self: super:
     ];
   });
 
+  m1n1 = super.m1n1.override {
+    withBranding = false;
+  };
+
   nixos-option = super.nixos-option.override {
     nix = self.nix-dram;
   };
