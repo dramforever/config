@@ -124,6 +124,7 @@ alias grs="git restore --staged"
 alias gs="git switch"
 alias gst="git stash"
 alias gstp="git stash pop"
+alias gmb="git merge-base"
 
 alias fars="curl -F 'c=@-' 'https://fars.ee/'"
 alias man="env MANWIDTH=80 man"
