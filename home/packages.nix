@@ -54,6 +54,7 @@
     # wolfram-engine
     write_stylus
     # zoom-us
+    xclip
     zsh-nix-fix
 
     xilinx-env
