@@ -15,7 +15,7 @@ self: super:
   });
 
   m1n1 = super.m1n1.override {
-    withBranding = false;
+    customLogo = ./nix-snowflake-asahi-colors-256.png;
   };
 
   nixos-option = super.nixos-option.override {
