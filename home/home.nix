@@ -30,6 +30,11 @@
     enable = true;
     enableZshIntegration = true;
     tmux.enableShellIntegration = true;
+    colors = {
+      "bg+" = "black";
+      "hl" = "black:reverse";
+      "hl+" = "white:dim:reverse";
+    };
   };
 
   programs.direnv = {
