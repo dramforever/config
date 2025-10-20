@@ -7,9 +7,9 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "6.16.8-1";
-  modDirVersion = "${lib.head (lib.splitString "-" version)}-asahi";
-  extraMeta.branch = "6.16";
+  version = "6.17.4-1";
+  modDirVersion = lib.head (lib.splitString "-" version);
+  extraMeta.branch = "6.17";
 
   kernelPatches = [
     {
@@ -21,25 +21,27 @@ buildLinux (args // rec {
         hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
       };
     }
-    {
-      name = "linux-asahi-macaudio-default-m";
-      patch = ./linux-asahi-macaudio-default-m.diff;
-    }
   ] ++ args.kernelPatches;
 
   src = fetchFromGitHub {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-dGYPhmOa/ZSB7uJtAZ9ugz08Pqy6/YvhXrbLrwzxPXk=";
+    hash = "sha256-Xz6OL3k5EQw5mOqI50fYLxVUNO7DM4yQTamnwYb4DCQ=";
   };
 
   structuredExtraConfig  = with lib.kernel; {
     # For DRM_ASAHI
     ARM64_16K_PAGES = yes;
 
+    # For TSO mode
+    ARM64_MEMORY_MODEL_CONTROL = yes;
+
     # For perf
     APPLE_M1_CPU_PMU = yes;
+
+    APPLE_PMGR_MISC = yes;
+    APPLE_PMGR_PWRSTATE = yes;
   };
 
   extraPassthru.updateScript = nix-update-script {

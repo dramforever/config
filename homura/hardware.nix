@@ -3,8 +3,10 @@
 {
   hardware.enableRedistributableFirmware = true;
 
-  boot.initrd.availableKernelModules = [ "usb_storage" "sdhci_pci" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.availableKernelModules = lib.mkMerge [
+    [ "usb_storage" "sdhci_pci" ]
+    { macsmc-rtkit = lib.mkForce false; }
+  ];
   boot.kernelModules = [ "appledrm" "apple_dcp" "mux_apple_display_crossbar" ];
   boot.extraModulePackages = [ ];
 
