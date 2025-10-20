@@ -11,7 +11,7 @@
     # nix-search
     git
     zsh-nix-fix
-    config.boot.kernelPackages.perf
+    perf
   ];
 
   programs.vim = {

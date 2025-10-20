@@ -70,9 +70,9 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
-    userEmail = "dramforever@live.com";
-    userName = "dramforever";
-    extraConfig = {
+    settings = {
+      user.email = "dramforever@live.com";
+      user.name = "dramforever";
       init.defaultBranch = "main";
       pull.ff = "only";
       push.default = "current";
