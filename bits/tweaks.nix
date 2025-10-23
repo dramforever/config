@@ -16,7 +16,7 @@ self: super:
 
   qt6Packages = super.qt6Packages.overrideScope (kself: ksuper: {
     fcitx5-qt =
-      assert ksuper.fcitx5-qt.patches == [];
+      assert ksuper.fcitx5-qt.patches == [] && ksuper.fcitx5-qt.version == "5.1.10";
       ksuper.fcitx5-qt.overrideAttrs (old: {
         patches = [
           (self.fetchpatch2 {
@@ -34,6 +34,19 @@ self: super:
         ];
       });
   });
+
+  fex =
+    assert super.fex.version == "2509.1";
+    super.fex.overrideAttrs (old: {
+      patches = [
+        # https://github.com/NixOS/nixpkgs/pull/450537
+        (self.fetchpatch {
+          name = "unittests-thunklibs-fix-build-with-llvm-21.patch";
+          url = "https://github.com/FEX-Emu/FEX/commit/5af2477d005bb0ab8b11633a678ed5f6121f81b6.patch";
+          hash = "sha256-QdJaexzBSOVaKc3h2uwPbX4iysqvGBDmWH938ZeXcdE=";
+        })
+      ];
+    });
 
   m1n1 = super.m1n1.override {
     customLogo = ./nix-snowflake-asahi-colors-256.png;
