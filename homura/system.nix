@@ -34,6 +34,8 @@
   systemd.services."autovt@tty1".enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
+  systemd.package = pkgs.systemd-udev-wldN;
+
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;

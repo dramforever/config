@@ -59,4 +59,16 @@ self: super:
   nix-update = super.nix-update.override {
     nix = self.nix-dram;
   };
+
+  systemd-udev-wldN =
+    assert self.lib.versionOlder self.systemd.version "259";
+    self.systemd.overrideAttrs (old: {
+      patches = (old.patches or []) ++ [
+        (self.fetchpatch {
+          name = "udev-builtin-net_id-wldN.patch";
+          url = "https://github.com/systemd/systemd/commit/01598d644f9b84f2c09467f441c8e49ac49833af.patch?full_index=1";
+          hash = "sha256-mFAU9s6BqrPenBDdWWT6wKHyK/K7jk3RYydxJzj0pos=";
+        })
+      ];
+    });
 }
