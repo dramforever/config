@@ -7,8 +7,14 @@
 
     loader.efi.canTouchEfiVariables = true;
 
-    kernelParams = [ "quiet" "mitigations=off" ];
-    supportedFilesystems = [ "nfs" ];
+    kernelModules = [ "appledrm" "apple_dcp" "mux_apple_display_crossbar" ];
+    kernelParams = [
+      "hid_apple.fnmode=2"
+      "hid_apple.swap_fn_leftctrl=1"
+      "hid_apple.swap_opt_cmd=1"
+      "quiet"
+      "mitigations=off"
+    ];
 
     initrd.systemd.enable = true;
 
@@ -23,6 +29,7 @@
       simple-mfd-spmi = lib.mkForce false;
       nvmem_spmi_mfd = lib.mkForce false;
       apple_nvmem_spmi = true;
+      macsmc-rtkit = lib.mkForce false;
     };
   };
 
