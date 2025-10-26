@@ -136,11 +136,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757254970,
-        "narHash": "sha256-fmMhyoQG/GCmAxzLL7X8wWHXMTWd3zMZzgWzmbyomT8=",
+        "lastModified": 1761217997,
+        "narHash": "sha256-6nsKI7qNQDupy7dlKzKuOSNFFSDK30jJi/y+ac5iqkI=",
         "owner": "dramforever",
         "repo": "hid-bpf-uclogic",
-        "rev": "4b635a8281e46db359a8b06f7458a7ca46fda0a4",
+        "rev": "4eb8e3d0740fb6c0397c1d2b5d1306ea9dfd6bd3",
         "type": "github"
       },
       "original": {
