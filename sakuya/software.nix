@@ -41,4 +41,7 @@
     "${pkgs.kdePackages.plasma-browser-integration}/etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json";
 
   programs.command-not-found.enable = false;
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.daemon.settings.registry-mirrors = [ "https://docker.m.daocloud.io" ];
 }
