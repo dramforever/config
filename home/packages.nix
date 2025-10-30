@@ -44,15 +44,15 @@
     socat
     # stack
     # steam
+    styluslabs-write-bin
     syncthingtray
-    tdesktop
+    telegram-desktop
     thunderbird
     tig
     usbutils
     vlc
     wemeet
     # wolfram-engine
-    write_stylus
     # zoom-us
     xclip
     zsh-nix-fix

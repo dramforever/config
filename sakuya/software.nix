@@ -5,7 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     man-pages
-    utillinux
+    util-linux
     pciutils
     nvidia-offload
     # nix-search
