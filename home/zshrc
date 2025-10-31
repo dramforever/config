@@ -58,6 +58,19 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"   ]] && bindkey -- "${key[Up]}"   up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 
+zle-down-or-push() {
+    local OLD_HISTNO="$HISTNO"
+    zle down-line-or-beginning-search
+    if [[ "$BUFFER" != "" ]] && [[ "$OLD_HISTNO" -eq "$HISTNO" ]]; then
+        print -S "$BUFFER"
+	HISTNO=$((HISTNO + 1))
+	BUFFER=
+    fi
+}
+
+zle -N zle-down-or-push
+[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" zle-down-or-push
+
 # }}}
 
 # {{{ Prompt
