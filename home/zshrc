@@ -63,13 +63,14 @@ zle-down-or-push() {
     zle down-line-or-beginning-search
     if [[ "$BUFFER" != "" ]] && [[ "$OLD_HISTNO" -eq "$HISTNO" ]]; then
         print -S "$BUFFER"
-	HISTNO=$((HISTNO + 1))
-	BUFFER=
+        HISTNO="$HISTCMD"
+        BUFFER=
     fi
 }
 
 zle -N zle-down-or-push
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" zle-down-or-push
+bindkey -- "^N" zle-down-or-push
 
 # }}}
 
