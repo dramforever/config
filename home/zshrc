@@ -60,8 +60,9 @@ zle -N down-line-or-beginning-search
 
 zle-down-or-push() {
     local OLD_HISTNO="$HISTNO"
+    local OLD_CURSOR="$CURSOR"
     zle down-line-or-beginning-search
-    if [[ "$BUFFER" != "" ]] && [[ "$OLD_HISTNO" -eq "$HISTNO" ]]; then
+    if [[ "$BUFFER" != "" ]] && [[ "$OLD_HISTNO" -eq "$HISTNO" ]] && [[ "$OLD_CURSOR" -eq "$CURSOR" ]]; then
         print -S "$BUFFER"
         HISTNO="$HISTCMD"
         BUFFER=
