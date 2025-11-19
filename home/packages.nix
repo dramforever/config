@@ -9,7 +9,7 @@
     bind
     binutils
     chromium
-    clash-verge-rev
+    (assert clash-verge-rev.version == "2.4.2"; clash-verge-rev_2_4_3)
     file
     gdb
     gh
