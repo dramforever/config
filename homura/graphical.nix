@@ -61,4 +61,9 @@
     sansSerif = [ "Sarasa UI SC" ];
     serif = [ "Sarasa UI SC" ];
   };
+
+  # https://github.com/nix-community/nixos-apple-silicon/issues/380
+  hardware.graphics.package =
+    assert pkgs.mesa.version == "25.3.0";
+    pkgs.mesa;
 }
