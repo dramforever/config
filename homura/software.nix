@@ -43,4 +43,6 @@
   programs.command-not-found.enable = false;
 
   system.tools.nixos-version.enable = false;
+
+  services.nixseparatedebuginfod2.enable = true;
 }
