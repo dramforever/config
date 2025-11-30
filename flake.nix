@@ -71,7 +71,7 @@
           with builtins;
             if self.sourceInfo ? lastModifiedDate && self.sourceInfo ? shortRev
             then "${substring 0 8 self.sourceInfo.lastModifiedDate}.${self.sourceInfo.shortRev}"
-            else "dirty";
+            else "0-dirty";
       };
     in {
       overlays = {
