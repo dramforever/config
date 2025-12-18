@@ -6,6 +6,7 @@
     enable = true;
     wifi.macAddress = "random";
     ethernet.macAddress = "random";
+    plugins = [ pkgs.networkmanager-openconnect ];
   };
 
   networking.firewall.logRefusedConnections = false;
