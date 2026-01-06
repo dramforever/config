@@ -66,17 +66,32 @@
     domains = [ "dram.page" ];
 
     loginAccounts = {
-        "uwu@dram.page" = {
-            hashedPasswordFile = config.sops.secrets.mail_password.path;
-            aliases = ["postmaster@dram.page"];
-        };
+      "uwu@dram.page" = {
+          hashedPasswordFile = config.sops.secrets.mail_password.path;
+          aliases = ["postmaster@dram.page"];
+      };
     };
 
-    certificateScheme = "acme-nginx";
+    x509.useACMEHost = config.mailserver.fqdn;
 
     hierarchySeparator = "/";
     useFsLayout = true;
     stateVersion = 3;
+  };
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."${config.mailserver.fqdn}" = {
+      forceSSL = true;
+      enableACME = true;
+    };
+  };
+
+  security.acme.certs."${config.mailserver.fqdn}" = {
+    reloadServices = [
+      "postfix.service"
+      "dovecot.service"
+    ];
   };
 
   security.acme.acceptTerms = true;
