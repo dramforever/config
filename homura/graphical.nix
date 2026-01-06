@@ -61,18 +61,4 @@
     sansSerif = [ "Sarasa UI SC" ];
     serif = [ "Sarasa UI SC" ];
   };
-
-  # https://github.com/nix-community/nixos-apple-silicon/issues/380
-  hardware.graphics.package =
-    assert pkgs.mesa.version == "25.3.1";
-    pkgs.mesa.overrideAttrs (old: {
-      patches = old.patches or [] ++ [
-        # https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/38896
-        (pkgs.fetchpatch {
-          name = "mesa-25.3-fix-firefox-crash.patch";
-          url = "https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/38896.patch";
-          hash = "sha256-qc/u+NCKynwgA/wA41gapgIMNEGfG+fJmhODSSuSnMw=";
-        })
-      ];
-    });
 }
