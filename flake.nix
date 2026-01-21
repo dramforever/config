@@ -131,7 +131,7 @@
         pkgs = self.legacyPackages."x86_64-linux";
         modules = [
           ./home/home.nix
-          nix-index-database.hmModules.nix-index
+          nix-index-database.homeModules.nix-index
         ];
       };
     });
