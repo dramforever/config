@@ -93,7 +93,7 @@
     extraConfig = ''
       nmap <Space><Space> :update<CR>
       nmap <Space>q :q<CR>
-      set hls
+      set hls nojs
     '';
 
     settings = {
