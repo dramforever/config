@@ -7,7 +7,7 @@
 
     loader.efi.canTouchEfiVariables = true;
 
-    kernelModules = [ "appledrm" "apple_dcp" "mux_apple_display_crossbar" ];
+    kernelModules = [ "appledrm" "mux_apple_display_crossbar" ];
     kernelParams = [
       "hid_apple.fnmode=2"
       "hid_apple.swap_fn_leftctrl=1"

@@ -7,27 +7,17 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "6.17.12-1";
+  version = "6.18.6-1";
   modDirVersion = lib.head (lib.splitString "-" version);
   extraMeta.branch = "6.17";
 
-  kernelPatches = [
-    {
-      name = "revert-disconnected_hpd_event";
-      patch = fetchpatch {
-        name = "revert-disconnected_hpd_event.patch";
-        url = "https://github.com/AsahiLinux/linux/commit/794a1166e09f0b836b95c13fc7f999c5a08a6260.patch";
-        revert = true;
-        hash = "sha256-107ZKR5moEC0riw9L9SsANenZTnc6a9Aoha/kEHMHws=";
-      };
-    }
-  ] ++ args.kernelPatches;
+  inherit kernelPatches;
 
   src = fetchFromGitHub {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-6n29aN+381ROzO8AiEK9ji0GBaAd9d8TSzI6bVf+Lqw=";
+    hash = "sha256-+SNtDEDxQqhLr0GPV1RQ51FqqGXrI+0Aeyv8XQFHgsg=";
   };
 
   structuredExtraConfig  = with lib.kernel; {
