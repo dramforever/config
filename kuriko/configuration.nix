@@ -87,6 +87,8 @@
     };
   };
 
+  networking.firewall.allowedTCPPorts = [ 80 ];
+
   security.acme.certs."${config.mailserver.fqdn}" = {
     reloadServices = [
       "postfix.service"
