@@ -15,7 +15,7 @@
     gh
     gtkwave
     kdePackages.gwenview
-    hexchat
+    halloy
     htop
     inkscape
     # itch
