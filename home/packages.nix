@@ -56,8 +56,6 @@
     # zoom-us
     xclip
     zsh-nix-fix
-
-    xilinx-env
   ];
 
   home.activation.installPackages = {
