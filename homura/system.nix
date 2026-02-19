@@ -20,6 +20,8 @@
     settings = {
       START_CHARGE_THRESH_BAT0 = 75; # Unused on Apple Silicon
       STOP_CHARGE_THRESH_BAT0 = 80;
+      TLP_DEFAULT_MODE = "BAL";
+      TLP_AUTO_SWITCH = 0;
     };
   };
 
