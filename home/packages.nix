@@ -50,6 +50,7 @@
     thunderbird
     tig
     usbutils
+    universal-ctags
     vlc
     wemeet
     # wolfram-engine
