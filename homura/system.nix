@@ -38,8 +38,6 @@
 
   systemd.services.rtkit-daemon.serviceConfig.PrivateUsers = lib.mkForce false;
 
-  systemd.package = pkgs.systemd-udev-wldN;
-
   # hardware.pulseaudio.enable = true;
   # hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
