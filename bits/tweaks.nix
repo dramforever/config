@@ -25,4 +25,9 @@ self: super:
   nix-update = super.nix-update.override {
     nix = self.nix-dram;
   };
+
+  # https://github.com/NixOS/nixpkgs/pull/493363
+  # https://github.com/NixOS/nixpkgs/issues/493431
+  lager = assert super.lager.patches == [] && self.lib.versionOlder super.lager.version "0.1.1";
+    self.callPackage ./lager.nix {};
 }
