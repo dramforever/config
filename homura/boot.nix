@@ -31,6 +31,7 @@
       apple_nvmem_spmi = true;
       macsmc-rtkit = lib.mkForce false;
     };
+    initrd.kernelModules.appledrm = true;
   };
 
   boot.loader.systemd-boot.extraFiles."asahi-efi/m1n1/boot.bin" =
