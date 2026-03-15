@@ -25,4 +25,13 @@ self: super:
   nix-update = super.nix-update.override {
     nix = self.nix-dram;
   };
+
+  # https://github.com/NixOS/nixpkgs/pull/499871
+  qemu-user =
+    assert ! builtins.elem "--disable-gnutls" super.qemu-user.configureFlags;
+    (super.qemu-user.override {
+      gnutls = null;
+    }).overrideAttrs (old: {
+      configureFlags = old.configureFlags ++ [ "--disable-gnutls" ];
+    });
 }
