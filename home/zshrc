@@ -113,7 +113,9 @@ fi
 
 # {{{ Environment
 export BAT_THEME="Monokai Extended Light"
-export LESS="R"
+export LESS="RF"
+export MANWIDTH="80"
+export MANOPT="--no-justification --no-hyphenation"
 # }}}
 
 # {{{ Aliases
@@ -145,7 +147,6 @@ alias gtp="git stash pop"
 alias gmb="git merge-base"
 
 alias fars="curl -F 'c=@-' 'https://fars.ee/'"
-alias man="env MANWIDTH=80 man"
 
 rg() {
     command rg -p "$@" | less -RF
