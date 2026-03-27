@@ -70,6 +70,7 @@
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
+    signing.format = null;
     settings = {
       user.email = "dramforever@live.com";
       user.name = "dramforever";
