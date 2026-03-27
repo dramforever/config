@@ -179,11 +179,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774599582,
-        "narHash": "sha256-4hVQVJ0lmKp7Y/Bb3YSExUs/xwItq/b3vvuV4mL3Bm4=",
+        "lastModified": 1774619448,
+        "narHash": "sha256-lM1AHAXKzrM1s8R4T0MvyyWVT127AIDmplSWl5eG9pk=",
         "owner": "dramforever",
         "repo": "nix-dram",
-        "rev": "020dfc3cfa7f64e2ea142edcbbe0d17d4b73e6b1",
+        "rev": "de4db6da66d07450d2ca12e6164b2193d86dc883",
         "type": "github"
       },
       "original": {
