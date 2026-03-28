@@ -116,6 +116,7 @@ export BAT_THEME="Monokai Extended Light"
 export LESS="RF"
 export MANWIDTH="80"
 export MANOPT="--no-justification --no-hyphenation"
+export MANROFFOPT="-P-i" # Italics
 # }}}
 
 # {{{ Aliases
