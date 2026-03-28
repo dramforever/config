@@ -21,13 +21,6 @@
     desktopManager.plasma6.enable = true;
   };
 
-  # Don't let sddm touch audio config
-  systemd.user.services.pipewire.unitConfig.ConditionUser = "!@system";
-  systemd.user.sockets.pipewire.unitConfig.ConditionUser = "!@system";
-  systemd.user.services.wireplumber.unitConfig.ConditionUser = "!@system";
-  systemd.user.services.wireplumber.wantedBy = [ "default.target" ];
-  systemd.user.services.pipewire.wantedBy = [ "default.target" ];
-
   # Make sddm scale correctly
   systemd.tmpfiles.rules = [
     "d /var/lib/sddm/.config 0750 sddm sddm -"
