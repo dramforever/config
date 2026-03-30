@@ -65,7 +65,7 @@
     fqdn = "kuriko.dram.page";
     domains = [ "dram.page" ];
 
-    loginAccounts = {
+    accounts = {
       "uwu@dram.page" = {
           hashedPasswordFile = config.sops.secrets.mail_password.path;
           aliases = ["postmaster@dram.page"];
@@ -75,7 +75,7 @@
     x509.useACMEHost = config.mailserver.fqdn;
 
     hierarchySeparator = "/";
-    useFsLayout = true;
+    storage.directoryLayout = "fs";
     stateVersion = 3;
   };
 
