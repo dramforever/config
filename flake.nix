@@ -24,11 +24,6 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.sops-nix = {
-    url = "github:Mic92/sops-nix";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-
   inputs.NickCao = {
     url = "github:NickCao/flakes";
     flake = false;
@@ -48,7 +43,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, sops-nix, NickCao, nix-index-database, preservation, nixos-apple-silicon }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, NickCao, nix-index-database, preservation, nixos-apple-silicon }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
@@ -91,7 +86,6 @@
         system = "x86_64-linux";
         modules = [
           ./kuriko/configuration.nix
-          sops-nix.nixosModules.sops
           simple-nixos-mailserver.nixosModules.mailserver
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
           genRev
