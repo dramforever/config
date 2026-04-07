@@ -3,20 +3,6 @@
 {
   imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
-  sops = {
-    defaultSopsFile = ./secrets.yaml;
-    age = {
-      keyFile = "/var/lib/age-key.txt";
-      sshKeyPaths = [ ];
-    };
-
-    gnupg.sshKeyPaths = [ ];
-
-    secrets = {
-      mail_password = {};
-    };
-  };
-
   boot.initrd.availableKernelModules = [ "ahci" "virtio_pci" "xhci_hcd" "sd_mod" "sr_mod" ];
 
   boot.loader = {
@@ -67,7 +53,7 @@
 
     accounts = {
       "uwu@dram.page" = {
-          hashedPasswordFile = config.sops.secrets.mail_password.path;
+          hashedPasswordFile = "/var/lib/secrets/mail_password";
           aliases = ["postmaster@dram.page"];
       };
     };
