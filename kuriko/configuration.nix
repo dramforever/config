@@ -54,7 +54,7 @@
     accounts = {
       "uwu@dram.page" = {
           hashedPasswordFile = "/var/lib/secrets/mail_password";
-          aliases = ["postmaster@dram.page"];
+          aliases = ["@dram.page"];
       };
     };
 
