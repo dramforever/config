@@ -59,7 +59,6 @@
       packages.home-manager = home-manager.packages.${system}.default;
 
       packages.sakuya = self.nixosConfigurations.sakuya.config.system.build.toplevel;
-      packages.madoka = self.nixosConfigurations.madoka.config.system.build.toplevel;
       packages.kuriko = self.nixosConfigurations.kuriko.config.system.build.toplevel;
       packages.homura = self.nixosConfigurations.homura.config.system.build.toplevel;
       packages.dram = self.homeConfigurations.dram.activationPackage;
@@ -95,16 +94,6 @@
           sops-nix.nixosModules.sops
           simple-nixos-mailserver.nixosModules.mailserver
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
-          genRev
-        ];
-      };
-
-      nixosConfigurations.madoka = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [
-          ./madoka/configuration.nix
-          sops-nix.nixosModules.sops
-          { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
           genRev
         ];
       };
