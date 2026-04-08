@@ -120,6 +120,7 @@
         flake-registry = flakesEmpty;
         auto-optimise-store = true;
         trusted-public-keys = [ "dram:/sCZAE781Fh/EDo+GYfT7eUNHrJLM1wTl+RnHXaDRps=" ];
+        allowed-users = [ "root" "dram" ];
       };
   };
 
