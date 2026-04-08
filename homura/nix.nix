@@ -17,6 +17,7 @@
     settings = {
       substituters = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30" ];
       trusted-users = [ "root" "dram" ];
+      allowed-users = [ "root" "@users" ];
       keep-outputs = true;
       keep-derivations = true;
       experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" ];
