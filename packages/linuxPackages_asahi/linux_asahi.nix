@@ -7,7 +7,7 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "6.19.10-1";
+  version = "6.19.12-1";
   modDirVersion = lib.head (lib.splitString "-" version);
   extraMeta.branch = "6.18";
 
@@ -17,7 +17,7 @@ buildLinux (args // rec {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-wS54MTKwLEnoBusbUEN7suRc4JSoFKfjeNZip+GUPbw=";
+    hash = "sha256-rfsPnOyHltP9EXrXRorcQuWRvXBJSmCNUlfVNGIaMb8=";
   };
 
   structuredExtraConfig  = with lib.kernel; {
