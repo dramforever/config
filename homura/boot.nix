@@ -5,7 +5,7 @@
     loader.systemd-boot.enable = true;
     loader.timeout = 1;
 
-    loader.efi.canTouchEfiVariables = true;
+    loader.efi.canTouchEfiVariables = false;
 
     kernelModules = [ "appledrm" "mux_apple_display_crossbar" ];
     kernelParams = [
