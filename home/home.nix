@@ -110,9 +110,8 @@
     plugins = [ pkgs.vimPlugins.vim-bracketed-paste ];
   };
 
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
-    package = pkgs.vscodium;
   };
 
   services.syncthing = {
