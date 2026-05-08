@@ -34,6 +34,13 @@
     initrd.kernelModules.appledrm = true;
   };
 
+  boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
+  boot.extraModprobeConfig = ''
+    install esp4 /run/current-system/sw/bin/false
+    install esp6 /run/current-system/sw/bin/false
+    install rxrpc /run/current-system/sw/bin/false
+  '';
+
   boot.loader.systemd-boot.extraFiles."asahi-efi/m1n1/boot.bin" =
     config.system.build.m1n1;
 
