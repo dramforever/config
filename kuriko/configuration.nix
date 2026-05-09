@@ -10,6 +10,13 @@
     grub.device = "/dev/disk/by-path/pci-0000:06:00.0-scsi-0:0:0:0";
   };
 
+  boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
+  boot.extraModprobeConfig = ''
+    install esp4 /run/current-system/sw/bin/false
+    install esp6 /run/current-system/sw/bin/false
+    install rxrpc /run/current-system/sw/bin/false
+  '';
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/kuriko-nixos";
     fsType = "ext4";
