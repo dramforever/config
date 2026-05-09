@@ -114,6 +114,7 @@ fi
 # {{{ Environment
 export BAT_THEME="Monokai Extended Light"
 export LESS="RF"
+export MANPAGER="env LESS= less" # No -F for man
 export MANWIDTH="80"
 export MANOPT="--no-justification --no-hyphenation"
 export MANROFFOPT="-P-i" # Italics
