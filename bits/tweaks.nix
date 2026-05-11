@@ -34,4 +34,23 @@ self: super:
     }).overrideAttrs (old: {
       configureFlags = old.configureFlags ++ [ "--disable-gnutls" ];
     });
+
+  buildLinux =
+    args:
+    (super.buildLinux args).overrideAttrs (
+      finalAttrs: prevAttrs: {
+        passthru = prevAttrs.passthru // {
+          devEnv = finalAttrs.finalPackage.configEnv.overrideAttrs {
+            depsBuildBuild = finalAttrs.finalPackage.configEnv.depsBuildBuild ++ [
+              self.pkgsBuildBuild.dt-schema
+              self.pkgsBuildBuild.yamllint
+            ];
+            configurePhase = null;
+            postPatch = null;
+            src = null;
+            outputs = [ "out" ]; # Avoids one extra binary cache download
+          };
+        };
+      }
+    );
 }
