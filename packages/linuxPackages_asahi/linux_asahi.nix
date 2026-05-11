@@ -9,7 +9,6 @@ buildLinux (args // rec {
   pname = "linux-asahi";
   version = "6.19.14-2";
   modDirVersion = lib.head (lib.splitString "-" version);
-  extraMeta.branch = "6.18";
 
   inherit kernelPatches;
 
