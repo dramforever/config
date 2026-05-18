@@ -7,7 +7,7 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "6.19.14-2";
+  version = "7.0.8-1";
   modDirVersion = lib.head (lib.splitString "-" version);
 
   inherit kernelPatches;
@@ -16,7 +16,7 @@ buildLinux (args // rec {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-N2ZIiuW6Y61m0E2JWy/Rc71iFFNspdqityxbxG0OJhs=";
+    hash = "sha256-ak1dckvTxiR09xMf4xFb6qOPiAQNgIR18v8WLtQBnWQ=";
   };
 
   structuredExtraConfig  = with lib.kernel; {
