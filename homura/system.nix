@@ -3,7 +3,6 @@
 {
   time.timeZone = "Asia/Shanghai";
 
-  # networking.timeServers = [ "ntp.tuna.tsinghua.edu.cn" ];
   networking.hostId = "99a90985";
 
   console = {
@@ -28,21 +27,13 @@
   # Not supported (yet?) on Apple Silicon
   services.power-profiles-daemon.enable = false;
 
-  # services.usbmuxd.enable = true;
-
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip ];
 
   systemd.services."autovt@tty1".enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
 
-  systemd.services.rtkit-daemon.serviceConfig.PrivateUsers = lib.mkForce false;
-
-  # hardware.pulseaudio.enable = true;
-  # hardware.pulseaudio.support32Bit = true;
   hardware.bluetooth.enable = true;
-
-  # powerManagement.cpuFreqGovernor = "powersave";
 
   services.fstrim = {
     enable = true;
