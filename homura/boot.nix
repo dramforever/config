@@ -22,7 +22,6 @@
       "vm.swappiness" = 5;
       "vm.vfs_cache_pressure" = 50;
       "kernel.sysrq" = 1;
-      "kernel.yama.ptrace_scope" = 2;
     };
 
     kernelPackages = lib.mkForce pkgs.linuxPackages_asahi;
