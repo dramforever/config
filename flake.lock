@@ -3,11 +3,11 @@
     "NickCao": {
       "flake": false,
       "locked": {
-        "lastModified": 1778880758,
-        "narHash": "sha256-sjfRI/gaodmplXCVcxU1oF11BXYXbfutcbLz6WgCzcQ=",
+        "lastModified": 1779148022,
+        "narHash": "sha256-cP8N2tjDiBKRb1WBcdwZZBQGIpe0jDWSsq5lzOde5Fs=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "5829240245cff9141d787094893029aade3c96a5",
+        "rev": "e9e793d16a8a181df2e9eaea34f82889cd62ef1d",
         "type": "github"
       },
       "original": {
@@ -156,11 +156,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1779103424,
-        "narHash": "sha256-hBYJz5jnRDjACPrwdD064zwMW+s5bdNlG/lNQipLhgM=",
+        "lastModified": 1779213149,
+        "narHash": "sha256-Cf+p/T4Z3n9Sw0TiR3kQaIwQI+/hfvLJcoTzeq6yS3E=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "dd71501fb7005264feb4de78444a2e1518cd4f66",
+        "rev": "bd868f769a69d3b6091a1da68a75cb83a181033c",
         "type": "github"
       },
       "original": {
