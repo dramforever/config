@@ -21,13 +21,6 @@
     };
   };
 
-  boot.blacklistedKernelModules = [ "esp4" "esp6" "rxrpc" ];
-  boot.extraModprobeConfig = ''
-    install esp4 /run/current-system/sw/bin/false
-    install esp6 /run/current-system/sw/bin/false
-    install rxrpc /run/current-system/sw/bin/false
-  '';
-
   systemd.tmpfiles.settings."zswap" = {
     "/sys/module/zswap/parameters/enabled"."w-".argument = "1";
     "/sys/module/zswap/parameters/zpool"."w-".argument = "zsmalloc";
