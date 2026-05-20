@@ -77,6 +77,7 @@
         system = "x86_64-linux";
         modules = [
           ./sakuya/configuration.nix
+          ./common/mitigations.nix
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
           genRev
         ];
@@ -86,6 +87,7 @@
         system = "x86_64-linux";
         modules = [
           ./kuriko/configuration.nix
+          ./common/mitigations.nix
           simple-nixos-mailserver.nixosModules.mailserver
           { nixpkgs.pkgs = self.legacyPackages."x86_64-linux"; }
           genRev
@@ -96,6 +98,7 @@
         system = "aarch64-linux";
         modules = [
           ./homura/configuration.nix
+          ./common/mitigations.nix
           nixos-apple-silicon.nixosModules.default
           preservation.nixosModules.preservation
           { nixpkgs.pkgs = self.legacyPackages."aarch64-linux"; }
