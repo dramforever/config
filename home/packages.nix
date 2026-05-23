@@ -26,6 +26,7 @@
     kdePackages.ksshaskpass
     krita
     kdePackages.krohnkite
+    koneko
     libarchive
     nh
     # nix-index
