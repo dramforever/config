@@ -11,20 +11,17 @@
       };
     };
 
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
+    displayManager.plasma-login-manager.enable = true;
 
     displayManager.hiddenUsers = [ "hex" ];
     displayManager.defaultSession = "plasma";
     desktopManager.plasma6.enable = true;
   };
 
-  # Make sddm scale correctly
+  # Make plasma-login-manager scale correctly
   systemd.tmpfiles.rules = [
-    "d /var/lib/sddm/.config 0750 sddm sddm -"
-    "C+ /var/lib/sddm/.config/kwinoutputconfig.json 0644 sddm sddm - /home/dram/.config/kwinoutputconfig.json"
+    "d /var/lib/plasmalogin/.config 0750 plasmalogin plasmalogin -"
+    "C+ /var/lib/plasmalogin/.config/kwinoutputconfig.json 0644 plasmalogin plasmalogin - /home/dram/.config/kwinoutputconfig.json"
   ];
 
   i18n.inputMethod = {
