@@ -29,6 +29,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
+    ports = [ 21681 ];
   };
 
   users = {
