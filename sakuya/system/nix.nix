@@ -13,7 +13,7 @@
     package = pkgs.nix-dram;
 
     settings = {
-      substituters = lib.mkBefore [ "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=30" ];
+      substituters = lib.mkBefore [ "https://fast-mirror.isrc.ac.cn/nix-channels/store?priority=30" ];
       trusted-users = [ "root" "dram" ];
       allowed-users = [ "root" "@users" ];
       keep-outputs = true;
