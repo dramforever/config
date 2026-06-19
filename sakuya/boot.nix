@@ -21,6 +21,11 @@
     };
   };
 
+  boot.blacklistedKernelModules = [ "act_pedit" ];
+  boot.extraModprobeConfig = ''
+    install act_pedit /run/current-system/sw/bin/false
+  '';
+
   systemd.tmpfiles.settings."zswap" = {
     "/sys/module/zswap/parameters/enabled"."w-".argument = "1";
     "/sys/module/zswap/parameters/zpool"."w-".argument = "zsmalloc";
