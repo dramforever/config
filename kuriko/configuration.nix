@@ -10,11 +10,6 @@
     grub.device = "/dev/disk/by-path/pci-0000:06:00.0-scsi-0:0:0:0";
   };
 
-  boot.blacklistedKernelModules = [ "act_pedit" ];
-  boot.extraModprobeConfig = ''
-    install act_pedit /run/current-system/sw/bin/false
-  '';
-
   fileSystems."/" = {
     device = "/dev/disk/by-label/kuriko-nixos";
     fsType = "ext4";
