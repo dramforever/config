@@ -34,11 +34,6 @@
     initrd.kernelModules.appledrm = true;
   };
 
-  boot.blacklistedKernelModules = [ "act_pedit" ];
-  boot.extraModprobeConfig = ''
-    install act_pedit /run/current-system/sw/bin/false
-  '';
-
   boot.loader.systemd-boot.extraFiles."asahi-efi/m1n1/boot.bin" =
     config.system.build.m1n1;
 
