@@ -3,6 +3,8 @@
 {
   hardware.enableRedistributableFirmware = true;
 
+  hardware.asahi.enable = true;
+
   hardware.asahi.peripheralFirmwareDirectory = pkgs.requireFile {
     name = "asahi";
     hashMode = "recursive";

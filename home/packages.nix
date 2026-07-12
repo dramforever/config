@@ -1,14 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  # https://github.com/NixOS/nixpkgs/issues/538938
-  thunderbird' =
-    (import (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/b5aa0fbd538984f6e3d201be0005b4463d8b09f8.tar.gz";
-      sha256 = "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=";
-    }) { localSystem = pkgs.stdenv.hostPlatform; }).thunderbird;
-in
-
 {
   home.packages = with pkgs; [
     ghc
@@ -57,7 +48,7 @@ in
     styluslabs-write-bin
     syncthingtray
     telegram-desktop
-    thunderbird'
+    thunderbird
     tig
     usbutils
     universal-ctags
