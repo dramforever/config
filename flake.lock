@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "NickCao": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784161242,
-        "narHash": "sha256-XgmDDbK0zzU3ARcVXBcxsyEDOuER8PLCBroqGJxJibk=",
-        "owner": "NickCao",
-        "repo": "flakes",
-        "rev": "f15a6867e69f9ca940b14d8a954ac6578256c2e5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NickCao",
-        "repo": "flakes",
-        "type": "github"
-      }
-    },
     "blobs": {
       "flake": false,
       "locked": {
@@ -240,7 +224,6 @@
     },
     "root": {
       "inputs": {
-        "NickCao": "NickCao",
         "flake-utils": "flake-utils",
         "hid-bpf-uclogic": "hid-bpf-uclogic",
         "home-manager": "home-manager",

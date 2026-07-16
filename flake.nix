@@ -24,11 +24,6 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  inputs.NickCao = {
-    url = "github:NickCao/flakes";
-    flake = false;
-  };
-
   inputs.nix-index-database = {
     url = "github:nix-community/nix-index-database";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +38,7 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, NickCao, nix-index-database, preservation, nixos-apple-silicon }:
+  outputs = { self, nixpkgs, flake-utils, simple-nixos-mailserver, nix-dram, hid-bpf-uclogic, home-manager, nix-index-database, preservation, nixos-apple-silicon }:
     flake-utils.lib.eachDefaultSystem (system: {
       legacyPackages = import nixpkgs {
         inherit system;
