@@ -78,6 +78,7 @@
       init.defaultBranch = "main";
       pull.ff = "only";
       push.default = "current";
+      status.compareBranches = "@{upstream} @{push}";
       rerere.enabled = true;
       sendemail = {
         smtpencryption = "tls";
