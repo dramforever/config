@@ -10,6 +10,8 @@ buildLinux (args // rec {
   version = "7.1.5-2";
   modDirVersion = lib.head (lib.splitString "-" version);
 
+  target = "vmlinuz.efi";
+
   inherit kernelPatches;
 
   src = fetchFromGitHub {
