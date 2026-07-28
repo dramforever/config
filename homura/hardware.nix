@@ -3,6 +3,8 @@
 {
   hardware.enableRedistributableFirmware = true;
 
+  hardware.firmware = [ pkgs.pkgsCross.arm-embedded.avd-fw ];
+
   hardware.asahi.enable = true;
 
   hardware.asahi.peripheralFirmwareDirectory = pkgs.requireFile {
