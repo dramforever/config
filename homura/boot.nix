@@ -7,7 +7,6 @@
 
     loader.efi.canTouchEfiVariables = false;
 
-    kernelModules = [ "appledrm" "mux_apple_display_crossbar" ];
     kernelParams = [
       "hid_apple.fnmode=2"
       "hid_apple.swap_fn_leftctrl=1"
@@ -17,6 +16,7 @@
     ];
 
     initrd.systemd.enable = true;
+    initrd.availableKernelModules = [ "apple_wdt" ];
 
     kernel.sysctl = {
       "vm.swappiness" = 5;
@@ -25,13 +25,6 @@
     };
 
     kernelPackages = lib.mkForce pkgs.linuxPackages_asahi;
-    initrd.availableKernelModules = {
-      simple-mfd-spmi = lib.mkForce false;
-      nvmem_spmi_mfd = lib.mkForce false;
-      apple_nvmem_spmi = true;
-      macsmc-rtkit = lib.mkForce false;
-    };
-    initrd.kernelModules.appledrm = true;
   };
 
   boot.loader.systemd-boot.extraFiles."asahi-efi/m1n1/boot.bin" =
