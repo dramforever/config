@@ -1,7 +1,7 @@
 {
   description = "Personal configuration and packages, by dramforever";
 
-  inputs.nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz";
+  inputs.nixpkgs.url = "https://nixos.org/channels/nixos-unstable/nixexprs.tar.zst";
   inputs.flake-utils.url = "github:numtide/flake-utils";
   inputs.simple-nixos-mailserver = {
     url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
