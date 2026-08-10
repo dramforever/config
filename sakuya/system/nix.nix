@@ -18,7 +18,8 @@
       allowed-users = [ "root" "@users" ];
       keep-outputs = true;
       keep-derivations = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" ];
+      auto-allocate-uids = true;
       flake-registry = "";
       builders-use-substitutes = true;
       max-jobs = 12;
