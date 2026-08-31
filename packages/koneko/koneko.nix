@@ -7,17 +7,18 @@
   stdenv,
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation (finalAttrs: {
   pname = "koneko";
-  version = "0-unstable-2026-05-23";
+  version = "1.0.1";
 
   __structuredAttrs = true;
+  strictDeps = true;
 
   src = fetchFromCodeberg {
     owner = "snowkat";
     repo = "koneko";
-    rev = "a8d65c3efbc319e7d287c3d4d24c7b36e4101d21";
-    hash = "sha256-C/t4WwzWxNZNfhJbpeV6dzbWIOGNQ7CiAGKgBIGIt1w=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-JpgmZJInBXeNCW9PKq9TCnGlmJN3r1BfMqfh+5P9fyg=";
   };
 
   nativeBuildInputs = [ kpackage kwin ];
@@ -50,4 +51,4 @@ stdenv.mkDerivation {
 
     runHook postInstall
   '';
-}
+})
