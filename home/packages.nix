@@ -18,23 +18,18 @@
     halloy
     htop
     inkscape
-    # itch
     jdk11
     jq
     kdePackages.kdeconnect-kde
-    # kicad
     kdePackages.ksshaskpass
     krita
     kdePackages.krohnkite
     koneko
     libarchive
     nh
-    # nix-index
     nix-output-monitor
     (nix-update.override { nix = nix-dram; })
     nodejs
-    # obs-studio
-    # okular
     pinentry-qt
     pinta
     kdePackages.plasma-browser-integration
@@ -43,8 +38,6 @@
     ripgrep
     kdePackages.spectacle
     socat
-    # stack
-    # steam
     styluslabs-write-bin
     syncthingtray
     telegram-desktop
@@ -54,8 +47,6 @@
     universal-ctags
     vlc
     wemeet
-    # wolfram-engine
-    # zoom-us
     xclip
     zsh-nix-fix
   ];
