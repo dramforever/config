@@ -5,11 +5,13 @@
     ghc
     cabal-install
     kdePackages.ark
+    b4
     bat
     bind
     binutils
     chromium
     clash-verge-rev
+    expect
     file
     gdb
     gh
@@ -26,18 +28,22 @@
     kdePackages.krohnkite
     koneko
     libarchive
+    lm_sensors
     nh
     nix-output-monitor
     (nix-update.override { nix = nix-dram; })
     nodejs
+    picocom
     pinentry-qt
     pinta
     kdePackages.plasma-browser-integration
     python3
     python3.pkgs.ipython
+    rink
     ripgrep
     kdePackages.spectacle
     socat
+    sqlite-interactive
     styluslabs-write-bin
     syncthingtray
     telegram-desktop
@@ -47,6 +53,7 @@
     universal-ctags
     vlc
     wemeet
+    wl-clipboard
     xclip
     zsh-nix-fix
   ];
