@@ -68,6 +68,21 @@
     GOOGLE_DEFAULT_CLIENT_SECRET = "OTJgUOQcT7lO7GsGZq2G4IlT";
   };
 
+  systemd.user.services.journalwatcher = {
+    Unit = {
+      Description = "Journal watcher";
+    };
+
+    Service = {
+      ExecStart = lib.getExe pkgs.journalwatcher;
+      Restart = "always";
+    };
+
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
