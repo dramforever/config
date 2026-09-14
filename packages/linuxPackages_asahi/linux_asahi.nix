@@ -7,7 +7,7 @@
 
 buildLinux (args // rec {
   pname = "linux-asahi";
-  version = "7.1.8-1";
+  version = "7.1.13-3";
   modDirVersion = lib.head (lib.splitString "-" version);
 
   target = "vmlinuz.efi";
@@ -18,7 +18,7 @@ buildLinux (args // rec {
     owner = "AsahiLinux";
     repo = "linux";
     rev = "asahi-${version}";
-    hash = "sha256-hsRB5FJz3hRR0QakBY7+dRXD5p9z6ZQiuJZgghpaTjY=";
+    hash = "sha256-quvdcQ2LbYQyCDQFKc6KPjWv+f5fpWfUrXo5Id0kpwE=";
   };
 
   structuredExtraConfig  = with lib.kernel; {

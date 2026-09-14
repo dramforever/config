@@ -20,11 +20,9 @@
     halloy
     htop
     inkscape
-    # itch
     jdk11
     jq
     kdePackages.kdeconnect-kde
-    # kicad
     kdePackages.ksshaskpass
     krita
     kdePackages.krohnkite
@@ -32,12 +30,9 @@
     libarchive
     lm_sensors
     nh
-    # nix-index
     nix-output-monitor
     (nix-update.override { nix = nix-dram; })
     nodejs
-    # obs-studio
-    # okular
     picocom
     pinentry-qt
     pinta
@@ -49,8 +44,6 @@
     kdePackages.spectacle
     socat
     sqlite-interactive
-    # stack
-    # steam
     styluslabs-write-bin
     syncthingtray
     telegram-desktop
@@ -61,8 +54,6 @@
     vlc
     wemeet
     wl-clipboard
-    # wolfram-engine
-    # zoom-us
     xclip
     zsh-nix-fix
   ];

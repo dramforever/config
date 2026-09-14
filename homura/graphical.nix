@@ -42,4 +42,6 @@
     sansSerif = [ "Sarasa UI SC" ];
     serif = [ "Sarasa UI SC" ];
   };
+
+  hardware.graphics.extraPackages = [ pkgs.libva-v4l2_request ];
 }
